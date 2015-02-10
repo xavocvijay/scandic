@@ -1,0 +1,18 @@
+{
+    "autoload": {
+        "psr-0": {"": "lib/"}
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:atk4/agiletoolkit-css.git"
+        }
+    ],
+
+    "require":{
+        "atk4\/atk4":"4.3.*@dev",
+        "atk4/agiletoolkit-css": "dev-master",
+        "PHPMailer/PHPMailer": "dev-master"
+    }
+}
