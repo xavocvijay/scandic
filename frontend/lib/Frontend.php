@@ -1,5 +1,6 @@
 <?php
 class Frontend extends ApiFrontend {
+    public $environment = 'prod';
     function init(){
         parent::init();
         $this->dbConnect();

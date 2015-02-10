@@ -1,6 +1,7 @@
 {
     "autoload": {
-        "psr-0": {"": "lib/"}
+        "psr-0": {"": "lib/"},
+        "classmap": ["tests/","shared/"]
     },
 
     "repositories": [
@@ -16,5 +17,29 @@
         "PHPMailer/PHPMailer": "dev-master",
         "robmorgan/phinx": "*",
         "nesbot/Carbon": "*"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*",
+        "phpunit/php-invoker": "~1.1",
+        "phpunit/dbunit": ">=1.2",
+        "phpunit/phpunit-selenium": ">=1.2",
+        "phpunit/phpunit-story": "dev-master",
+        "facebook/webdriver": "dev-master"
+    },
+
+    "scripts": {
+        "pre-install-cmd": [
+        ],
+        "post-install-cmd": [
+            "ln -sf vendor/phpunit/phpunit/phpunit"
+        ],
+        "pre-update-cmd": [
+        ],
+        "post-update-cmd": [
+            "ln -sf vendor/phpunit/phpunit/phpunit"
+        ],
+        "post-create-project-cmd": [
+        ]
     }
 }

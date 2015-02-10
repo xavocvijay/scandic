@@ -1,5 +1,5 @@
 <?php
-class Model_Page extends Model_BaseTable {
+class Model_Block extends Model_BaseTable {
 
     use Trait_DTS;
 
