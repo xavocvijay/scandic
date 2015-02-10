@@ -50,6 +50,8 @@ $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/frontend/config
 $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/admin/config-dist.php $base_path/shared/config-admin.php");
 $s1->task('cmd',"ln -s ../../../shared/config-frontend.php frontend/config.php");
 $s1->task('cmd',"ln -s ../../../shared/config-admin.php admin/config.php");
+$s1->task('cmd',"ln -s vendor/bin/phinx phinx");
+$s1->task('cmd',"ln -s ../../shared/phinx.yml .");
 
 
 // create CURRENT symlink

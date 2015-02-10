@@ -13,6 +13,7 @@
     "require":{
         "atk4\/atk4":"4.3.*@dev",
         "atk4/agiletoolkit-css": "dev-master",
-        "PHPMailer/PHPMailer": "dev-master"
+        "PHPMailer/PHPMailer": "dev-master",
+        "robmorgan/phinx": "*"
     }
 }
