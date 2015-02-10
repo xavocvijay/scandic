@@ -25,14 +25,29 @@ class Model_User extends Model_BaseTable {
 
     public function create($data){
         if(!is_array($data)) throw $this->exception('Data is not an array','IncorrectData');
-
-        if(!isset($data['email']) || !$data['email']) throw $this->exception('User email is empty','NoEmail');
-        if(!isset($data['password']) || !$data['password']) throw $this->exception('User password is empty','NoPassword');
-        if(!isset($data['name']) || !$data['name']) $data['name'] = 'New User Name ';
         if($this->loaded()) throw $this->exception(get_class($this).' MUST NOT be loaded','LoadedModel');
-        $this->validateEmail($data['email']);
-        $this->validatePassword($data['password']);
+        if(!isset($data['name']) || !$data['name']) $data['name'] = 'User_'.substr(md5(microtime()),0,5);
 
+        //validation
+        $fields_errors = [];
+        if(!isset($data['email']) || !$data['email'])
+            $fields_errors['email'] = $this->exception('User email is empty','NoEmail');
+        if(!isset($data['password']) || !$data['password'])
+            $fields_errors['password'] = $this->exception('User password is empty','NoPassword');
+        try{
+            $this->validateEmail($data['email']);
+        }catch (Exception_NotEmail $e){
+            $fields_errors['email'] = $e;
+        }
+        try{
+            $this->validatePassword($data['password']);
+        }catch (Exception_IncorrectPassword $e){
+            $fields_errors['password'] = $e;
+        }
+
+        if($fields_errors) throw $this->exception($fields_errors,'InvalidField');
+
+        //Try save
         try{
             $this->set($data)->save();
         }catch (Exception $e){

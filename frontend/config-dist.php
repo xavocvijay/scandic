@@ -5,3 +5,5 @@ $config['url_postfix']='';
 $config['logger']['log_dir'] = './logs';
 $config['logger']['web_output'] = 'full';
 $config['logger']['log_output'] = 'full';
+
+$config['available_languages'] = ['en','lv','ru'];

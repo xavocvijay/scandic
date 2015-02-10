@@ -42,6 +42,7 @@ class InitialStructure extends AbstractMigration
             ->addColumn('meta_keywords', 'string',['limit'=>'255','null'=>true,'default'=>null])
             ->addColumn('meta_description', 'string',['limit'=>'255','null'=>true,'default'=>null])
             ->addColumn('language_id', 'integer',['limit'=>'11','null'=>false])
+            ->addColumn('created_dts', 'datetime',['null'=>false])
             ->addColumn('is_deleted', 'integer',['null'=>false,'default'=>'0'])
             ->create();
 
@@ -52,6 +53,7 @@ class InitialStructure extends AbstractMigration
             ->addColumn('content', 'text',['null'=>true,'default'=>null])
             ->addColumn('page_id', 'integer',['limit'=>'11','null'=>false])
             ->addColumn('order', 'integer',['limit'=>'11','null'=>true,'default'=>null])
+            ->addColumn('created_dts', 'datetime',['null'=>false])
             ->addColumn('is_deleted', 'integer',['null'=>false,'default'=>'0'])
             ->create();
 

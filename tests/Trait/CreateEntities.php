@@ -27,8 +27,8 @@ trait Trait_CreateEntities {
         $title     = null,
         $menu_type = 'top',
         $type = 'home',
-        $has_content = true,
-        $has_sub_pages = false
+        $has_content = 1,
+        $has_sub_pages = 0
     ) {
         $hash = substr(md5(microtime()),0,5);
         if(!$title) $title = 'test_page_'.$hash;
