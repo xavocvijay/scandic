@@ -10,30 +10,36 @@ trait Trait_CreateEntities {
     /**
      * @return mixed
      */
-    protected function createUser($name=null) {
+    protected function createUser($email=null,$name=null) {
         $hash = substr(md5(microtime()),0,5);
-        $email = 'test_user_'.$hash.'@test.com';
+        if(!$email) $email = 'test_user_'.$hash.'@test.com';
         if(!$name) $name = 'test_user_'.$hash;
-        $user_data = [
+        $data = [
             'name'        => $name,
             'email'       => $email,
             'password'    => '123123'
         ];
-        return $this->app->add('Model_User')->create($user_data);
+        return $this->app->add('Model_User')->create($data);
     }
 
 
-    protected function createPage($title=null) {
+    protected function createPage(
+        $title     = null,
+        $menu_type = 'top',
+        $type = 'home',
+        $has_content = true,
+        $has_sub_pages = false
+    ) {
         $hash = substr(md5(microtime()),0,5);
         if(!$title) $title = 'test_page_'.$hash;
-        $page_data = [
-            'title'        => $title,
-            'menu_type',
-            'type',
-            'has_content',
-            'has_sub_pages',
+        $data = [
+            'title'         => $title,
+            'menu_type'     => $menu_type,
+            'type'          => $type,
+            'has_content'   => $has_content,
+            'has_sub_pages' => $has_sub_pages,
         ];
-        return $this->app->add('Model_Page')->create($page_data);
+        return $this->app->add('Model_Page')->create($data);
     }
 
 }

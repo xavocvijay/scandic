@@ -1,7 +1,7 @@
 <?php
 class Model_User extends Model_BaseTable {
 
-    use Trait_DTS;
+    use Trait_DTS, Trait_Validation;
 
     public $table = 'user';
     public $related_entities = [];
@@ -29,12 +29,14 @@ class Model_User extends Model_BaseTable {
         if(!isset($data['email']) || !$data['email']) throw $this->exception('User email is empty','NoEmail');
         if(!isset($data['password']) || !$data['password']) throw $this->exception('User password is empty','NoPassword');
         if(!isset($data['name']) || !$data['name']) $data['name'] = 'New User Name ';
-        if($this->loaded()) throw $this->exception('Model User MUST NOT be loaded','LoadedModel');
+        if($this->loaded()) throw $this->exception(get_class($this).' MUST NOT be loaded','LoadedModel');
+        $this->validateEmail($data['email']);
+        $this->validatePassword($data['password']);
 
         try{
             $this->set($data)->save();
         }catch (Exception $e){
-            throw $this->exception('Can not create new user','CanNotSave');
+            throw $this->exception('Can not create new user '.$e->getMessage(),'CanNotSave');
         }
         return $this;
     }

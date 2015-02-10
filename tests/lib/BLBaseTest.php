@@ -12,13 +12,11 @@ abstract class BLBaseTest extends PHPUnit_Framework_TestCase {
 
     use Proxy;
 
-    protected $current_user;
     protected $config;
 
     public function setUp() {
         $this->config = new Config();
         $this->addApp();
-        $this->createUser();
     }
 
     protected function addApp()
@@ -41,27 +39,11 @@ abstract class BLBaseTest extends PHPUnit_Framework_TestCase {
         return $this->app;
     }
 
-    protected function createUser() {
+    /*public function testQWE(){
+        //This is dummy test. Without is tests don't work
+        $this->assertTrue(true);
+    }*/
 
-        $user_hash = time();
-        $data = [
-            'name'=> 'TestUser_'.$user_hash,
-            'email'=> 'tu_'.$user_hash,
-            'password'=>'123123'
-        ];
-
-        $this->current_user = $this->app->add('Model_User');
-        $this->current_user->create($data);
-
-        $this->assertTrue($this->current_user->loaded(), 'User has not been saved');
-        $this->assertEquals($data['name'], $this->current_user['name'], 'User name does not match');
-        $this->assertEquals($data['email'], $this->current_user['email'], 'User email does not match');
-
-        return $this->current_user;
-    }
-
-    public function tearDown() {
-        $this->current_user->forceDelete();
-    }
+    public function tearDown() {}
 
 }
