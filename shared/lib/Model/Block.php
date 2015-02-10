@@ -25,4 +25,8 @@ class Model_Page extends Model_BaseTable {
             //TODO Save content to the search table
         });
     }
+
+    public function getPage() {
+        return $this->add('Model_Page')->deleted($this['is_deleted']);
+    }
 }

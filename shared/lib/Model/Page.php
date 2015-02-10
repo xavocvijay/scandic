@@ -1,7 +1,7 @@
 <?php
 class Model_Page extends Model_BaseTable {
 
-    use Trait_DTS;
+    use Trait_DTS, Trait_RelatedEntities;
 
     public $table = 'page';
     public $related_entities = [
@@ -26,5 +26,11 @@ class Model_Page extends Model_BaseTable {
 
     private function addHooks(){
         $this->createdDTS();
+    }
+
+
+    public function getBlocks($as_array=false,$limit=false,$offset=0,$order=false,$desc=true) {
+        $bc = $this->add('Model_Block')->deleted($this['is_deleted'])->addCondition('page_id',$this->id);
+        return $this->prepareRelated($bc,$as_array,$limit,$offset,$order,$desc);
     }
 }
