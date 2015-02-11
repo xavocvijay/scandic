@@ -25,8 +25,7 @@ abstract class View_AbstractConstructor extends View{
         if($form->isSubmitted()) $form->save();
     }
     public function getForFrontend(){
-//        exit('thfg');
-//        $this->set($this->model->get());
+        $this->set($this->model->get('content'));
     }
     function defaultTemplate(){
         if($this->app_type = 'admin'){

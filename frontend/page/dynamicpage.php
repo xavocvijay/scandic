@@ -19,9 +19,9 @@ class page_dynamicpage extends Page{
         $blocks = $page->getBlocks();
 
         foreach($blocks as $block){
-            $block = $this->add($block['type']);
-            $block->setModel($block);
-            $block->get();
+            $view_block = $this->add($block['type']);
+            $view_block->setModel($block);
+            $view_block->get();
 
         }
     }
