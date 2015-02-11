@@ -22,6 +22,12 @@ class InitialStructure extends AbstractMigration
      */
     public function up()
     {
+        $table = $this->table('settings');
+        $table
+            ->addColumn('key', 'string',['limit'=>'255','null'=>false])
+            ->addColumn('value', 'string',['limit'=>'255','null'=>false])
+            ->create();
+
         $table = $this->table('user');
         $table
             ->addColumn('email', 'string',['limit'=>'255','null'=>false])
@@ -38,10 +44,10 @@ class InitialStructure extends AbstractMigration
             ->addColumn('type', 'string',['limit'=>'255','null'=>false])
             ->addColumn('has_content', 'integer',['null'=>false,'default'=>'0'])
             ->addColumn('has_sub_pages', 'integer',['null'=>false,'default'=>'0'])
+            ->addColumn('hash_url', 'string',['limit'=>'255','null'=>false])
             ->addColumn('order', 'integer',['limit'=>'11','null'=>true,'default'=>null])
             ->addColumn('meta_keywords', 'string',['limit'=>'255','null'=>true,'default'=>null])
             ->addColumn('meta_description', 'string',['limit'=>'255','null'=>true,'default'=>null])
-            ->addColumn('language_id', 'integer',['limit'=>'11','null'=>false])
             ->addColumn('created_dts', 'datetime',['null'=>false])
             ->addColumn('is_deleted', 'integer',['null'=>false,'default'=>'0'])
             ->create();
@@ -53,6 +59,7 @@ class InitialStructure extends AbstractMigration
             ->addColumn('content', 'text',['null'=>true,'default'=>null])
             ->addColumn('page_id', 'integer',['limit'=>'11','null'=>false])
             ->addColumn('order', 'integer',['limit'=>'11','null'=>true,'default'=>null])
+            ->addColumn('language_id', 'integer',['limit'=>'11','null'=>false])
             ->addColumn('created_dts', 'datetime',['null'=>false])
             ->addColumn('is_deleted', 'integer',['null'=>false,'default'=>'0'])
             ->create();
@@ -74,6 +81,9 @@ class InitialStructure extends AbstractMigration
      */
     public function down()
     {
+        $table = $this->table('settings');
+        $table->drop();
+
         $table = $this->table('user');
         $table->drop();
 

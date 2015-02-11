@@ -18,10 +18,10 @@ class Model_Page extends Model_BaseTable {
         $this->addField('type');
         $this->addField('has_content');
         $this->addField('has_sub_pages');
+        $this->addField('hash_url');
         $this->addField('order');
         $this->addField('meta_keywords');
         $this->addField('meta_description');
-        $this->addField('language_id');
 
         $this->addHooks();
     }

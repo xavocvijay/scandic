@@ -13,6 +13,7 @@ class Model_Block extends Model_BaseTable {
         $this->addField('type');
         $this->addField('content');
         $this->addField('page_id');
+        $this->addField('language_id');
         $this->addField('order');
 
         $this->addHooks();
