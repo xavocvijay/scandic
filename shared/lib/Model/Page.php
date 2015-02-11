@@ -14,6 +14,8 @@ class Model_Page extends Model_BaseTable {
         'one_column_big_blocks'=>'One column without menu big blocks'
     ];
     public static $available_menu_types = ['top'=>'Top Menu','sub'=>'Sub Menu'];
+    public static $edit_in_form = ['title','menu_type','type','page_id','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'];
+    public static $show_in_crud = ['title','menu_type','type','has_content','has_sub_pages'];
 
     function init(){
         parent::init();
@@ -28,7 +30,7 @@ class Model_Page extends Model_BaseTable {
         $this->addField('order');
         $this->addField('meta_keywords')->type('text');
         $this->addField('meta_description')->type('text');
-        $this->hasOne('Page');
+        $this->hasOne('Page','page_id','title');
 
         $this->addHooks();
     }
