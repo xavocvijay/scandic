@@ -7,8 +7,13 @@ class Model_Page extends Model_BaseTable {
     public $related_entities = [
         ['Block', ['type'=>'hard', 'field'=>'page_id']],
     ];
-    public static $available_types = ['home','service'];
-    public static $available_menu_types = ['top','sub'];
+    public static $available_types = [
+        'two_columns_menu'=>'Two columns text with left menu',
+        'one_column_menu'=>'One column text with left menu and blocks',
+        'one_column'=>'One column without menu blocks',
+        'one_column_big_blocks'=>'One column without menu big blocks'
+    ];
+    public static $available_menu_types = ['top'=>'Top Menu','sub'=>'Sub Menu'];
 
     function init(){
         parent::init();
