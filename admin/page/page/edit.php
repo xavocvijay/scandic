@@ -29,7 +29,7 @@ class page_page_edit extends Page{
         krsort($parents);
 
         if(count($parents)){
-            $v = $this->add('ButtonSet');//TODO arrows
+            $v = $this->add('ButtonSet');
             $count = 0;
             foreach($parents as $parent_page){
                 if($count++>0){
@@ -44,16 +44,6 @@ class page_page_edit extends Page{
 
     private function editContent(){
         if(!$this->page['has_content']) return;
-
-        $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
-
-        $c = $this->add('CRUD');
-        $c->setModel($model_page,
-            Model_Page::$edit_in_form,
-            Model_Page::$show_in_crud
-        );
-
-        $this->addConfigureButton($c);
     }
     private function addConfigureButton(CRUD $c){
         if($c->grid){
@@ -66,5 +56,15 @@ class page_page_edit extends Page{
     }
     private function editSubPages(){
         if(!$this->page['has_sub_pages']) return;
+
+        $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
+
+        $c = $this->add('CRUD');
+        $c->setModel($model_page,
+            Model_Page::$edit_in_form,
+            Model_Page::$show_in_crud
+        );
+
+        $this->addConfigureButton($c);
     }
 }
