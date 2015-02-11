@@ -22,6 +22,7 @@ class Admin extends App_Admin {
 //        $this->menu = null;
         $header = $this->layout->addHeader('View');
         $this->menu = $header->add('Menu');
-        $this->menu->addItem(array('Data Providers', 'icon'=>'download'),'providers');
+        $this->menu->addItem(array('CMS', 'icon'=>'download'),'page');
+        $this->menu->addItem(array('Users', 'icon'=>'download'),'user');
 	}
 }
