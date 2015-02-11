@@ -14,8 +14,8 @@ class Model_Page extends Model_BaseTable {
         parent::init();
 
         $this->addField('title');
-        $this->addField('menu_type');
-        $this->addField('type');
+        $this->addField('menu_type')->setValueList(static::$available_menu_types);
+        $this->addField('type')->setValueList(static::$available_types);
         $this->addField('has_content');
         $this->addField('has_sub_pages');
         $this->addField('hash_url');

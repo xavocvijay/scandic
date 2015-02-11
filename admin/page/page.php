@@ -12,6 +12,6 @@ class page_page extends Page{
         $m = $this->add('Model_Page');
 
         $c = $this->add('CRUD');
-        $c->setModel($m);
+        $c->setModel($m,[],['title','']);
     }
 }
