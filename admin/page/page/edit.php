@@ -15,8 +15,8 @@ class page_page_edit extends Page{
         $this->title = $this->page['title'];
 
         $this->showParents();
-        $this->editContent();
         $this->editSubPages();
+        $this->editContent();
     }
 
     private function showParents(){
@@ -30,6 +30,7 @@ class page_page_edit extends Page{
 
         if(count($parents)){
             $v = $this->add('ButtonSet');
+            $v->add('View')->setElement('span')->set('Go to parent pages: ');
             $count = 0;
             foreach($parents as $parent_page){
                 if($count++>0){
@@ -44,6 +45,7 @@ class page_page_edit extends Page{
 
     private function editContent(){
         if(!$this->page['has_content']) return;
+        $this->add('H2')->set('Edit content');
     }
     private function addConfigureButton(CRUD $c){
         if($c->grid){
@@ -56,6 +58,8 @@ class page_page_edit extends Page{
     }
     private function editSubPages(){
         if(!$this->page['has_sub_pages']) return;
+
+        $this->add('H2')->set('Configure sub pages');
 
         $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
 
