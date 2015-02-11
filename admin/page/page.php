@@ -13,7 +13,7 @@ class page_page extends Page{
 
         $c = $this->add('CRUD');
         $c->setModel($m,
-            ['title','menu_type','type','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'],
+            ['title','menu_type','type','page_id','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'],
             ['title','menu_type','type','has_content','has_sub_pages']
         );
     }
