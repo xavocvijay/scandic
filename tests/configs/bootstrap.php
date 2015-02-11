@@ -38,5 +38,5 @@
 
 
 
-include_once 'tests/config.php';
+include_once 'tests/configs/config.php';
 include_once 'vendor/autoload.php';

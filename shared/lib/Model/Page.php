@@ -33,18 +33,20 @@ class Model_Page extends Model_BaseTable {
         $fields_errors = [];
         //TODO
         //Check existence
-        if(!isset($data['title']) || !$data['title']) throw $this->exception('Page title is empty','NoTitle');
-        if(!isset($data['menu_type']) || !$data['menu_type']) throw $this->exception('Page menu type is empty','NoMenuType');
-        if(!isset($data['type']) || !$data['type']) throw $this->exception('Page type is empty','NoType');
-        if(!isset($data['has_content'])) throw $this->exception('Page has content value is empty','NoHasContent');
-        if(!isset($data['has_sub_pages'])) throw $this->exception('Page has sub pages value is empty','NoHasSubPages');
+        if(!isset($data['title']) || !$data['title']) $fields_errors['title'] = $this->exception('Page title is empty','NoTitle');
+        if(!isset($data['menu_type']) || !$data['menu_type']) $fields_errors['menu_type'] = $this->exception('Page menu type is empty','NoMenuType');
+        if(!isset($data['type']) || !$data['type']) $fields_errors['type'] = $this->exception('Page type is empty','NoType');
+        if(!isset($data['has_content'])) $fields_errors['has_content'] = $this->exception('Page has content value is empty','NoHasContent');
+        if(!isset($data['has_sub_pages'])) $fields_errors['has_sub_pages'] = $this->exception('Page has sub pages value is empty','NoHasSubPages');
         //Check values
-        if(!in_array($data['menu_type'],self::$available_menu_types)) throw $this->exception('Incorrect Page Menu Type','UnsupportedMenuType');
-        if(!in_array($data['type'],self::$available_types)) throw $this->exception('Incorrect Page Type','UnsupportedType');
+        if(!in_array($data['menu_type'],self::$available_menu_types)) $fields_errors['menu_type'] = $this->exception('Incorrect Page Menu Type','UnsupportedMenuType');
+        if(!in_array($data['type'],self::$available_types)) $fields_errors['type'] = $this->exception('Incorrect Page Type','UnsupportedType');
         //Check types
-        if(!is_string($data['title'])) throw $this->exception('Incorrect value type','IncorrectValueType');
-        if(!is_int($data['has_content'])) throw $this->exception('Incorrect value type','IncorrectValueType');
-        if(!is_int($data['has_sub_pages'])) throw $this->exception('Incorrect value type','IncorrectValueType');
+        if(!is_string($data['title'])) $fields_errors['title'] = $this->exception('Incorrect value type','IncorrectValueType');
+        if(!is_int($data['has_content'])) $fields_errors['has_content'] = $this->exception('Incorrect value type','IncorrectValueType');
+        if(!is_int($data['has_sub_pages'])) $fields_errors['has_sub_pages'] = $this->exception('Incorrect value type','IncorrectValueType');
+
+        if($fields_errors) throw $this->exception('Invalid Field','InvalidField')->setArray($fields_errors);
 
         try{
             $this->set($data)->save();

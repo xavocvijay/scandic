@@ -45,7 +45,7 @@ class Model_User extends Model_BaseTable {
             $fields_errors['password'] = $e;
         }
 
-        if($fields_errors) throw $this->exception($fields_errors,'InvalidField');
+        if($fields_errors) throw $this->exception('Invalid Field','InvalidField')->setArray($fields_errors);
 
         //Try save
         try{
