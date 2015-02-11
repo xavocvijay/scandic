@@ -12,6 +12,9 @@ class page_page extends Page{
         $m = $this->add('Model_Page');
 
         $c = $this->add('CRUD');
-        $c->setModel($m,[],['title','']);
+        $c->setModel($m,
+            ['title','menu_type','type','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'],
+            ['title','menu_type','type','has_content','has_sub_pages']
+        );
     }
 }

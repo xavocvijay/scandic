@@ -16,12 +16,13 @@ class Model_Page extends Model_BaseTable {
         $this->addField('title');
         $this->addField('menu_type')->setValueList(static::$available_menu_types);
         $this->addField('type')->setValueList(static::$available_types);
-        $this->addField('has_content');
-        $this->addField('has_sub_pages');
+        $this->addField('has_content')->type('boolean');
+        $this->addField('has_sub_pages')->type('boolean');
+        $this->addField('created_dts');
         $this->addField('hash_url');
         $this->addField('order');
-        $this->addField('meta_keywords');
-        $this->addField('meta_description');
+        $this->addField('meta_keywords')->type('text');
+        $this->addField('meta_description')->type('text');
 
         $this->addHooks();
     }
