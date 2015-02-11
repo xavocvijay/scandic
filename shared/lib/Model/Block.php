@@ -11,7 +11,7 @@ class Model_Block extends Model_BaseTable {
 
         $this->addField('system_name');
         $this->addField('type');
-        $this->addField('content');
+        $this->addField('content')->type('text');
         $this->addField('page_id');
         $this->addField('language_id');
         $this->addField('order');

@@ -1,6 +1,7 @@
 <?php
 class Admin extends App_Admin {
     public $menu;
+    public $language_id = 0;
     function init() {
 
         $this->pathfinder->base_location->defineContents(array(

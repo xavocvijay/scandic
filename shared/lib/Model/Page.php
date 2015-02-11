@@ -7,13 +7,20 @@ class Model_Page extends Model_BaseTable {
     public $related_entities = [
         ['Block', ['type'=>'hard', 'field'=>'page_id']],
     ];
+    const TWO_COLUMNS_MENU = 'two_columns_menu';
+    const ONE_COLUMN_MENU = 'one_column_menu';
+    const ONE_COLUMN = 'one_column';
+    const ONE_COLUMN_BIG_BLOCKS = 'one_column_big_blocks';
     public static $available_types = [
-        'two_columns_menu'=>'Two columns text with left menu',
-        'one_column_menu'=>'One column text with left menu and blocks',
-        'one_column'=>'One column without menu blocks',
-        'one_column_big_blocks'=>'One column without menu big blocks'
+        self::TWO_COLUMNS_MENU=>'Two columns text with left menu',
+        self::ONE_COLUMN_MENU=>'One column text with left menu and blocks',
+        self::ONE_COLUMN=>'One column without menu blocks',
+        self::ONE_COLUMN_BIG_BLOCKS=>'One column without menu big blocks'
     ];
-    public static $available_menu_types = ['top'=>'Top Menu','sub'=>'Sub Menu'];
+
+    const MENU_TYPE_TOP = 'top';
+    const MENU_TYPE_SUB = 'sub';
+    public static $available_menu_types = [self::MENU_TYPE_TOP=>'Top Menu',self::MENU_TYPE_SUB=>'Sub Menu'];
     public static $edit_in_form = ['title','menu_type','type','page_id','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'];
     public static $show_in_crud = ['title','menu_type','type','has_content','has_sub_pages'];
 
@@ -33,6 +40,11 @@ class Model_Page extends Model_BaseTable {
         $this->hasOne('Page','page_id','title');
 
         $this->addHooks();
+    }
+
+    public function getTop(){
+        $this->addCondition('menu_type',self::MENU_TYPE_TOP);
+        return $this;
     }
 
     public function create($data){

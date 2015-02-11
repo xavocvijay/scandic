@@ -31,21 +31,24 @@ class page_page_edit extends Page{
         if(count($parents)){
             $v = $this->add('ButtonSet');
             $v->add('View')->setElement('span')->set('Go to parent pages: ');
-            $count = 0;
             foreach($parents as $parent_page){
-                if($count++>0){
-                    $v->add('View')->setElement('span')->set('>>');
-                }
                 $v->addButton($parent_page['title'])
                     ->js('click')
                     ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
+                $v->add('View')->setElement('span')->set('>');
             }
+            $v->add('View')->setElement('button')->addClass('atk-button atk-swatch-gray')->set($this->page['title'])->setAttr('disabled','disabled');
         }
     }
 
     private function editContent(){
         if(!$this->page['has_content']) return;
         $this->add('H2')->set('Edit content');
+
+        $view = $this->add('Controller_PageConstructor_Factory')->getByType($this,$this->page['type'],'admin');
+        $view->setModel($this->page);
+        $view->get();
+
     }
     private function addConfigureButton(CRUD $c){
         if($c->grid){
