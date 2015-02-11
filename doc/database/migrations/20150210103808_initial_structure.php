@@ -50,6 +50,7 @@ class InitialStructure extends AbstractMigration
             ->addColumn('meta_description', 'string',['limit'=>'255','null'=>true,'default'=>null])
             ->addColumn('created_dts', 'datetime',['null'=>false])
             ->addColumn('is_deleted', 'integer',['null'=>false,'default'=>'0'])
+            ->addColumn('page_id', 'integer',['limit'=>'11','null'=>false])
             ->create();
 
         $table = $this->table('block');

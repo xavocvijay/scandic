@@ -28,6 +28,7 @@ class Model_Page extends Model_BaseTable {
         $this->addField('order');
         $this->addField('meta_keywords')->type('text');
         $this->addField('meta_description')->type('text');
+        $this->addField('page_id');
 
         $this->addHooks();
     }
