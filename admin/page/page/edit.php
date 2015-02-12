@@ -64,12 +64,12 @@ class page_page_edit extends Page{
 
         $this->add('H2')->set('Configure sub pages');
 
-        $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
+        $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id)->addCondition('menu_type','sub');
 
         $c = $this->add('CRUD');
         $c->setModel($model_page,
             Model_Page::$edit_in_form,
-            Model_Page::$show_in_crud
+            Model_Page::$show_in_grid
         );
 
         $this->addConfigureButton($c);

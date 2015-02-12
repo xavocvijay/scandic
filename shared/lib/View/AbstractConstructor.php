@@ -6,6 +6,7 @@
  * Time: 18:32
  */
 abstract class View_AbstractConstructor extends View{
+    public $template_path;
     public $field_list = ['content'];
     public $app_type;
     public function get(){
@@ -25,13 +26,21 @@ abstract class View_AbstractConstructor extends View{
         if($form->isSubmitted()) $form->save();
     }
     public function getForFrontend(){
-        $this->set($this->model->get('content'));
+        if(is_a($this->model,'Model_Page')){
+            $blocks = $this->model->getBlocks();
+            foreach($blocks as $block){
+                $v = $this->add($block['type'],null,$block['system_name']);
+                $v->setModel($block);
+                $v->get();
+            }
+        }else{
+            $this->set($this->model->get('content'));
+        }
     }
     function defaultTemplate(){
-        if($this->app_type = 'admin'){
-            return parent::defaultTemplate();
-        }else{
-            return parent::defaultTemplate();
+        if(!$this->app_type == 'admin' && !is_null($this->template_path)){
+            return $this->template_path;
         }
+        return parent::defaultTemplate();
     }
 }

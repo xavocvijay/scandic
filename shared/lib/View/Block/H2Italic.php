@@ -6,10 +6,5 @@
  * Time: 18:05
  */
 class View_Block_H2Italic extends View_AbstractConstructor{
-    function init(){
-        parent::init();
-    }
-    function defaultTemplate(){
-        return ['block'];
-    }
+    public $template_path = ['view/blocks/h2italic'];
 }

@@ -12,12 +12,13 @@ class page_page extends Page{
 
         $m = $this->add('Model_Page');
         $m->addCondition('page_id',null);
+        $m->addCondition('menu_type','top');
         $m->setOrder('order');
 
         $c = $this->add('CRUD');
         $c->setModel($m,
             Model_Page::$edit_in_form,
-            Model_Page::$show_in_crud
+            Model_Page::$show_in_grid
         );
         $this->addConfigureButton($c);
 

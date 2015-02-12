@@ -24,15 +24,15 @@ class Frontend extends App_Frontend {
         $this->real_page = $this->page;
         $this->add('Controller_PatternRouter');
 
-        $get_pages = $this->getTopPages();
+        /*$get_pages = $this->getTopPages();
         $pages = '';
         foreach($get_pages as $page){
             $pages .= $page['hash_url'].'|';
         }
-        $pages = substr($pages, 0, strlen($pages)-1);
-        if($pages){
-            $this->router->addRule('('.$pages.')(\/{0,1})','dynamic-page',array('page-name'));
-        }
+        $pages = substr($pages, 0, strlen($pages)-1);*/
+//        if($pages){
+//        }
+        $this->router->addRule('([a-zA-Z0-9-])','dynamic-page',array('page-name'));
         $this->router->route();
     }
 
@@ -45,7 +45,7 @@ class Frontend extends App_Frontend {
     }
 
 
-    function addMenuItem($menu,$title,$icon,$class,$url){
+    public function addMenuItem($menu,$title,$icon,$class,$url){
         if ($this->isCurrent(strtolower($url))) $active_class='ui-state-active'; else $active_class='';
         if ($url) {
             $url = $this->url($url);

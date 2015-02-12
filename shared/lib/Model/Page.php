@@ -7,11 +7,13 @@ class Model_Page extends Model_BaseTable {
     public $related_entities = [
         ['Block', ['type'=>'hard', 'field'=>'page_id']],
     ];
+    const NO_BLOCKS = 'no_blocks';
     const TWO_COLUMNS_MENU = 'two_columns_menu';
     const ONE_COLUMN_MENU = 'one_column_menu';
     const ONE_COLUMN = 'one_column';
     const ONE_COLUMN_BIG_BLOCKS = 'one_column_big_blocks';
     public static $available_types = [
+        self::NO_BLOCKS=>'No blocks',
         self::TWO_COLUMNS_MENU=>'Two columns text with left menu',
         self::ONE_COLUMN_MENU=>'One column text with left menu and blocks',
         self::ONE_COLUMN=>'One column without menu blocks',
@@ -21,8 +23,8 @@ class Model_Page extends Model_BaseTable {
     const MENU_TYPE_TOP = 'top';
     const MENU_TYPE_SUB = 'sub';
     public static $available_menu_types = [self::MENU_TYPE_TOP=>'Top Menu',self::MENU_TYPE_SUB=>'Sub Menu'];
-    public static $edit_in_form = ['title','menu_type','type','page_id','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'];
-    public static $show_in_crud = ['title','menu_type','type','has_content','has_sub_pages'];
+    public static $edit_in_form = ['title','type','page_id','has_content','has_sub_pages','hash_url','meta_keywords','meta_description'];
+    public static $show_in_grid = ['title','menu_type','type','has_content','has_sub_pages'];
 
     function init(){
         parent::init();
@@ -38,6 +40,8 @@ class Model_Page extends Model_BaseTable {
         $this->addField('meta_keywords')->type('text');
         $this->addField('meta_description')->type('text');
         $this->hasOne('Page','page_id','title');
+
+        $this->setOrder('order');
 
         $this->addHooks();
     }
@@ -81,6 +85,11 @@ class Model_Page extends Model_BaseTable {
         $this->createdDTS();
     }
 
+    public function getSubPages(){
+        if(!$this->loaded()) throw $this->exception(get_class($this).' MUST be loaded','NotLoadedModel');
+        $this->addCondition('page_id',$this->id)->deleted($this['is_deleted']);
+        return $this;
+    }
 
     public function getBlocks($as_array=false,$limit=false,$offset=0,$order=false,$desc=true) {
         $bc = $this->add('Model_Block')->deleted($this['is_deleted'])->addCondition('page_id',$this->id);

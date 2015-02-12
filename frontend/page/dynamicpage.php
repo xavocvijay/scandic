@@ -16,13 +16,25 @@ class page_dynamicpage extends Page{
 
         $this->title = $page['title'];
 
-        $blocks = $page->getBlocks();
+        $this->add('View',null,'banner')->addClass('atk-box')->set('banner');
 
-        foreach($blocks as $block){
-            $view_block = $this->add($block['type']);
-            $view_block->setModel($block);
-            $view_block->get();
+        //Basic content view
+        $page_content_view = $this->add('View')->addClass('atk-box');
 
+        //Left Menu
+        if($page['has_sub_pages']){
+            $left_menu = $page_content_view->add('Menu_Vertical')->addClass('atk-box');
+            foreach($page->getSubPages() as $sub_page){
+                $this->app->addMenuItem($left_menu,$sub_page['title'],'home-1','',$sub_page['hash_url']);
+            }
         }
+
+        $view = $this->add('Controller_PageConstructor_Factory')->getByType($page_content_view,$page['type']);
+        $view->setModel($page);
+        $view->get();
+
+    }
+    function defaultTemplate(){
+        return ['page/dynamicpage'];
     }
 }
