@@ -34,7 +34,7 @@ abstract class View_AbstractConstructor extends View{
                 $v->get();
             }
         }else{
-            $this->set($this->model->get('content'));
+            $this->setHtml(nl2br($this->model->get('content')));
         }
     }
     function defaultTemplate(){

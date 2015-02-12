@@ -19,17 +19,18 @@ class page_dynamicpage extends Page{
         $this->add('View',null,'banner')->addClass('atk-box')->set('banner');
 
         //Basic content view
-        $page_content_view = $this->add('View')->addClass('atk-box');
+        $page_content_view = $this->add('View')->addClass('atk-box atk-cells');
 
         //Left Menu
         if($page['has_sub_pages']){
-            $left_menu = $page_content_view->add('Menu_Vertical')->addClass('atk-box');
+            $left_menu = $page_content_view->add('Menu_Vertical')->addClass('atk-cell atk-box');
             foreach($page->getSubPages() as $sub_page){
                 $this->app->addMenuItem($left_menu,$sub_page['title'],'home-1','',$sub_page['hash_url']);
             }
         }
 
-        $view = $this->add('Controller_PageConstructor_Factory')->getByType($page_content_view,$page['type']);
+        $content_view = $page_content_view->add('View')->addClass('atk-cell atk-box');
+        $view = $content_view->add('Controller_PageConstructor_Factory')->getByType($page_content_view,$page['type']);
         $view->setModel($page);
         $view->get();
 

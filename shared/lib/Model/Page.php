@@ -87,8 +87,9 @@ class Model_Page extends Model_BaseTable {
 
     public function getSubPages(){
         if(!$this->loaded()) throw $this->exception(get_class($this).' MUST be loaded','NotLoadedModel');
-        $this->addCondition('page_id',$this->id)->deleted($this['is_deleted']);
-        return $this;
+        $m = $this->add(get_class($this));
+        $m->addCondition('page_id',$this->id)->deleted($this['is_deleted']);
+        return $m;
     }
 
     public function getBlocks($as_array=false,$limit=false,$offset=0,$order=false,$desc=true) {

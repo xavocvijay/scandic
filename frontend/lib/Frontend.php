@@ -14,7 +14,7 @@ class Frontend extends App_Frontend {
 
         $this->layout = $this->add('Layout_Fluid');
 
-        $this->addRouter();
+        if($this->page != 'index') $this->addRouter();
         $this->addMenu();
     }
 
@@ -24,14 +24,6 @@ class Frontend extends App_Frontend {
         $this->real_page = $this->page;
         $this->add('Controller_PatternRouter');
 
-        /*$get_pages = $this->getTopPages();
-        $pages = '';
-        foreach($get_pages as $page){
-            $pages .= $page['hash_url'].'|';
-        }
-        $pages = substr($pages, 0, strlen($pages)-1);*/
-//        if($pages){
-//        }
         $this->router->addRule('([a-zA-Z0-9-])','dynamic-page',array('page-name'));
         $this->router->route();
     }
