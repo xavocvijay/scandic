@@ -16,26 +16,23 @@ class page_dynamicpage extends Page{
 
         $this->title = $page['title'];
 
-        $this->add('View',null,'banner')->addClass('atk-box')->set('banner');
+        $this->add('View')->addClass('atk-box')->set('banner');
 
         //Basic content view
-        $page_content_view = $this->add('View')->addClass('atk-box atk-cells');
+        $page_content_view = $this->add('View')->addClass('atk-box atk-cells atk-cells-gutter');
 
         //Left Menu
-        if($page['has_sub_pages']){
-            $left_menu = $page_content_view->add('Menu_Vertical')->addClass('atk-cell atk-box');
-            foreach($page->getSubPages() as $sub_page){
+        if($page['has_sub_pages'] && count($sub_pages = $page->getSubPages()->getRows())){
+            $left_menu = $page_content_view->add('View')->addClass('atk-cell atk-box')->add('Menu_Vertical');
+            foreach($sub_pages as $sub_page){
                 $this->app->addMenuItem($left_menu,$sub_page['title'],'home-1','',$sub_page['hash_url']);
             }
         }
 
-        $content_view = $page_content_view->add('View')->addClass('atk-cell atk-box');
-        $view = $content_view->add('Controller_PageConstructor_Factory')->getByType($page_content_view,$page['type']);
+        $content_view = $page_content_view->add('View')->addClass('atk-cell atk-jackscrew atk-box');
+        $view = $content_view->add('Controller_PageConstructor_Factory')->getByType($content_view,$page['type']);
         $view->setModel($page);
         $view->get();
 
-    }
-    function defaultTemplate(){
-        return ['page/dynamicpage'];
     }
 }
