@@ -5,10 +5,7 @@
       <div class="atk-padding-small atk-swatch-ink">{Header_Content}
         <div class="atk-bar atk-cells atk-cells-gutter-large">
           <div class="atk-cell atk-text-nowrap"><a href="{page}/{/}"><img src="{public}images/logo.svg{/}" width="50px"/></a></div>
-          <div class="atk-cell atk-jackscrew">
-            {$Top_Menu}{$Main_Menu}
-          </div>
-          <div class="atk-cell atk-text-nowrap">{$Top_Actions}</div>
+          <div class="atk-cell atk-jackscrew">{$Main_Menu}</div>
           <div class="atk-cell atk-text-nowrap">
             <div class="atk-cells atk-cells-gutter-small">
               <div class="atk-cell atk-text-reset"><img src="{user_icon}http://www.gravatar.com/avatar/none{/}" width="32" class="atk-shape-rounded"/></div>
@@ -22,7 +19,8 @@
   <div class="atk-layout-row atk-layout-fluid">
     <div class="atk-layout atk-layout-cell">
       <div class="atk-layout-column fluid atk-padding atk-jackscrew">
-        <h2 class="atk-push-small">{page_title}Page Title{/}</h2>{$Content}
+        <h2 class="atk-push-small">{page_title}Page Title{/}</h2>
+        {$Content}
       </div>
     </div>
   </div>
