@@ -35,7 +35,8 @@ class Frontend extends App_Frontend {
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu')->addClass('atk-move-right');
         foreach($this->getTopPages() as $page){
-            $this->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$page['hash_url']);
+            $url = $page['hash_url']?:$page['url_first_child'];
+            $this->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$url);
         }
     }
 
@@ -70,10 +71,7 @@ class Frontend extends App_Frontend {
     private $top_pages=null;
     function getTopPages(){
         if(!$this->top_pages){
-            $this->top_pages = $this->add('Model_Page')->getForTopMenu()->getRows();
-            foreach ($this->top_pages as $p) {
-                var_dump($p); echo '<hr>';
-            }
+            $this->top_pages = $this->add('Model_Page')->getTop()->getForMenu()->getRows();
         }
         return $this->top_pages;
     }
