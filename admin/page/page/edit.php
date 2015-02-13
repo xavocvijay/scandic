@@ -14,11 +14,12 @@ class page_page_edit extends Page{
         $this->page = $this->add('Model_Page')->load($page_id);
         $this->title = $this->page['title'] . ' ('.($this->page['type']?:'Group of pages').')';
 
-        $col_total = $this->add('View')->setClass('atk-col-12 atk-jackscrew');
+        $col_total = $this->add('View');
         $this->showParents($col_total);
 
-        $col_left = $col_total->add('View')->setClass('atk-col-6 atk-move-left atk-box');
-        $col_right = $col_total->add('View')->setClass('atk-col-6 atk-move-right atk-box');
+        $row = $col_total->add('View')->addClass('atk-row atk-push');
+        $col_left = $row->add('View')->addClass('atk-col-6')->add('View')->addClass('atk-box');
+        $col_right = $row->add('View')->addClass('atk-col-6')->add('View')->addClass('atk-box');
 
         $this->addMetaForm($col_left);
         $this->editContent($col_right);
