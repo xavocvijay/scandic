@@ -12,18 +12,50 @@ class page_page_edit extends Page{
         $page_id = $this->app->stickyGet('page_id');
 
         $this->page = $this->add('Model_Page')->load($page_id);
-        $this->title = $this->page['title'];
+        $this->title = $this->page['title'] . ' ('.($this->page['type']?:'Group of pages').')';
 
-        $this->showParents();
-        $this->addMetaForm();
-        $this->editSubPages();
-        $this->editContent();
+        $col_total = $this->add('View')->setClass('atk-col-12 atk-jackscrew');
+        $this->showParents($col_total);
+
+        $col_left = $col_total->add('View')->setClass('atk-col-6 atk-move-left atk-box');
+        $col_right = $col_total->add('View')->setClass('atk-col-6 atk-move-right atk-box');
+
+        $this->addMetaForm($col_left);
+        $this->editContent($col_right);
+        $this->editSubPages($col_total);
     }
 
-    public function addMetaForm(){
+    private function showParents(AbstractView $v=null){
+        if (!$v) $v = $this;
+        $page = $this->page;
+        $parents = [];
+        while($id = $page['page_id']){
+            $page = $this->add('Model_Page')->load($id);//TODO Is it save?
+            $parents[] = $page;
+        }
+        krsort($parents);
+
+        $vv = $v->add('ButtonSet')->setClass('atk-box atk-jackscrew');
+        $vv->add('View')->setElement('span')->set('Breadcrumbs: ');
+        if(count($parents)){
+            foreach($parents as $parent_page){
+                $vv->addButton($parent_page['title'])
+                    ->js('click')
+                    ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
+                $vv->add('View')->setElement('span')->set('>');
+            }
+        }
+        $vv->add('View')->setElement('button')
+            ->addClass('atk-button atk-swatch-gray')
+            ->set($this->page['title'])
+            ->setAttr('disabled','disabled');
+    }
+
+    public function addMetaForm(AbstractView $v=null){
+        if (!$v) $v = $this;
         if($this->page['type']){
-            $this->add('H2')->set('Edit Page Meta Fields');
-            $form = $this->add('Form');
+            $v->add('H2')->set('Edit Page Meta Fields');
+            $form = $v->add('Form');
             $form->addClass('stacked');
             $form->setModel($this->page,Model_Page::$meta_fields);
             $form->addSubmit();
@@ -33,37 +65,39 @@ class page_page_edit extends Page{
 
                 $form->js()->univ()->successMessage('Saved')->execute();
             }
+        } else {
+            $v->addClass('atk-effect-warning')->add('View')->set('Page group cannot have meta tags');
         }
     }
 
-    private function showParents(){
-        $page = $this->page;
-        $parents = [];
-        while($id = $page['page_id']){
-            $page = $this->add('Model_Page')->load($id);//TODO Is it save?
-            $parents[] = $page;
-        }
-        krsort($parents);
+    private function editSubPages(AbstractView $v=null){
+        if (!$v) $v = $this;
+        if(!$this->page['type']){
+            $v->add('H2')->set('Configure pages of this group');
 
-        $v = $this->add('ButtonSet');
-        $v->add('View')->setElement('span')->set('Breadcrumbs: ');
-        if(count($parents)){
-            foreach($parents as $parent_page){
-                $v->addButton($parent_page['title'])
-                    ->js('click')
-                    ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
-                $v->add('View')->setElement('span')->set('>');
-            }
+            $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
+
+            $c = $v->add('CRUD');
+            $c->setModel($model_page,
+                Model_Page::$edit_in_form,
+                Model_Page::$show_in_grid
+            );
+
+            $this->addConfigureButton($c);
+        } else {
+            $v->add('View')->setClass('atk-box atk-effect-warning')->setStyle('clear','both')->set('Page have no sub pages');
         }
-        $v->add('View')->setElement('button')->addClass('atk-button atk-swatch-gray')->set($this->page['title'])->setAttr('disabled','disabled');
     }
 
-    private function editContent(){
+    private function editContent(AbstractView $v=null){
+        if (!$v) $v = $this;
         if($this->page['type']){
-            $this->add('H2')->set('Edit content');
-            $view = $this->add('View_PageConstructor_ATK4HomePage',['template_path'=>$this->page->getTemplatePath(),'app_type'=>'admin']);
+            $v->add('H2')->set('Edit content');
+            $view = $v->add('View_PageConstructor_ATK4HomePage',['template_path'=>$this->page->getTemplatePath(),'app_type'=>'admin']);
             $view->setModel($this->page);
             $view->get();
+        } else {
+            $v->addClass('atk-effect-warning')->add('View')->set('Page group cannot have content but other pages');
         }
 
     }
@@ -74,21 +108,6 @@ class page_page_edit extends Page{
 
         if($id = $_GET['configure']){
             $this->js()->redirect($this->app->url('page/edit',['page_id'=>$id]))->execute();
-        }
-    }
-    private function editSubPages(){
-        if(!$this->page['type']){
-            $this->add('H2')->set('Configure sub pages');
-
-            $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
-
-            $c = $this->add('CRUD');
-            $c->setModel($model_page,
-                Model_Page::$edit_in_form,
-                Model_Page::$show_in_grid
-            );
-
-            $this->addConfigureButton($c);
         }
     }
 }

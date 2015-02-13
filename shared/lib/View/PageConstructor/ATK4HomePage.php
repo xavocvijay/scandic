@@ -12,20 +12,20 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
     }
 
     protected function getForAdmin(){
-       $this->addBlocks('admin');
+       $this->addBlocks($this,'admin');
     }
 
-    protected function addBlocks($app_type = 'frontend'){
-//        var_dump($this->model['type']);exit;
+    protected function addBlocks(AbstractView $v=null, $app_type = 'frontend'){
+        if (!$v) $v = $this;
         if($this->model['type']){
             $this->blocks = $this->app->getConfig('atk4-home-page/page_types/'.$this->model['type'].'/blocks',[]);
 
             foreach($this->blocks as $sys_name=>$type){
-                $this->addBlock($this->model->id, $sys_name, $type, $app_type);
+                $this->addBlock($this->model->id, $sys_name, $type, $app_type,$v);
             }
         }
     }
-    private function addBlock($page_id, $sys_name, $type, $app_type){
+    private function addBlock($page_id, $sys_name, $type, $app_type,AbstractView $v){
         $block = $this->add('Model_Block')
             ->addCondition('type',$type)
             ->addCondition('page_id',$page_id)
@@ -37,7 +37,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
             $block->save();
         }
 
-        $view = $this->add('View_Block_ATK4HomeBlock',['app_type'=>$app_type]);
+        $view = $v->add('View_Block_ATK4HomeBlock',['app_type'=>$app_type]);
         $view->setModel($block);
         $view->get();
     }

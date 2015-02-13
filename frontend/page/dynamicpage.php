@@ -21,6 +21,8 @@ class page_dynamicpage extends Page{
         //Basic content view
         $page_content_view = $this->add('View')->addClass('atk-box atk-cells atk-cells-gutter');
 
+        $page->getMenu($page_content_view,'SubMenu');
+
         //Sub Menu
         if(count($sub_pages = $page->getSubPages()->getRows())){
             $left_menu = $page_content_view->add('View')->addClass('atk-cell atk-box')->add('Menu_Vertical');
