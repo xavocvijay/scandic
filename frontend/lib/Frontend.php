@@ -14,18 +14,22 @@ class Frontend extends App_Frontend {
 
         $this->layout = $this->add('Layout_Fluid');
 
-        if($this->page != 'index') $this->addRouter();
+        $this->addRouter();
         $this->addMenu();
     }
 
     public $real_page;
     private function addRouter(){
-        //Route dynamic pages
-        $this->real_page = $this->page;
-        $this->add('Controller_PatternRouter');
+        try{
+            $this->locatePath('page',str_replace('_','/',$this->page).'.php');
+        }catch (Exception_PathFinder $e){
+            //Route dynamic pages
+            $this->real_page = $this->page;
+            $this->add('Controller_PatternRouter');
 
-        $this->router->addRule('([a-zA-Z0-9-])','dynamic-page',array('page-name'));
-        $this->router->route();
+            $this->router->addRule('([a-zA-Z0-9-])','dynamic-page',array('page-name'));
+            $this->router->route();
+        }
     }
 
 

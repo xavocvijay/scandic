@@ -10,9 +10,7 @@ class page_page extends Page{
         parent::init();
         $this->title = 'Pages';
 
-        $m = $this->add('Model_Page');
-        $m->addCondition('page_id',null);
-        $m->addCondition('menu_type','top');
+        $m = $this->add('Model_Page')->getTop();
         $m->setOrder('order');
 
         $c = $this->add('CRUD');

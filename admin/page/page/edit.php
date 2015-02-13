@@ -15,8 +15,25 @@ class page_page_edit extends Page{
         $this->title = $this->page['title'];
 
         $this->showParents();
+        $this->addMetaForm();
         $this->editSubPages();
         $this->editContent();
+    }
+
+    public function addMetaForm(){
+        if($this->page['type']){
+            $this->add('H2')->set('Edit Page Meta Fields');
+            $form = $this->add('Form');
+            $form->addClass('stacked');
+            $form->setModel($this->page,Model_Page::$meta_fields);
+            $form->addSubmit();
+
+            if($form->isSubmitted()){
+                $form->save();
+
+                $form->js()->univ()->successMessage('Saved')->execute();
+            }
+        }
     }
 
     private function showParents(){
@@ -28,26 +45,26 @@ class page_page_edit extends Page{
         }
         krsort($parents);
 
+        $v = $this->add('ButtonSet');
+        $v->add('View')->setElement('span')->set('Breadcrumbs: ');
         if(count($parents)){
-            $v = $this->add('ButtonSet');
-            $v->add('View')->setElement('span')->set('Go to parent pages: ');
             foreach($parents as $parent_page){
                 $v->addButton($parent_page['title'])
                     ->js('click')
                     ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
                 $v->add('View')->setElement('span')->set('>');
             }
-            $v->add('View')->setElement('button')->addClass('atk-button atk-swatch-gray')->set($this->page['title'])->setAttr('disabled','disabled');
         }
+        $v->add('View')->setElement('button')->addClass('atk-button atk-swatch-gray')->set($this->page['title'])->setAttr('disabled','disabled');
     }
 
     private function editContent(){
-        if(!$this->page['has_content']) return;
-        $this->add('H2')->set('Edit content');
-
-        $view = $this->add('Controller_PageConstructor_Factory')->getByType($this,$this->page['type'],'admin');
-        $view->setModel($this->page);
-        $view->get();
+        if($this->page['type']){
+            $this->add('H2')->set('Edit content');
+            $view = $this->add('View_PageConstructor_ATK4HomePage',['template_path'=>$this->page->getTemplatePath(),'app_type'=>'admin']);
+            $view->setModel($this->page);
+            $view->get();
+        }
 
     }
     private function addConfigureButton(CRUD $c){
@@ -60,18 +77,18 @@ class page_page_edit extends Page{
         }
     }
     private function editSubPages(){
-        if(!$this->page['has_sub_pages']) return;
+        if(!$this->page['type']){
+            $this->add('H2')->set('Configure sub pages');
 
-        $this->add('H2')->set('Configure sub pages');
+            $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
 
-        $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id)->addCondition('menu_type','sub');
+            $c = $this->add('CRUD');
+            $c->setModel($model_page,
+                Model_Page::$edit_in_form,
+                Model_Page::$show_in_grid
+            );
 
-        $c = $this->add('CRUD');
-        $c->setModel($model_page,
-            Model_Page::$edit_in_form,
-            Model_Page::$show_in_grid
-        );
-
-        $this->addConfigureButton($c);
+            $this->addConfigureButton($c);
+        }
     }
 }
