@@ -57,6 +57,19 @@ class Model_Page extends Model_BaseTable {
         return $this->app->getConfig('atk4-home-page/page_types/'.$this['type'].'/template',false);
     }
 
+    public function getForTopMenu() {
+        $this->debug();
+        $this->addCondition('page_id',null);
+        $this->addExpression('url_first_child',function($m){
+            $f = $m->add('Model_Page')->addCondition('page_id',$m->getElement('id'));
+            $f->table_alias = 'page2';
+            //$f->setOrder('order');
+            $f->setLimit(1);
+            return $f->fieldQuery('hash_url');
+        });
+        return $this;
+    }
+
     public function getTop(){
         $this->addCondition('page_id',null);
         return $this;

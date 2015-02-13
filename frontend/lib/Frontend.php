@@ -26,7 +26,6 @@ class Frontend extends App_Frontend {
             //Route dynamic pages
             $this->real_page = $this->page;
             $this->add('Controller_PatternRouter');
-
             $this->router->addRule('([a-zA-Z0-9-])','dynamic-page',array('page-name'));
             $this->router->route();
         }
@@ -71,7 +70,10 @@ class Frontend extends App_Frontend {
     private $top_pages=null;
     function getTopPages(){
         if(!$this->top_pages){
-            $this->top_pages = $this->add('Model_Page')->getTop()->getRows();
+            $this->top_pages = $this->add('Model_Page')->getForTopMenu()->getRows();
+            foreach ($this->top_pages as $p) {
+                var_dump($p); echo '<hr>';
+            }
         }
         return $this->top_pages;
     }

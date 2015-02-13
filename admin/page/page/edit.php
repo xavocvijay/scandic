@@ -16,13 +16,13 @@ class page_page_edit extends Page{
 
         $col_total = $this->add('View')->setClass('atk-col-12 atk-jackscrew');
         $this->showParents($col_total);
+        $this->editSubPages($col_total);
 
         $col_left = $col_total->add('View')->setClass('atk-col-6 atk-move-left atk-box');
         $col_right = $col_total->add('View')->setClass('atk-col-6 atk-move-right atk-box');
 
         $this->addMetaForm($col_left);
         $this->editContent($col_right);
-        $this->editSubPages($col_total);
     }
 
     private function showParents(AbstractView $v=null){
@@ -66,7 +66,9 @@ class page_page_edit extends Page{
                 $form->js()->univ()->successMessage('Saved')->execute();
             }
         } else {
-            $v->addClass('atk-effect-warning')->add('View')->set('Page group cannot have meta tags');
+            $v->addClass('atk-effect-warning')
+                ->add('View')
+                ->set('Page group cannot have meta tags');
         }
     }
 
@@ -85,19 +87,24 @@ class page_page_edit extends Page{
 
             $this->addConfigureButton($c);
         } else {
-            $v->add('View')->setClass('atk-box atk-effect-warning')->setStyle('clear','both')->set('Page have no sub pages');
+            $v->add('View')
+                ->setClass('atk-box atk-effect-warning')
+                ->setStyle('clear','both')
+                ->set('Page cannot have sub pages but content');
         }
     }
 
     private function editContent(AbstractView $v=null){
         if (!$v) $v = $this;
         if($this->page['type']){
-            $v->add('H2')->set('Edit content');
+            $v->add('H2')->set('Edit page parts');
             $view = $v->add('View_PageConstructor_ATK4HomePage',['template_path'=>$this->page->getTemplatePath(),'app_type'=>'admin']);
             $view->setModel($this->page);
             $view->get();
         } else {
-            $v->addClass('atk-effect-warning')->add('View')->set('Page group cannot have content but other pages');
+            $v->addClass('atk-effect-warning')
+                ->add('View')
+                ->set('Page group cannot have content but other pages');
         }
 
     }
