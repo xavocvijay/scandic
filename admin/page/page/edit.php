@@ -80,7 +80,7 @@ class page_page_edit extends Page{
 
             $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
 
-            $c = $v->add('CRUD');
+            $c = $v->add('CRUD')->addClass('atk-push');
             $c->setModel($model_page,
                 Model_Page::$edit_in_form,
                 Model_Page::$show_in_grid
@@ -89,8 +89,7 @@ class page_page_edit extends Page{
             $this->addConfigureButton($c);
         } else {
             $v->add('View')
-                ->setClass('atk-box atk-effect-warning')
-                ->setStyle('clear','both')
+                ->addClass('atk-box atk-effect-warning')
                 ->set('Page cannot have sub pages but content');
         }
     }
