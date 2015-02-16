@@ -24,7 +24,14 @@ class page_page_edit extends Page{
 
         $this->addMetaForm($col_left);
         $this->editContent($col_right);
+
+        $this->addHooks();
     }
+
+    private function addHooks(){
+
+    }
+
 
     private function showParents(AbstractView $v=null){
         if (!$v) $v = $this;

@@ -114,6 +114,20 @@ class Model_Page extends Model_BaseTable {
 
     private function addHooks(){
         $this->createdDTS();
+
+        $this->addHook('beforeInsert', function($m,$q){
+            $q->set('hash_url', $this->generateUrlHash($m));
+        });
+    }
+
+    public function generateUrlHash($m) {
+        $str = strtolower($m->get('title'));
+        // заменям все ненужное нам на "-"
+        $str = preg_replace('~[^-a-z0-9_]+~u', '-', $str);
+        // удаляем начальные и конечные '-'
+        $str = trim($str, "-");
+
+        return $str;
     }
 
     public function getSubPages(){

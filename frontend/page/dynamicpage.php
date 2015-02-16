@@ -21,15 +21,6 @@ class page_dynamicpage extends Page{
         //Basic content view
         $page_content_view = $this->add('View')->addClass('atk-box atk-cells atk-cells-gutter');
 
-
-        //Sub Menu
-        if(count($sub_pages = $page->getSubPages()->getRows())){
-            $left_menu = $page_content_view->add('View')->addClass('atk-cell atk-box')->add('Menu_Vertical');
-            foreach($sub_pages as $sub_page){
-                $this->app->addMenuItem($left_menu,$sub_page['title'],'home-1','',$sub_page['hash_url']);
-            }
-        }
-
         $content_view = $page_content_view->add('View')->addClass('atk-cell atk-jackscrew atk-box');
 
         $view = $content_view->add('View_PageConstructor_ATK4HomePage',['template_path'=>$page->getTemplatePath()]);
@@ -43,23 +34,12 @@ class page_dynamicpage extends Page{
     protected function getPageMenu(AbstractView $view,Model_Page $page) {
         if ($view->template->hasTag('SubMenu') && $siblings = $page->getSiblings()) {
 
-            $menu = $view->add('Menu',null,'SubMenu');
+            $menu = $view->add('Menu_Vertical',null,'SubMenu');
             foreach($siblings as $page){
                 $url = $page['hash_url']?:$page['url_first_child'];
-                $this->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$url);
+                $this->app->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$url);
             }
 
         }
-    }
-
-
-    public function addMenuItem($menu,$title,$icon,$class,$url){
-        //if ($this->isCurrent(strtolower($url))) $active_class='ui-state-active'; else $active_class='';
-        if ($url) {
-            $url = $this->app->url($url);
-        } else {
-            $url = strtolower($title);
-        }
-        $menu->addItem(array($title, 'icon'=>$icon),$url)->addClass($class.' '/*.$active_class*/);
     }
 }
