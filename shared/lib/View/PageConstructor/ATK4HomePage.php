@@ -7,12 +7,29 @@
  */
 class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
     public $template_path;
+    private $blocks;
+    protected $necropolis = [];
     function init(){
         parent::init();
     }
 
     protected function getForAdmin(){
-       $this->addBlocks($this,'admin');
+        $this->addBlocks($this,'admin');
+        $this->addNecropolis($this);
+    }
+
+    protected function addNecropolis(AbstractView $v){
+        if(!$this->necropolis) return;
+        $blocks = $this->add('Model_Block')
+//            ->addCondition('type','in',$types)
+            ->addCondition('page_id',$this->model->id)
+//            ->addCondition('system_name',$sys_name)
+            ->addCondition('id','not in',$this->necropolis)
+            ->addCondition('language_id',$this->app->language_id);//TODO take real;
+
+        $v->add('H2')->set('Necropolis');
+        $crud = $v->add('CRUD',['allow_add'=>false]);
+        $crud->setModel($blocks);
     }
 
     protected function addBlocks(AbstractView $v=null, $app_type = 'frontend'){
@@ -20,11 +37,23 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
         if($this->model['type']){
             $this->blocks = $this->app->getConfig('atk4-home-page/page_types/'.$this->model['type'].'/blocks',[]);
 
+            $types = [];
             foreach($this->blocks as $sys_name=>$type){
+                $types[] = $type;
                 $this->addBlock($this->model->id, $sys_name, $type, $app_type,$v);
             }
         }
     }
+
+    /**
+     * @param $page_id
+     * @param $sys_name
+     * @param $type - The block's type from config
+     * @param $app_type
+     * @param AbstractView $v
+     * @throws AbstractObject
+     * @throws BaseException
+     */
     private function addBlock($page_id, $sys_name, $type, $app_type,AbstractView $v){
         $block = $this->add('Model_Block')
             ->addCondition('type',$type)
@@ -36,6 +65,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
         if(!$block->loaded()){
             $block->save();
         }
+        $this->necropolis[] = $block->id;
 
         $view = $v->add('View_Block_ATK4HomeBlock',['app_type'=>$app_type]);
         $view->setModel($block);

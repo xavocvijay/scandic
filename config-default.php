@@ -1,5 +1,7 @@
 <?php
 $config['atk4-home-page'] = [
+    'available_languages' => ['en','lv','ru'],
+    'default_language' => 'en',
     'page_types' => [
         'home' =>[
             'descr' => 'Page with static template',
