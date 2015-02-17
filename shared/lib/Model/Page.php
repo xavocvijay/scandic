@@ -10,12 +10,10 @@ class Model_Page extends Model_BaseTable {
 
     public $available_types = [];
 
-//    const MENU_TYPE_TOP = 'top';
-//    const MENU_TYPE_SUB = 'sub';
-//    public static $available_menu_types = [self::MENU_TYPE_TOP=>'Top Menu',self::MENU_TYPE_SUB=>'Sub Menu'];
-    public static $edit_in_form = ['title','type','page_id',/*'has_content','has_sub_pages','hash_url','meta_keywords','meta_description'*/];
-    public static $show_in_grid = ['title','type',/*'has_content','has_sub_pages'*/];
-    public static $meta_fields = ['hash_url','meta_keywords','meta_description'];
+    public static $edit_in_form = ['name','type','page_id'];
+    public static $show_in_grid = ['name','type'];
+    public static $meta_fields = ['hash_url','meta_title','meta_keywords','meta_description'];
+    public static $meta_fields_for_group = ['meta_title'];
 
     function getAvailableTypes(){
         if(!count($this->available_types)){
@@ -31,21 +29,63 @@ class Model_Page extends Model_BaseTable {
     function init(){
         parent::init();
 
-        $this->addField('title');
-//        $this->addField('menu_type')->setValueList(static::$available_menu_types);
+//$this->debug();
+        $this->addField('name');
         $this->addField('type')->setValueList($this->getAvailableTypes());
-//        $this->addField('has_content')->type('boolean');
-//        $this->addField('has_sub_pages')->type('boolean');
         $this->addField('created_dts');
         $this->addField('hash_url');
         $this->addField('order');
-        $this->addField('meta_keywords')->type('text');
-        $this->addField('meta_description')->type('text');
-        $this->hasOne('Page','page_id','title');
+
+        $this->hasOne('Page','page_id','name');
 
         $this->setOrder('order');
 
         $this->addHooks();
+    }
+
+    public function getMetaFields() {
+        return ($this['type'] == '') ? self::$meta_fields_for_group : self::$meta_fields;
+    }
+
+    private function addHooks(){
+        $this->createdDTS();
+
+        $this->addHook('beforeInsert', function($m,$q){
+            $q->set('hash_url', $this->generateUrlHash($m));
+        });
+        $this->addHook('afterLoad', function($m){
+            if(isset($m['translation_id']) && is_null($m['translation_id'])){
+                $m->add('Model_PageTranslation')->set([
+                    'language'=>$this->app->getCurrentLanguage(),
+                    'page_id'=>$m->id,
+                    'meta_title'=>($m['meta_title']) ? $m['meta_title'] : $m['name'] .'-'. $this->app->getCurrentLanguage(),
+                    'meta_keywords'=>$m['meta_keywords'],
+                    'meta_description'=>$m['meta_description'],
+                ])->saveAndUnload();
+                $m->reload();
+            }
+        });
+    }
+
+    public function joinTranslation(){
+        $join_title = $this->join('page_translation.page_id','id','left');
+        $join_title->addField('translation_id','id');
+        $join_title->addField('meta_title');
+        $join_title->addField('meta_keywords');
+        $join_title->addField('meta_description');
+        $join_title->addField('language');
+
+        return $this;
+    }
+
+    public function getForLanguage($lang){
+        $this->addCondition('language',$lang);
+        return $this;
+    }
+
+    public function getForCurrentLanguage(){
+        $this->getForLanguage($this->app->getCurrentLanguage());
+        return $this;
     }
 
 
@@ -112,16 +152,10 @@ class Model_Page extends Model_BaseTable {
         return $this;
     }
 
-    private function addHooks(){
-        $this->createdDTS();
 
-        $this->addHook('beforeInsert', function($m,$q){
-            $q->set('hash_url', $this->generateUrlHash($m));
-        });
-    }
 
     public function generateUrlHash($m) {
-        $str = strtolower($m->get('title'));
+        $str = strtolower($m->get('meta_title'));
         // заменям все ненужное нам на "-"
         $str = preg_replace('~[^-a-z0-9_]+~u', '-', $str);
         // удаляем начальные и конечные '-'

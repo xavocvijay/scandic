@@ -1,5 +1,8 @@
 <?php
 class Frontend extends App_Frontend {
+
+    use Trait_LanguageSupport;
+
     public $environment = 'prod';
     function init(){
         parent::init();
@@ -18,6 +21,12 @@ class Frontend extends App_Frontend {
         $this->addMenu();
     }
 
+    public function getCurrentLanguage(){
+        return $this->current_language;
+    }
+    public function setCurrentLanguage(){
+        return $this->current_language;
+    }
     public $real_page;
     private function addRouter(){
         try{

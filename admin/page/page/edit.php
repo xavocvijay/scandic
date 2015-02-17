@@ -11,10 +11,14 @@ class page_page_edit extends Page{
         parent::init();
         $page_id = $this->app->stickyGet('page_id');
 
-        $this->page = $this->add('Model_Page')->load($page_id);
-        $this->title = $this->page['title'] . ' ('.($this->page['type']?:'Group of pages').')';
+        $this->page = $this->add('Model_Page')->joinTranslation()/*->getForCurrentLanguage()*/->load($page_id);
+        $this->title = $this->page['name'] . ' ('.($this->page['type']?:'Group of pages').')';
+
 
         $col_total = $this->add('View');
+        $col_total->js('reload')->reload();
+
+        $this->showLangButtons($col_total);
         $this->showParents($col_total);
         $this->editSubPages($col_total);
 
@@ -32,6 +36,23 @@ class page_page_edit extends Page{
 
     }
 
+    private function showLangButtons(AbstractView $view){
+        $this->app->setCurrentLanguage('lv');
+        var_dump($this->app->recall('curr_lang_name'));
+        $langs = $this->app->getConfig('atk4-home-page/available_languages');
+        $button_set = $view->add('ButtonSet')->addClass('atk-box-small');
+        foreach($langs as $key=>$lang){
+            $button = $button_set->addButton($key);
+            if($key == $this->app->getCurrentLanguage()){
+                $button->setAttr('disabled','disabled')->addClass('atk-swatch-gray');
+            }
+            $button->js('click',[
+//                $this->app->setCurrentLanguage($key),
+                $view->js()->trigger('reload')
+            ]);
+        }
+    }
+
 
     private function showParents(AbstractView $v=null){
         if (!$v) $v = $this;
@@ -47,7 +68,7 @@ class page_page_edit extends Page{
         $vv->add('View')->setElement('span')->set('Breadcrumbs: ');
         if(count($parents)){
             foreach($parents as $parent_page){
-                $vv->addButton($parent_page['title'])
+                $vv->addButton($parent_page['name'])
                     ->js('click')
                     ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
                 $vv->add('View')->setElement('span')->set('>');
@@ -55,28 +76,24 @@ class page_page_edit extends Page{
         }
         $vv->add('View')->setElement('button')
             ->addClass('atk-button atk-swatch-gray')
-            ->set($this->page['title'])
+            ->set($this->page['name'])
             ->setAttr('disabled','disabled');
     }
 
     public function addMetaForm(AbstractView $v=null){
+        $this->app->stickyGet('page_id');
         if (!$v) $v = $this;
-        if($this->page['type']){
-            $v->add('H2')->set('Edit Page Meta Fields');
-            $form = $v->add('Form');
-            $form->addClass('stacked');
-            $form->setModel($this->page,Model_Page::$meta_fields);
-            $form->addSubmit();
+        $v->add('H2')->set('Edit Page Meta Fields');
+        $form = $v->add('Form');
+        $form->addClass('stacked');
+        $form->setModel($this->page,$this->page->getMetaFields());
+        $form->getElement('meta_title')->setCaption('Menu title (localized)');
+        $form->addSubmit();
 
-            if($form->isSubmitted()){
-                $form->save();
+        if($form->isSubmitted()){
+            $form->save();
 
-                $form->js()->univ()->successMessage('Saved')->execute();
-            }
-        } else {
-            $v->addClass('atk-effect-warning')
-                ->add('View')
-                ->set('Page group cannot have meta tags');
+            $form->js()->univ()->successMessage('Saved')->execute();
         }
     }
 

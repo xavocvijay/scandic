@@ -1,7 +1,9 @@
 <?php
 class Admin extends App_Frontend {
+
+    use Trait_LanguageSupport;
+
     public $menu;
-    public $language_id = 0;
     public $environment = 'admin';
     function init() {
         parent::init();

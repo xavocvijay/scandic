@@ -21,11 +21,9 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
     protected function addNecropolis(AbstractView $v){
         if(!$this->necropolis) return;
         $blocks = $this->add('Model_Block')
-//            ->addCondition('type','in',$types)
             ->addCondition('page_id',$this->model->id)
-//            ->addCondition('system_name',$sys_name)
             ->addCondition('id','not in',$this->necropolis)
-            ->addCondition('language_id',$this->app->language_id);//TODO take real;
+            ->addCondition('language',$this->app->getCurrentLanguage());
 
         $v->add('H2')->set('Necropolis');
         $crud = $v->add('CRUD',['allow_add'=>false]);
@@ -37,9 +35,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
         if($this->model['type']){
             $this->blocks = $this->app->getConfig('atk4-home-page/page_types/'.$this->model['type'].'/blocks',[]);
 
-            $types = [];
             foreach($this->blocks as $sys_name=>$type){
-                $types[] = $type;
                 $this->addBlock($this->model->id, $sys_name, $type, $app_type,$v);
             }
         }
@@ -59,7 +55,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
             ->addCondition('type',$type)
             ->addCondition('page_id',$page_id)
             ->addCondition('system_name',$sys_name)
-            ->addCondition('language_id',$this->app->language_id)//TODO take real
+            ->addCondition('language',$this->app->getCurrentLanguage())
             ->tryLoadAny();
 
         if(!$block->loaded()){

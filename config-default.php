@@ -1,6 +1,6 @@
 <?php
 $config['atk4-home-page'] = [
-    'available_languages' => ['en','lv','ru'],
+    'available_languages' => ['en'=>'en_EN','lv'=>'lv_LV','ru'=>'ru_RU'],
     'default_language' => 'en',
     'page_types' => [
         'home' =>[

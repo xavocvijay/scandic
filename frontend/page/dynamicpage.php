@@ -14,7 +14,7 @@ class page_dynamicpage extends Page{
         $page->tryLoadBy('hash_url',$this->app->real_page);
         if(!$page->loaded()) throw $this->exception('There is no such a page','NoPage');
 
-        $this->title = $page['title'];
+        $this->title = $page['meta_title'];
 
         $this->add('View')->addClass('atk-box')->set('banner');
 
