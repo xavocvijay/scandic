@@ -34,7 +34,7 @@ class Frontend extends App_Frontend {
         }
         if($_GET['language']){
             $this->setCurrentLanguage($_GET['language']);
-            $this->js()->redirect($this->url($this->real_page))->execute();
+            $this->js()->redirect($this->url($_GET['page']))->execute();
         }
     }
 
@@ -55,6 +55,9 @@ class Frontend extends App_Frontend {
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
         foreach($this->getTopPages() as $page){
+            if(!$page['type']){
+                if(!$page->hasChildren()) continue;
+            }
             $page->translation = $page->getTranslation(true);
             $url = $page['hash_url']?:$page['url_first_child'];
             $this->addMenuItem($menu,$page->translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);

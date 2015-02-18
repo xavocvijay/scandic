@@ -118,7 +118,7 @@ class page_page_edit extends Page{
         if(!$this->page['type']){
             $v->add('H2')->set('Configure pages of this group');
 
-            $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
+            $model_page = $this->add('Model_Page')->deleted(false)->addCondition('page_id',$this->page->id);
 
             $c = $v->add('CRUD')->addClass('atk-push');
             $this->updateOrder($c,$model_page);

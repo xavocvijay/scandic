@@ -48,7 +48,7 @@ class Model_Page extends Model_BaseTable {
         $this->createdDTS();
 
         $this->addHook('beforeInsert', function($m,$q){
-            $q->set('hash_url', $this->generateUrlHash($m['name']));
+            if($m['type']) $q->set('hash_url', $this->generateUrlHash($m['name']));
         });
     }
 
@@ -110,6 +110,19 @@ class Model_Page extends Model_BaseTable {
             $p = $this->add('Model_Page');
             $p->addCondition('page_id',$this['page_id']);
             return $p;
+        } else {
+            return false;
+        }
+    }
+
+    public function hasChildren() {
+        if(!$this->loaded()) throw $this->exception(get_class($this).' MUST be loaded','NotLoadedModel');
+        if(!$this['type']) {
+            $p = $this->add('Model_Page');
+            $p->addCondition('page_id',$this['id']);
+            $p->addCondition('is_deleted','0');
+            if(count($p->getRows())) return true;
+            return false;
         } else {
             return false;
         }
