@@ -38,8 +38,9 @@ class page_dynamicpage extends Page{
 
             $menu = $view->add('Menu_Vertical',null,'SubMenu');
             foreach($siblings as $page){
+                $page->page_translation = $page->getTranslation(true);
                 $url = $page['hash_url']?:$page['url_first_child'];
-                $this->app->addMenuItem($menu,$this->page_translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
+                $this->app->addMenuItem($menu,$page->page_translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
             }
 
         }
