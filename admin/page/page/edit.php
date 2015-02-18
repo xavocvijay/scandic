@@ -11,12 +11,17 @@ class page_page_edit extends Page{
         parent::init();
         $page_id = $this->app->stickyGet('page_id');
 
-        $this->page = $this->add('Model_Page')->joinTranslation()/*->getForCurrentLanguage()*/->load($page_id);
+
+        $this->page = $this->add('Model_Page')->joinTranslation()->getForCurrentLanguage()->load($page_id);
         $this->title = $this->page['name'] . ' ('.($this->page['type']?:'Group of pages').')';
 
 
         $col_total = $this->add('View');
-        $col_total->js('reload')->reload();
+
+        if($_GET['language']){
+            $this->app->setCurrentLanguage($_GET['language']);
+            $this->js()->reload()->execute();
+        }
 
         $this->showLangButtons($col_total);
         $this->showParents($col_total);
@@ -28,17 +33,11 @@ class page_page_edit extends Page{
 
         $this->addMetaForm($col_left);
         $this->editContent($col_right);
-
-        $this->addHooks();
-    }
-
-    private function addHooks(){
-
     }
 
     private function showLangButtons(AbstractView $view){
-        $this->app->setCurrentLanguage('lv');
-        //var_dump($this->app->recall('curr_lang_name'));
+//        $this->app->setCurrentLanguage('lv');
+//        var_dump($this->app->recall('curr_lang_name'));
         $langs = $this->app->getConfig('atk4-home-page/available_languages');
         $button_set = $view->add('ButtonSet')->addClass('atk-box-small');
         foreach($langs as $key=>$lang){
@@ -46,10 +45,7 @@ class page_page_edit extends Page{
             if($key == $this->app->getCurrentLanguage()){
                 $button->setAttr('disabled','disabled')->addClass('atk-swatch-gray');
             }
-            $button->js('click',[
-//                $this->app->setCurrentLanguage($key),
-                $view->js()->trigger('reload')
-            ]);
+            $button->js('click')->univ()->ajaxec($this->app->url(null,['language'=>$key]));
         }
     }
 

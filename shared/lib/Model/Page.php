@@ -55,10 +55,11 @@ class Model_Page extends Model_BaseTable {
         });
         $this->addHook('afterLoad', function($m){
             if(isset($m['translation_id']) && is_null($m['translation_id'])){
-                $m->add('Model_PageTranslation')->set([
+                $m->add('Model_PageTranslation')
+                    ->set([
                     'language'=>$this->app->getCurrentLanguage(),
                     'page_id'=>$m->id,
-                    'meta_title'=>($m['meta_title']) ? $m['meta_title'] : $m['name'] .'-'. $this->app->getCurrentLanguage(),
+                    'meta_title'=>($m['meta_title']) ? $m['meta_title'] : $m['name'] .' - '. $this->app->getCurrentLanguage(),
                     'meta_keywords'=>$m['meta_keywords'],
                     'meta_description'=>$m['meta_description'],
                 ])->saveAndUnload();
