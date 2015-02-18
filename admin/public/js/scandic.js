@@ -1,18 +1,18 @@
 (function($){
-$.tdash=function(){
-    return $.tdash;
+$.scandic=function(){
+    return $.scandic;
 }
 	
-$.fn.extend({tdash:function(){
-	var u=new $.tdash;
+$.fn.extend({scandic:function(){
+	var u=new $.scandic;
 	u.jquery=this;
 	return u;
 }});
 	
-$.tdash._import=function(name,fn){
-	$.tdash[name]=function(){
-		var ret=fn.apply($.tdash,arguments);
-		return ret?ret:$.tdash;
+$.scandic._import=function(name,fn){
+	$.scandic[name]=function(){
+		var ret=fn.apply($.scandic,arguments);
+		return ret?ret:$.scandic;
 	}
 }
 	
@@ -24,7 +24,8 @@ $.each({
 
         $( "#"+name ).sortable({
             placeholder: "ui-state-highlight",
-            items: items
+            items: items,
+            cursor: "move"
         });
 
 	},
@@ -56,6 +57,6 @@ $.each({
 
 	}
 
-},$.tdash._import);
+},$.scandic._import);
 
 })(jQuery);

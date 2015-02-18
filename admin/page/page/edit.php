@@ -38,7 +38,7 @@ class page_page_edit extends Page{
 
     private function showLangButtons(AbstractView $view){
         $this->app->setCurrentLanguage('lv');
-        var_dump($this->app->recall('curr_lang_name'));
+        //var_dump($this->app->recall('curr_lang_name'));
         $langs = $this->app->getConfig('atk4-home-page/available_languages');
         $button_set = $view->add('ButtonSet')->addClass('atk-box-small');
         foreach($langs as $key=>$lang){
@@ -105,12 +105,19 @@ class page_page_edit extends Page{
             $model_page = $this->add('Model_Page')->addCondition('page_id',$this->page->id);
 
             $c = $v->add('CRUD')->addClass('atk-push');
+            $this->updateOrder($c,$model_page);
             $c->setModel($model_page,
                 Model_Page::$edit_in_form,
                 Model_Page::$show_in_grid
             );
 
             $this->addConfigureButton($c);
+
+            $v->js(true)->scandic()->makeSortable($c->name,"tbody>tr");
+
+            $v->add('Button')->addClass('atk-push')->set('Save order')->js('click')->scandic()->saveOrder(
+                $c->name,"tbody>tr",'data-id',$this->app->url()
+            );
         } else {
             $v->add('View')
                 ->addClass('atk-box atk-effect-warning')
@@ -139,6 +146,23 @@ class page_page_edit extends Page{
 
         if($id = $_GET['configure']){
             $this->js()->redirect($this->app->url('page/edit',['page_id'=>$id]))->execute();
+        }
+    }
+
+    private function updateOrder(AbstractView $v, Model_Page $m) {
+
+        if ($_GET['action'] == 'refresh_order') {
+            $ids = $_GET['ids'];
+            $ids_arr = [];
+            foreach (explode(',',$ids) as $k=>$v) {
+                $ids_arr[$v] = $k;
+            }
+            $m->addCondition('id','in',$ids);
+
+            foreach ($m as $row) {
+                $row->set('order',$ids_arr[$row->id])->saveAndUnload();
+            }
+            $this->js()->univ()->successMessage('Order updated')->execute();
         }
     }
 }

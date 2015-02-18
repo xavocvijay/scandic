@@ -9,7 +9,7 @@ class Admin extends App_Frontend {
         parent::init();
         $this->dbConnect();
         $this->add('jUI');
-        $this->jquery->addStaticInclude('tdash');
+        $this->jquery->addStaticInclude('scandic');
 
         $this->pathfinder->addLocation(array(
             'addons'=>array('../atk4-addons','../addons','../vendor'),

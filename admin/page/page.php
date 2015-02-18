@@ -13,7 +13,7 @@ class page_page extends Page{
         $m = $this->add('Model_Page')->getTop();
         $m->setOrder('order');
 
-        $c = $this->add('CRUD');
+        $c = $this->add('CRUD')->addClass('atk-push');
         $this->updateOrder($c,$m);
         $c->setModel($m,
             Model_Page::$edit_in_form,
@@ -21,9 +21,9 @@ class page_page extends Page{
         );
         $this->addConfigureButton($c);
 
-        $this->js(true)->tdash()->makeSortable($c->name,"tbody>tr");
+        $this->js(true)->scandic()->makeSortable($c->name,"tbody>tr");
 
-        $this->add('Button')->set('Save order')->js('click')->tdash()->saveOrder(
+        $this->add('Button')->addClass('atk-push')->set('Save order')->js('click')->scandic()->saveOrder(
             $c->name,"tbody>tr",'data-id',$this->app->url()
         );
 
