@@ -19,14 +19,25 @@ class Frontend extends App_Frontend {
 
         $this->addRouter();
         $this->addMenu();
+        $this->addLanguageSwitcher();
     }
 
-    public function getCurrentLanguage(){
-        return $this->current_language;
+    private function addLanguageSwitcher(){
+        $langs = $this->app->getConfig('atk4-home-page/available_languages');
+        $button_set = $this->layout->add('ButtonSet',null,'langs');
+        foreach($langs as $key=>$lang){
+            $button = $button_set->addButton($key)->addClass('atk-button-small');
+            if($key == $this->getCurrentLanguage()){
+                $button->setAttr('disabled','disabled')->addClass('atk-swatch-blue');
+            }
+            $button->js('click')->univ()->ajaxec($this->app->url($this->real_page,['language'=>$key]));
+        }
+        if($_GET['language']){
+            $this->setCurrentLanguage($_GET['language']);
+            $this->js()->redirect($this->url($this->real_page))->execute();
+        }
     }
-    public function setCurrentLanguage(){
-        return $this->current_language;
-    }
+
     public $real_page;
     private function addRouter(){
         try{
@@ -42,10 +53,11 @@ class Frontend extends App_Frontend {
 
 
     private function addMenu(){
-        $menu = $this->layout->add('Menu',null,'Main_Menu')->addClass('atk-move-right');
+        $menu = $this->layout->add('Menu',null,'Main_Menu');
         foreach($this->getTopPages() as $page){
+            $page->translation = $page->getTranslation(true);
             $url = $page['hash_url']?:$page['url_first_child'];
-            $this->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$url);
+            $this->addMenuItem($menu,$page->translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
         }
     }
 
@@ -57,7 +69,7 @@ class Frontend extends App_Frontend {
         } else {
             $url = strtolower($title);
         }
-        $menu->addItem(array($title, 'icon'=>$icon),$url)->addClass($class.' '.$active_class);
+        $menu->addItem(array($title/*, 'icon'=>$icon*/),$url)->addClass($class.' '.$active_class);
     }
 
 
@@ -80,7 +92,7 @@ class Frontend extends App_Frontend {
     private $top_pages=null;
     function getTopPages(){
         if(!$this->top_pages){
-            $this->top_pages = $this->add('Model_Page')->getTop()->getForMenu()->getRows();
+            $this->top_pages = $this->add('Model_Page')->getTop()->getForMenu();//->getRows();
         }
         return $this->top_pages;
     }

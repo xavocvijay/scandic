@@ -12,8 +12,7 @@ class Model_Page extends Model_BaseTable {
 
     public static $edit_in_form = ['name','type','page_id'];
     public static $show_in_grid = ['name','type'];
-    public static $meta_fields = ['hash_url','meta_title','meta_keywords','meta_description'];
-    public static $meta_fields_for_group = ['meta_title'];
+
 
     function getAvailableTypes(){
         if(!count($this->available_types)){
@@ -43,52 +42,44 @@ class Model_Page extends Model_BaseTable {
         $this->addHooks();
     }
 
-    public function getMetaFields() {
-        return ($this['type'] == '') ? self::$meta_fields_for_group : self::$meta_fields;
-    }
+
 
     private function addHooks(){
         $this->createdDTS();
 
         $this->addHook('beforeInsert', function($m,$q){
-            $q->set('hash_url', $this->generateUrlHash($m));
-        });
-        $this->addHook('afterLoad', function($m){
-            if(isset($m['translation_id']) && is_null($m['translation_id'])){
-                $m->add('Model_PageTranslation')
-                    ->set([
-                    'language'=>$this->app->getCurrentLanguage(),
-                    'page_id'=>$m->id,
-                    'meta_title'=>($m['meta_title']) ? $m['meta_title'] : $m['name'] .' - '. $this->app->getCurrentLanguage(),
-                    'meta_keywords'=>$m['meta_keywords'],
-                    'meta_description'=>$m['meta_description'],
-                ])->saveAndUnload();
-                $m->reload();
-            }
+            $q->set('hash_url', $this->generateUrlHash($m['name']));
         });
     }
 
-    public function joinTranslation(){
-        $join_title = $this->join('page_translation.page_id','id','left');
-        $join_title->addField('translation_id','id');
-        $join_title->addField('meta_title');
-        $join_title->addField('meta_keywords');
-        $join_title->addField('meta_description');
-        $join_title->addField('language');
 
-        return $this;
+    public function getTranslations($lang = null){
+        if(!$this->loaded()) throw $this->exception(get_class($this).' MUST be loaded','NotLoadedModel');
+        $trans = $this->add('Model_PageTranslation');
+        $trans->addCondition('page_id',$this->id);
+        if($lang === true){
+            $trans->addCondition('language',$this->app->getCurrentLanguage());
+        }elseif(is_string($lang)){
+            $trans->addCondition('language',$lang);
+        }
+        return $trans;
     }
 
-    public function getForLanguage($lang){
-        $this->addCondition('language',$lang);
-        return $this;
+    /**
+     * Lang argument must be true for current language or string with valid language name
+     *
+     * @param $lang - string|true
+     * @return Model_PageTranslation
+     * @throws Exception_UnsupportedType
+     */
+    public function getTranslation($lang){
+        if($lang === false) throw $this->exception('This argument is not supported','UnsupportedType');
+        $m = $this->getTranslations($lang)->tryLoadAny();
+        if(!$m->loaded()){
+            $m->set('meta_title',$this['name'] .' - '. $this->app->getCurrentLanguage())->save();
+        }
+        return $m;
     }
-
-    public function getForCurrentLanguage(){
-        $this->getForLanguage($this->app->getCurrentLanguage());
-        return $this;
-    }
-
 
     public function getTemplatePath(){
         if(!$this->loaded()) throw $this->exception(get_class($this).' MUST be loaded','NotLoadedModel');
@@ -109,6 +100,7 @@ class Model_Page extends Model_BaseTable {
 
     public function getTop(){
         $this->addCondition('page_id',null);
+        $this->addCondition('is_deleted','0');
         return $this;
     }
 
@@ -155,8 +147,8 @@ class Model_Page extends Model_BaseTable {
 
 
 
-    public function generateUrlHash($m) {
-        $str = strtolower($m->get('meta_title'));
+    public function generateUrlHash($name) {
+        $str = strtolower($name);
         // заменям все ненужное нам на "-"
         $str = preg_replace('~[^-a-z0-9_]+~u', '-', $str);
         // удаляем начальные и конечные '-'

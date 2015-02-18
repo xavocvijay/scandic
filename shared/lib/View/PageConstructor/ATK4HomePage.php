@@ -51,7 +51,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
      * @throws BaseException
      */
     private function addBlock($page_id, $sys_name, $type, $app_type,AbstractView $v){
-        $block = $this->add('Model_Block')
+        $block = $this->add('Model_Block')//->debug()
             ->addCondition('type',$type)
             ->addCondition('page_id',$page_id)
             ->addCondition('system_name',$sys_name)
@@ -68,7 +68,7 @@ class View_PageConstructor_ATK4HomePage extends View_AbstractConstructor{
         $view->get();
     }
     protected function getForFrontend(){
-        $blocks = $this->model->getBlocks();
+        $blocks = $this->model->getBlocks()->withCurrentLanguage();
 
         $error_messages = [];
 

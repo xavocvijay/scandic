@@ -27,6 +27,11 @@ class Model_Block extends Model_BaseTable {
         });
     }
 
+    public function withCurrentLanguage(){
+        $this->addCondition('language',$this->app->getCurrentLanguage());
+        return $this;
+    }
+
     public function getPage() {
         return $this->add('Model_Page')->deleted($this['is_deleted']);
     }

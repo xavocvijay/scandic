@@ -6,6 +6,7 @@
  * Time: 19:46
  */
 class page_dynamicpage extends Page{
+    public $page_translation;
     function init(){
         parent::init();
 
@@ -14,7 +15,8 @@ class page_dynamicpage extends Page{
         $page->tryLoadBy('hash_url',$this->app->real_page);
         if(!$page->loaded()) throw $this->exception('There is no such a page','NoPage');
 
-        $this->title = $page['meta_title'];
+        $this->page_translation = $page->getTranslation(true);
+        $this->title = $this->page_translation['meta_title'];
 
         $this->add('View')->addClass('atk-box')->set('banner');
 
@@ -37,7 +39,7 @@ class page_dynamicpage extends Page{
             $menu = $view->add('Menu_Vertical',null,'SubMenu');
             foreach($siblings as $page){
                 $url = $page['hash_url']?:$page['url_first_child'];
-                $this->app->addMenuItem($menu,$page['title'],'home-1','atk-swatch-beigeDarken',$url);
+                $this->app->addMenuItem($menu,$this->page_translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
             }
 
         }

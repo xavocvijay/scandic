@@ -7,12 +7,14 @@
  */
 class page_page_edit extends Page{
     protected $page;
+    protected $trans;
     function init(){
         parent::init();
         $page_id = $this->app->stickyGet('page_id');
 
 
-        $this->page = $this->add('Model_Page')->joinTranslation()->getForCurrentLanguage()->load($page_id);
+        $this->page = $this->add('Model_Page')->load($page_id);
+        $this->trans = $this->page->getTranslation(true);
         $this->title = $this->page['name'] . ' ('.($this->page['type']?:'Group of pages').')';
 
 
@@ -36,8 +38,7 @@ class page_page_edit extends Page{
     }
 
     private function showLangButtons(AbstractView $view){
-//        $this->app->setCurrentLanguage('lv');
-//        var_dump($this->app->recall('curr_lang_name'));
+
         $langs = $this->app->getConfig('atk4-home-page/available_languages');
         $button_set = $view->add('ButtonSet')->addClass('atk-box-small');
         foreach($langs as $key=>$lang){
@@ -56,6 +57,7 @@ class page_page_edit extends Page{
         $parents = [];
         while($id = $page['page_id']){
             $page = $this->add('Model_Page')->load($id);//TODO Is it save?
+            $page->translation = $page->getTranslation(true);
             $parents[] = $page;
         }
         krsort($parents);
@@ -64,7 +66,7 @@ class page_page_edit extends Page{
         $vv->add('View')->setElement('span')->set('Breadcrumbs: ');
         if(count($parents)){
             foreach($parents as $parent_page){
-                $vv->addButton($parent_page['name'])
+                $vv->addButton($parent_page->translation['meta_title'])
                     ->js('click')
                     ->redirect($this->app->url('page/edit',['page_id'=>$parent_page['id']]));
                 $vv->add('View')->setElement('span')->set('>');
@@ -72,24 +74,42 @@ class page_page_edit extends Page{
         }
         $vv->add('View')->setElement('button')
             ->addClass('atk-button atk-swatch-gray')
-            ->set($this->page['name'])
+            ->set($this->trans['meta_title'])
             ->setAttr('disabled','disabled');
     }
 
     public function addMetaForm(AbstractView $v=null){
         $this->app->stickyGet('page_id');
         if (!$v) $v = $this;
-        $v->add('H2')->set('Edit Page Meta Fields');
-        $form = $v->add('Form');
-        $form->addClass('stacked');
-        $form->setModel($this->page,$this->page->getMetaFields());
-        $form->getElement('meta_title')->setCaption('Menu title (localized)');
-        $form->addSubmit();
 
-        if($form->isSubmitted()){
-            $form->save();
+        if($this->page['type']){
+            $v->add('H2')->set('Edit Page URL');
 
-            $form->js()->univ()->successMessage('Saved')->execute();
+            //URL form
+            $form = $v->add('Form');
+            $form->addClass('stacked');
+            $form->setModel($this->page,['hash_url']);
+            $form->addSubmit();
+
+            if($form->isSubmitted()){
+                $form->save();
+
+                $form->js()->univ()->successMessage('Saved')->execute();
+            }
+        }
+
+        $v->add('H2')->set('Edit Page Metas');
+        //Meta form
+        $form2 = $v->add('Form');
+        $form2->addClass('stacked');
+        $form2->setModel($this->trans,$this->trans->getMetaFields());
+        $form2->getElement('meta_title')->setCaption('Menu title (localized)');
+        $form2->addSubmit();
+
+        if($form2->isSubmitted()){
+            $form2->save();
+
+            $form2->js()->univ()->successMessage('Saved')->execute();
         }
     }
 
