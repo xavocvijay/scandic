@@ -1,4 +1,7 @@
 <?php
+
+use atk4\atk4homepage\Trait_LanguageSupport;
+
 class Admin extends App_Frontend {
 
     use Trait_LanguageSupport;
@@ -9,10 +12,9 @@ class Admin extends App_Frontend {
         parent::init();
         $this->dbConnect();
         $this->add('jUI');
-        $this->jquery->addStaticInclude('scandic');
 
         $this->pathfinder->addLocation(array(
-            'addons'=>array('../atk4-addons','../addons','../vendor'),
+            'addons'=>array('../atk4-addons'/*,'../addons'*/,'../vendor'),
             'php'=>array('../shared','../shared/lib'),
             'mail'=>array('templates/mail'),
         ))->setBasePath('.');

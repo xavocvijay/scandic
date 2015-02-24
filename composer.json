@@ -1,6 +1,7 @@
 {
     "autoload": {
         "psr-0": {"": "lib/"},
+        "psr-0": {"atk4\\atk4homepage\\": "addons/atk4/atk4-homepage/lib/"},
         "classmap": ["tests/","shared/"]
     },
 

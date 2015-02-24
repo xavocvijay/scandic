@@ -1,7 +1,13 @@
 <?php
-class Model_User extends Model_BaseTable {
 
-    use Trait_DTS, Trait_Validation;
+use atk4\atk4homepage\Trait_DTS;
+use atk4\atk4homepage\Trait_Validation;
+use atk4\atk4homepage\Trait_SoftDelete;
+use atk4\atk4homepage\Trait_Contitions;
+
+class Model_User extends SQL_Model {
+
+    use Trait_DTS, Trait_Validation, Trait_SoftDelete, Trait_Contitions;
 
     public $table = 'user';
     public $related_entities = [];
@@ -14,13 +20,13 @@ class Model_User extends Model_BaseTable {
         $this->addField('email');
         $this->addField('password');
         $this->addField('name');
-        $this->addField('created_dts')->type('date');
+        $this->addField('created_dts')->type('datetime');
 
         $this->addHooks();
     }
 
     private function addHooks(){
-        $this->createdDTS();
+        //$this->createdDTS();
     }
 
     public function create($data){
@@ -51,7 +57,7 @@ class Model_User extends Model_BaseTable {
         try{
             $this->set($data)->save();
         }catch (Exception $e){
-            throw $this->exception('Can not create new user '.$e->getMessage(),'CanNotSave');
+            throw $this->exception('Can not create new user '.$e->getMessage(),'atk4\atk4homepage\CanNotSave');
         }
         return $this;
     }
