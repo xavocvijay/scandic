@@ -5,12 +5,15 @@
  * Date: 11.02.15
  * Time: 19:46
  */
+
+use atk4\atk4homepage\Model_Page;
+
 class page_dynamicpage extends Page{
     public $page_translation;
     function init(){
         parent::init();
 
-        $page = $this->add('Model_Page');
+        $page = $this->add('atk4\atk4homepage\Model_Page');
 
         $page->tryLoadBy('hash_url',$this->app->real_page);
         if(!$page->loaded()) throw $this->exception('There is no such a page','atk4\atk4homepage\NoPage');
@@ -25,7 +28,7 @@ class page_dynamicpage extends Page{
 
         $content_view = $page_content_view->add('View')->addClass('atk-cell atk-jackscrew atk-box');
 
-        $view = $content_view->add('View_PageConstructor_ATK4HomePage',['template_path'=>$page->getTemplatePath()]);
+        $view = $content_view->add('atk4\atk4homepage\View_DynamicPage',['template_path'=>$page->getTemplatePath()]);
         $view->setModel($page);
         $view->get();
 

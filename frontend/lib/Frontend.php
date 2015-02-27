@@ -1,4 +1,7 @@
 <?php
+
+use atk4\atk4homepage\Trait_LanguageSupport;
+
 class Frontend extends App_Frontend {
 
     use Trait_LanguageSupport;
@@ -95,7 +98,7 @@ class Frontend extends App_Frontend {
     private $top_pages=null;
     function getTopPages(){
         if(!$this->top_pages){
-            $this->top_pages = $this->add('Model_Page')->getTop()->getForMenu();//->getRows();
+            $this->top_pages = $this->add('atk4/atk4homepage/Model_Page')->getTop()->getForMenu();//->getRows();
         }
         return $this->top_pages;
     }

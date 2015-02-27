@@ -17,7 +17,8 @@
         "atk4/agiletoolkit-css": "dev-master",
         "PHPMailer/PHPMailer": "dev-master",
         "robmorgan/phinx": "*",
-        "nesbot/Carbon": "*"
+        "nesbot/Carbon": "*",
+        "atk4/atk4-homepage": "dev-scandic"
     },
 
     "require-dev": {
