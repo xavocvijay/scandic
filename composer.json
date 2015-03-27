@@ -18,7 +18,10 @@
         "PHPMailer/PHPMailer": "dev-master",
         "robmorgan/phinx": "*",
         "nesbot/Carbon": "*",
-        "atk4/atk4-homepage": "dev-scandic"
+        "atk4/atk4-homepage": "dev-master",
+        "atk4/traits": "dev-master",
+        "atk4/markdown": "dev-master",
+        "intervention/image": "dev-master"
     },
 
     "require-dev": {

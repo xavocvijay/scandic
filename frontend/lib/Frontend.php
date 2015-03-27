@@ -1,10 +1,8 @@
 <?php
-
-use atk4\atk4homepage\Trait_LanguageSupport;
-
 class Frontend extends App_Frontend {
 
-    use Trait_LanguageSupport;
+    use atk4\atk4homepage\Trait_LanguageSupport;
+    use atk4\atk4homepage\Trait_ATK4HomePage;
 
     public $environment = 'prod';
     function init(){
@@ -12,15 +10,34 @@ class Frontend extends App_Frontend {
         $this->dbConnect();
         $this->add('jUI');
 
+//        $initiator = new Initiator;
+//        $initiator->addLocation($this);
+
         $this->pathfinder->addLocation(array(
-            'addons'=>array('../atk4-addons','../addons','../vendor'),
+            'addons'=>array('../atk4-addons','../addons','../vendor','../vendor/atk4'),
             'php'=>array('../shared','../shared/lib'),
             'mail'=>array('templates/mail'),
+            'js'=>array(
+                '../shared/js',
+            ),
         ))->setBasePath('.');
+
+        $this->pathfinder->addLocation(array(
+            'js'=>array(
+                'packages',
+            ),
+            'css'=>array('packages'),
+        ))
+            ->setBasePath(getcwd().'/public')
+            ->setBaseUrl($this->getBaseURL())
+        ;
+
+        $this->editor_session = $this->add('atk4\atk4homepage\Controller_SessionControl');
 
         $this->layout = $this->add('Layout_Fluid');
 
-        $this->addRouter();
+//        $this->addRouter();
+        $this->real_page = $this->page;
         $this->addMenu();
         $this->addLanguageSwitcher();
     }
@@ -57,48 +74,47 @@ class Frontend extends App_Frontend {
 
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
-        foreach($this->getTopPages() as $page){
+        $this->addMenuItem($menu,'Competences<br />and Services','home-1','atk-swatch-white','khjghng');
+        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','atk-swatch-white','industrysolutions');
+        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','atk-swatch-white','industrysolutionsh');
+        $this->addMenuItem($menu,'Technology<br />Stack','home-1','atk-swatch-white','industrysolutionsk');
+        $submenu=$menu->addMenu(['About Scandic<br />Fusion','icon'=>'filter','swatch'=>'white'])->addClass('atk-swatch-white');
+        $this->addMenuItem($submenu,'Our Team','home-1','atk-swatch-white','team');
+
+        /*foreach($this->getTopPages() as $page){
             if(!$page['type']){
                 if(!$page->hasChildren()) continue;
             }
             $page->translation = $page->getTranslation(true);
             $url = $page['hash_url']?:$page['url_first_child'];
             $this->addMenuItem($menu,$page->translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
-        }
+        }*/
     }
 
 
     public function addMenuItem($menu,$title,$icon,$class,$url){
-        if ($this->isCurrent(strtolower($url))) $active_class='ui-state-active'; else $active_class='';
+        if ($this->isCurrent(strtolower($url))) $active_class='active'; else $active_class='';
         if ($url) {
             $url = $this->url($url);
         } else {
             $url = strtolower($title);
         }
-        $menu->addItem(array($title/*, 'icon'=>$icon*/),$url)->addClass($class.' '.$active_class);
+        $menu->addItem($title,$url)->addClass($class.' '.$active_class);
     }
 
 
     function isCurrent($href){
         // returns true if item being added is current
         if(!is_object($href))$href=str_replace('/','_',$href);
-        if(
-            $href==$this->real_page
-            ||
-            $href==';'.$this->real_page
-            ||
-            $href.$this->api->getConfig('url_postfix','')==$this->real_page
-            ||
-            (string)$href==(string)$this->api->url()
-        ) return true;
-        return false;
+        return $href==$this->real_page||$href==';'.$this->real_page||$href.$this->getConfig('url_postfix','')==$this->real_page||(string)$href==(string)$this->url();
+
     }
 
 
     private $top_pages=null;
     function getTopPages(){
         if(!$this->top_pages){
-            $this->top_pages = $this->add('atk4/atk4homepage/Model_Page')->getTop()->getForMenu();//->getRows();
+            $this->top_pages = $this->add('atk4\atk4homepage\Model_Page')->getTop()->getForMenu();//->getRows();
         }
         return $this->top_pages;
     }

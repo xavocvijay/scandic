@@ -1,30 +1,24 @@
 <div class="atk-layout">
-    <div class="atk-layout-row">{Header}
-        <div class="atk-layout-cell {$class}">
-            <div class="atk-padding-small atk-swatch-ink">{Header_Content}
-                <div class="atk-bar atk-cells atk-cells-gutter-large">
-                    <div class="atk-cell atk-text-nowrap"><a href="{page}/{/}"><img src="{public}images/logo.svg{/}" width="50px"/></a></div>
-                    <div class="atk-cell atk-jackscrew">
-                        <div class="atk-align-right">{$Main_Menu}</div>
-                        <div class="atk-align-right">{$langs}</div>
+    <div id="header" class="atk-layout-row">{Header}
+        <div class="atk-layout-cell">
+            <div class="atk-wrapper">{Header_Content}
+                <div class="atk-cells">
+                    <div class="atk-cell atk-col-2"><a href="javascript:void(0)" id="logo"><img src="images/logo.svg" alt="Scandic Fusion" width="140"></a></div>
+                    <div class="atk-cell atk-expand">
+                        {$Main_Menu}
+                        <!--<div class="atk-align-right">{$Main_Menu}</div>-->
+                        <!--<div class="atk-align-right">{$langs}</div>-->
                     </div>
                 </div>{/Header_Content}
             </div>
+            <hr class="atk-hr-reset">
         </div>{/Header}
     </div>
-    <div class="atk-layout-row atk-layout-fluid">
-        <div class="atk-layout atk-layout-cell">
-            <div class="atk-layout-column fluid atk-padding atk-jackscrew">
-                <h2 class="atk-push-small">{page_title}Page Title{/}</h2>
+    <div class="atk-layout-row atk-layout-expand">
+        <div id="atk-layout-content" class="atk-layout atk-layout-cell">
+            <div class="atk-layout-column atk-layout-fluid">
                 {$Content}
             </div>
         </div>
-    </div>
-    <div class="atk-layout-row">{Footer}
-        <div class="atk-layout-cell {$class}">
-            <div class="atk-padding-small atk-swatch-ink atk-align-center atk-size-milli">
-                &copy;Scandic Fusion 2015
-            </div>
-        </div>{/}
     </div>
 </div>

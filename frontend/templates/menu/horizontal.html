@@ -1,0 +1,22 @@
+<ul id="{$_name}" style="{$style}" class="atk-menu-horizontal atk-actions-xxlarge atk-move-right">
+    {Content}
+    {Item}
+    <li id="{$_name}" class="{$class}">
+        <a class="atk-action" id="{$_name}" href="{url}javascript:void(0){/}" {$attributes}>
+            {$icon}{$Content}
+        </a>
+    </li>
+    {/Item}
+    {Menu}
+    <li id="{$_name}" class="{$li-class}">
+        <a href="#" class="atk-action {$class}">
+            <div class="atk-cells atk-cells-gutter-small">
+                <div class="atk-cell">{$icon}{$Content}</div>
+                <div class="atk-cell atk-valign-top"><span class="icon-arrow-circle-south"></span></div>
+            </div>
+        </a>
+        {$SubMenu}
+    </li>
+    {/Menu}
+    {/Content}
+</ul>

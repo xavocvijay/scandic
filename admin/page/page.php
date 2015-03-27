@@ -6,6 +6,6 @@
  * Time: 11:25
  */
 
-use atk4\atk4homepage\Page_Atk4HomePage;
+use atk4\atk4homepage\Page_ATK4HomePage;
 
-class page_page extends Page_Atk4HomePage {}
+class page_page extends Page_ATK4HomePage {}

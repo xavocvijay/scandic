@@ -1,0 +1,151 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'less' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose config Skipping project config: /home/konstantin/.npmrc. (matches userconfig)
+6 verbose cache add [ 'less', null ]
+7 verbose cache add name=undefined spec="less" args=["less",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'less',
+8 verbose parsed url   path: 'less',
+8 verbose parsed url   href: 'less' }
+9 silly lockFile 0b439cf4-less less
+10 verbose lock less /home/konstantin/.npm/0b439cf4-less.lock
+11 silly lockFile 0b439cf4-less less
+12 silly lockFile 0b439cf4-less less
+13 verbose addNamed [ 'less', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile e13833ab-less less@
+16 verbose lock less@ /home/konstantin/.npm/e13833ab-less.lock
+17 silly addNameRange { name: 'less', range: '*', hasData: false }
+18 verbose request where is /less
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id 0d13e0984aed5527
+21 verbose url raw /less
+22 verbose url resolving [ 'https://registry.npmjs.org/', './less' ]
+23 verbose url resolved https://registry.npmjs.org/less
+24 verbose request where is https://registry.npmjs.org/less
+25 info trying registry request attempt 1 at 11:04:05
+26 verbose etag "A741OIMFYXXK3SM0BV5MA1PL3"
+27 http GET https://registry.npmjs.org/less
+28 http 200 https://registry.npmjs.org/less
+29 silly registry.get cb [ 200,
+29 silly registry.get   { date: 'Fri, 27 Mar 2015 09:04:08 GMT',
+29 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+29 silly registry.get     etag: '"35VB2Y8YGLASBDW94B9YRTP53"',
+29 silly registry.get     'content-type': 'application/json',
+29 silly registry.get     'cache-control': 'max-age=60',
+29 silly registry.get     'content-length': '88400',
+29 silly registry.get     'accept-ranges': 'bytes',
+29 silly registry.get     via: '1.1 varnish',
+29 silly registry.get     age: '38',
+29 silly registry.get     'x-served-by': 'cache-fra1224-FRA',
+29 silly registry.get     'x-cache': 'HIT',
+29 silly registry.get     'x-cache-hits': '2',
+29 silly registry.get     'x-timer': 'S1427447048.544350,VS0,VE0',
+29 silly registry.get     vary: 'Accept',
+29 silly registry.get     'keep-alive': 'timeout=10, max=50',
+29 silly registry.get     connection: 'Keep-Alive' } ]
+30 silly addNameRange number 2 { name: 'less', range: '*', hasData: true }
+31 silly addNameRange versions [ 'less',
+31 silly addNameRange   [ '1.0.10',
+31 silly addNameRange     '1.0.11',
+31 silly addNameRange     '1.0.14',
+31 silly addNameRange     '1.0.18',
+31 silly addNameRange     '1.0.19',
+31 silly addNameRange     '1.0.21',
+31 silly addNameRange     '1.0.32',
+31 silly addNameRange     '1.0.36',
+31 silly addNameRange     '1.0.5',
+31 silly addNameRange     '1.0.40',
+31 silly addNameRange     '1.0.41',
+31 silly addNameRange     '1.0.44',
+31 silly addNameRange     '1.1.0',
+31 silly addNameRange     '1.1.1',
+31 silly addNameRange     '1.1.2',
+31 silly addNameRange     '1.1.4',
+31 silly addNameRange     '1.1.5',
+31 silly addNameRange     '1.1.6',
+31 silly addNameRange     '1.2.0',
+31 silly addNameRange     '1.2.1',
+31 silly addNameRange     '1.2.2',
+31 silly addNameRange     '1.3.0',
+31 silly addNameRange     '1.3.1',
+31 silly addNameRange     '1.3.2',
+31 silly addNameRange     '1.3.3',
+31 silly addNameRange     '1.4.0-b1',
+31 silly addNameRange     '1.4.0-b2',
+31 silly addNameRange     '1.4.0-b3',
+31 silly addNameRange     '1.4.0-b4',
+31 silly addNameRange     '1.4.0',
+31 silly addNameRange     '1.4.1',
+31 silly addNameRange     '1.4.2',
+31 silly addNameRange     '1.5.0-b1',
+31 silly addNameRange     '1.5.0-b2',
+31 silly addNameRange     '1.5.0-b3',
+31 silly addNameRange     '1.5.0-b4',
+31 silly addNameRange     '1.5.0',
+31 silly addNameRange     '1.5.1',
+31 silly addNameRange     '1.6.0',
+31 silly addNameRange     '1.6.1',
+31 silly addNameRange     '1.6.2',
+31 silly addNameRange     '1.6.3',
+31 silly addNameRange     '1.7.0',
+31 silly addNameRange     '1.7.1',
+31 silly addNameRange     '1.7.3',
+31 silly addNameRange     '1.7.4',
+31 silly addNameRange     '1.7.5',
+31 silly addNameRange     '2.0.0-b1',
+31 silly addNameRange     '2.0.0-b2',
+31 silly addNameRange     '2.0.0-b3',
+31 silly addNameRange     '2.0.0',
+31 silly addNameRange     '2.1.0',
+31 silly addNameRange     '2.1.1',
+31 silly addNameRange     '2.1.2',
+31 silly addNameRange     '2.2.0',
+31 silly addNameRange     '2.3.0',
+31 silly addNameRange     '2.3.1',
+31 silly addNameRange     '2.4.0' ] ]
+32 verbose addNamed [ 'less', '2.4.0' ]
+33 verbose addNamed [ '2.4.0', '2.4.0' ]
+34 silly lockFile 2c12bc19-less-2-4-0 less@2.4.0
+35 verbose lock less@2.4.0 /home/konstantin/.npm/2c12bc19-less-2-4-0.lock
+36 silly lockFile 43df059e-ry-npmjs-org-less-less-2-4-0-tgz https://registry.npmjs.org/less/-/less-2.4.0.tgz
+37 verbose lock https://registry.npmjs.org/less/-/less-2.4.0.tgz /home/konstantin/.npm/43df059e-ry-npmjs-org-less-less-2-4-0-tgz.lock
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/less/-/less-2.4.0.tgz',
+38 verbose addRemoteTarball   'ce51b38f1c05a0cdd47982fac40dd0a39cec2031' ]
+39 info retry fetch attempt 1 at 11:04:06
+40 verbose fetch to= /tmp/npm-10549-9DYsXdpC/registry.npmjs.org/less/-/less-2.4.0.tgz
+41 http GET https://registry.npmjs.org/less/-/less-2.4.0.tgz
+42 http 200 https://registry.npmjs.org/less/-/less-2.4.0.tgz
+43 silly lockFile 43df059e-ry-npmjs-org-less-less-2-4-0-tgz https://registry.npmjs.org/less/-/less-2.4.0.tgz
+44 silly lockFile 43df059e-ry-npmjs-org-less-less-2-4-0-tgz https://registry.npmjs.org/less/-/less-2.4.0.tgz
+45 silly lockFile 2c12bc19-less-2-4-0 less@2.4.0
+46 silly lockFile 2c12bc19-less-2-4-0 less@2.4.0
+47 silly lockFile e13833ab-less less@
+48 silly lockFile e13833ab-less less@
+49 error Error: EACCES, mkdir '/home/konstantin/.npm/less/2.4.0'
+49 error  { [Error: EACCES, mkdir '/home/konstantin/.npm/less/2.4.0']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/home/konstantin/.npm/less/2.4.0' }
+50 error Please try running this command again as root/Administrator.
+51 error System Linux 3.13.0-48-generic
+52 error command "/usr/bin/node" "/usr/bin/npm" "install" "less"
+53 error cwd /home/konstantin/www/sf/releases/1425292450/frontend/public
+54 error node -v v0.10.37
+55 error npm -v 1.4.28
+56 error path /home/konstantin/.npm/less/2.4.0
+57 error code EACCES
+58 error errno 3
+59 error stack Error: EACCES, mkdir '/home/konstantin/.npm/less/2.4.0'
+60 verbose exit [ 3, true ]

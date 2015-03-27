@@ -21,6 +21,7 @@ $s1->setBasePath($base_path);
 // shared
 $s1->task('cmd','mkdir -m 755 ./shared');
 $s1->task('cmd','mkdir -m 777 ./shared/upload');
+$s1->task('cmd','mkdir -m 777 ./shared/upload/atk4_markdown');
 $s1->task('cmd',"mkdir -m 777 ./shared/logs-front");
 $s1->task('cmd',"mkdir -m 777 ./shared/logs-admin");
 
@@ -42,6 +43,7 @@ $s1->task('cmd',"php composer.phar install");
 
 // links
 $s1->task('cmd',"cd $base_path/releases/$server_deploy_folder");
+$s1->task('cmd',"ln -s ../../vendor/atk4/atk4/public/atk4/ frontend/public/atk4");
 $s1->task('cmd',"ln -s ../../../shared/logs-front frontend/logs");
 $s1->task('cmd',"ln -s ../../../shared/logs-admin admin/logs");
 $s1->task('cmd',"ln -s ../../../../shared/upload frontend/public/upload");
@@ -52,6 +54,14 @@ $s1->task('cmd',"ln -s ../../../shared/config-frontend.php frontend/config.php")
 $s1->task('cmd',"ln -s ../../../shared/config-admin.php admin/config.php");
 $s1->task('cmd',"ln -s vendor/bin/phinx phinx");
 $s1->task('cmd',"ln -s ../../shared/phinx.yml .");
+
+// packages public dirs
+$s1->task('cmd',"mkdir admin/public/packages");
+$s1->task('cmd',"ln -s ../../../vendor/atk4/atk4-homepage/public admin/public/packages/atk4_atk4homepage");
+$s1->task('cmd',"ln -s ../../../vendor/atk4/markdown/public admin/public/packages/atk4_markdown");
+$s1->task('cmd',"mkdir frontend/public/packages");
+$s1->task('cmd',"ln -s ../../../vendor/atk4/atk4-homepage/public frontend/public/packages/atk4_atk4homepage");
+$s1->task('cmd',"ln -s ../../../vendor/atk4/markdown/public frontend/public/packages/atk4_markdown");
 
 
 // create CURRENT symlink
