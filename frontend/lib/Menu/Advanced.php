@@ -2,7 +2,7 @@
 
 abstract class Menu_Advanced extends View
 {
-    public $swatch='ink';
+    public $swatch=null;
     public $hover_swatch=null;
 
     /**
@@ -59,27 +59,9 @@ abstract class Menu_Advanced extends View
         $i = $this->add('Menu_Advanced_Item',null,null,
             array_merge($this->defaultTemplate(),array('Menu'))
         );
-        if ($this->hover_swatch) {
-            $i->template->set('li-class','atk-swatch-'.$this->hover_swatch);
-        }
-
-        if (is_array($title)) {
-
-            /*
-            // Allow to set custom classes on a element
-            if ($title['a']) {
-                $this->setComponents($title['a'],'a');
-                unset($title['a']);
-            }
-             */
-
-        }
         $i->setHtml($title[0]);
 
-        $m = $i->add($class,array(
-            'swatch'=>$options['swatch'] ?: $this->swatch,
-            'hover_swatch'=>$this->hover_swatch
-        ),'SubMenu');
+        $m = $i->add($class,null,'SubMenu');
 
         return $m;
     }

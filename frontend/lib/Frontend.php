@@ -10,9 +10,6 @@ class Frontend extends App_Frontend {
         $this->dbConnect();
         $this->add('jUI');
 
-//        $initiator = new Initiator;
-//        $initiator->addLocation($this);
-
         $this->pathfinder->addLocation(array(
             'addons'=>array('../atk4-addons','../addons','../vendor','../vendor/atk4'),
             'php'=>array('../shared','../shared/lib'),
@@ -74,21 +71,26 @@ class Frontend extends App_Frontend {
 
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
-        $this->addMenuItem($menu,'Competences<br />and Services','home-1','atk-swatch-white','services');
-        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','atk-swatch-white','shit');
-        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','atk-swatch-white','shit');
-        $this->addMenuItem($menu,'Technology<br />Stack','home-1','atk-swatch-white','shit');
-        $submenu=$menu->addMenu(['About Scandic<br />Fusion','icon'=>'filter','swatch'=>'white'])->setClass('atk-menu-vertical atk-popover atk-popover-top-right');
-        $this->addMenuItem($submenu,'Our Team','home-1','atk-swatch-white','team');
+        $this->addMenuItem($menu,$this->getNameByUrlHash('services'),'home-1','','services');
+        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','','shit');
+        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','','shit');
+        $this->addMenuItem($menu,'Technology<br />Stack','home-1','','shit');
+        $submenu=$menu->addMenu([$this->getNameByUrlHash('about'),'icon'=>'filter'])->setClass('atk-menu-vertical atk-popover atk-popover-top-right');
+        $this->addMenuItem($submenu,$this->getNameByUrlHash('team'),'home-1','atk-swatch-white','team');
+    }
 
-        /*foreach($this->getTopPages() as $page){
-            if(!$page['type']){
-                if(!$page->hasChildren()) continue;
-            }
-            $page->translation = $page->getTranslation(true);
-            $url = $page['hash_url']?:$page['url_first_child'];
-            $this->addMenuItem($menu,$page->translation['meta_title'],'home-1','atk-swatch-beigeDarken',$url);
-        }*/
+    private function getNameByUrlHash($url_hash){
+        $m = $this->add('atk4\atk4-homepage\Model_Page');
+
+        $m->tryLoadBy('hash_url',$url_hash);
+        if(!$m->loaded()){
+            $m->tryLoadBy('name',$url_hash);
+        }
+
+        if($m->loaded()){
+            return $m->getTranslations()->loadAny()->get('meta_title');
+        }
+        return false;
     }
 
 
@@ -108,14 +110,5 @@ class Frontend extends App_Frontend {
         if(!is_object($href))$href=str_replace('/','_',$href);
         return $href==$this->real_page||$href==';'.$this->real_page||$href.$this->getConfig('url_postfix','')==$this->real_page||(string)$href==(string)$this->url();
 
-    }
-
-
-    private $top_pages=null;
-    function getTopPages(){
-        if(!$this->top_pages){
-            $this->top_pages = $this->add('atk4\atk4homepage\Model_Page')->getTop()->getForMenu();//->getRows();
-        }
-        return $this->top_pages;
     }
 }
