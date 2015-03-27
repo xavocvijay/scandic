@@ -74,11 +74,11 @@ class Frontend extends App_Frontend {
 
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
-        $this->addMenuItem($menu,'Competences<br />and Services','home-1','atk-swatch-white','khjghng');
-        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','atk-swatch-white','industrysolutions');
-        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','atk-swatch-white','industrysolutionsh');
-        $this->addMenuItem($menu,'Technology<br />Stack','home-1','atk-swatch-white','industrysolutionsk');
-        $submenu=$menu->addMenu(['About Scandic<br />Fusion','icon'=>'filter','swatch'=>'white'])->addClass('atk-swatch-white');
+        $this->addMenuItem($menu,'Competences<br />and Services','home-1','atk-swatch-white','services');
+        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','atk-swatch-white','shit');
+        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','atk-swatch-white','shit');
+        $this->addMenuItem($menu,'Technology<br />Stack','home-1','atk-swatch-white','shit');
+        $submenu=$menu->addMenu(['About Scandic<br />Fusion','icon'=>'filter','swatch'=>'white'])->setClass('atk-menu-vertical atk-popover atk-popover-top-right');
         $this->addMenuItem($submenu,'Our Team','home-1','atk-swatch-white','team');
 
         /*foreach($this->getTopPages() as $page){

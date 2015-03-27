@@ -61,8 +61,25 @@ $config['atk4-home-page'] = [
             'descr' => 'No blocks',
             'template' => 'pages/nb',
         ],
+        'competencies'=>[
+            'descr' => 'Competencies&Services landing page',
+            'template' => 'pages/competencies',
+            'blocks'   => [
+                'paragraph_mega_spot'=>'paragraph_mega',
+            ]
+        ],
+        'team'=>[
+            'descr' => 'Team page',
+            'template' => 'pages/team',
+            'blocks'   => [
+                'paragraph_mega_spot'=>'paragraph_mega',
+            ]
+        ],
     ],
     'block_types' => [
+        'h1'=>[
+            'template' => 'view/blocks/h1'
+        ],
         'italic'=>[
             'template' => 'view/blocks/italic'
         ],
@@ -74,6 +91,9 @@ $config['atk4-home-page'] = [
         ],
         'header h2'=>[
             'template' => 'view/blocks/header_h2'
+        ],
+        'paragraph_mega'=>[
+            'template' => 'view/blocks/paragraph_mega'
         ],
         'paragraph'=>[
             'template' => 'view/blocks/paragraph'
