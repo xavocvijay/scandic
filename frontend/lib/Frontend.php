@@ -72,9 +72,9 @@ class Frontend extends App_Frontend {
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
         $this->addMenuItem($menu,$this->getNameByUrlHash('services'),'home-1','','services');
-        $this->addMenuItem($menu,'Industry<br />Solutions','home-1','','shit');
-        $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','','shit');
-        $this->addMenuItem($menu,'Technology<br />Stack','home-1','','shit');
+        $this->addMenuItem($menu,$this->getNameByUrlHash('industry'),'home-1','','industry');
+        $this->addMenuItem($menu,$this->getNameByUrlHash('solutions'),'home-1','','solutions');
+        $this->addMenuItem($menu,$this->getNameByUrlHash('technology'),'home-1','','technology');
         $submenu=$menu->addMenu([$this->getNameByUrlHash('about'),'icon'=>'filter']);
         $this->addMenuItem($submenu,$this->getNameByUrlHash('aboutus'),'','atk-shape-rounded-top','aboutus');
         $this->addMenuItem($submenu,$this->getNameByUrlHash('team'),'','','team');
