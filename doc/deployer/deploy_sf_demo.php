@@ -60,7 +60,9 @@ $s1->task('cmd',"ln -s ../../../shared/logs-front frontend/logs");
 $s1->task('cmd',"ln -s ../../../shared/logs-admin admin/logs");
 //uploads
 $s1->task('cmd',"ln -s ../../../../shared/upload frontend/public/upload");
+$s1->task('cmd',"ln -s ../../../shared/upload frontend/upload");
 $s1->task('cmd',"ln -s ../../../../shared/upload admin/public/upload");
+$s1->task('cmd',"ln -s ../../../shared/upload admin/upload");
 //configs
 $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/frontend/config-dist.php $base_path/shared/config-frontend.php");
 $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/admin/config-dist.php $base_path/shared/config-admin.php");

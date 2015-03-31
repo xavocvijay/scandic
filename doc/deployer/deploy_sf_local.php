@@ -46,8 +46,12 @@ $s1->task('cmd',"cd $base_path/releases/$server_deploy_folder");
 $s1->task('cmd',"ln -s ../../vendor/atk4/atk4/public/atk4/ frontend/public/atk4");
 $s1->task('cmd',"ln -s ../../../shared/logs-front frontend/logs");
 $s1->task('cmd',"ln -s ../../../shared/logs-admin admin/logs");
+
 $s1->task('cmd',"ln -s ../../../../shared/upload frontend/public/upload");
+$s1->task('cmd',"ln -s ../../../shared/upload frontend/upload");
 $s1->task('cmd',"ln -s ../../../../shared/upload admin/public/upload");
+$s1->task('cmd',"ln -s ../../../shared/upload admin/upload");
+
 $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/frontend/config-dist.php $base_path/shared/config-frontend.php");
 $s1->task('cmd',"cp -n $base_path/releases/$server_deploy_folder/admin/config-dist.php $base_path/shared/config-admin.php");
 $s1->task('cmd',"ln -s ../../../shared/config-frontend.php frontend/config.php");
