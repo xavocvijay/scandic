@@ -75,8 +75,11 @@ class Frontend extends App_Frontend {
         $this->addMenuItem($menu,'Industry<br />Solutions','home-1','','shit');
         $this->addMenuItem($menu,'Cross Company<br />Solutions','home-1','','shit');
         $this->addMenuItem($menu,'Technology<br />Stack','home-1','','shit');
-        $submenu=$menu->addMenu([$this->getNameByUrlHash('about'),'icon'=>'filter'])->setClass('atk-menu-vertical atk-popover atk-popover-top-right');
-        $this->addMenuItem($submenu,$this->getNameByUrlHash('team'),'home-1','atk-swatch-white','team');
+        $submenu=$menu->addMenu([$this->getNameByUrlHash('about'),'icon'=>'filter']);
+        $this->addMenuItem($submenu,$this->getNameByUrlHash('aboutus'),'','atk-shape-rounded-top','aboutus');
+        $this->addMenuItem($submenu,$this->getNameByUrlHash('team'),'','','team');
+        $this->addMenuItem($submenu,$this->getNameByUrlHash('jobs'),'','','jobs');
+        $this->addMenuItem($submenu,$this->getNameByUrlHash('contact'),'','atk-shape-rounded-bottom','contact');
     }
 
     private function getNameByUrlHash($url_hash){
@@ -90,7 +93,7 @@ class Frontend extends App_Frontend {
         if($m->loaded()){
             return $m->getTranslations()->loadAny()->get('meta_title');
         }
-        return false;
+        return $url_hash;
     }
 
 

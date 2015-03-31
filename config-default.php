@@ -1,11 +1,19 @@
 <?php
 $config['atk4-home-page'] = [
-    'available_languages' => ['en'=>'en_EN','lv'=>'lv_LV','ru'=>'ru_RU'],
+    'available_languages' => ['en'=>'en_EN'],
     'default_language' => 'en',
     'page_types' => [
         'home' =>[
             'descr' => 'Page with static template',
             'template' => 'pages/home',
+        ],
+        'markdown_only' =>[
+            'descr' => 'Page with markdown only',
+            'template' => 'pages/markdown',
+            'blocks'   => [
+                'h1_spot'=>'h1',
+                'markdown'=>'markdown',
+            ]
         ],
         'tcm' => [
             'descr' => 'Two columns text with left menu',
@@ -68,6 +76,10 @@ $config['atk4-home-page'] = [
                 'paragraph_mega_spot'=>'paragraph_mega',
             ]
         ],
+        'industry'=>[
+            'descr' => 'Industry page',
+            'template' => 'pages/industry',
+        ],
         'team'=>[
             'descr' => 'Team page',
             'template' => 'pages/team',
@@ -75,8 +87,31 @@ $config['atk4-home-page'] = [
                 'paragraph_mega_spot'=>'paragraph_mega',
             ]
         ],
+        'jobs'=>[
+            'descr' => 'Jobs page',
+            'template' => 'pages/jobs',
+            'blocks'   => [
+                'h1_spot'=>'h1',
+                'paragraph_mega_spot'=>'paragraph_mega',
+                'tab1_title_spot'=>'blank',
+                'paragraph1_spot'=>'paragraph',
+                'paragraph2_spot'=>'paragraph',
+                'paragraph3_spot'=>'paragraph',
+                'tab2_title_spot'=>'blank',
+                'paragraph4_spot'=>'paragraph',
+                'paragraph5_spot'=>'paragraph',
+                'paragraph6_spot'=>'paragraph',
+            ]
+        ],
     ],
     'block_types' => [
+        'blank'=>[
+            'template' => 'view/blocks/blank'
+        ],
+        'markdown'=>[
+            'markdown' => true,
+            'template' => 'view/blocks/markdown'
+        ],
         'h1'=>[
             'template' => 'view/blocks/h1'
         ],

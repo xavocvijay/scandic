@@ -1,11 +1,11 @@
 
-<ul id="{$_name}" style="{$style}" class="atk-menu atk-menu-vertical {$class}">
+<ul id="{$_name}" style="{$style}" class="{$class} atk-menu-vertical atk-popover atk-popover-top-right">
   {Content}
   {Title}
   <li id="{$_name}" class="atk-padding-small atk-size-kilo {$class}">{$Content}</li>{/Title}
   {Item}
   <li class="atk-menu-separated">
-      <a class="{$class} atk-padding atk-section-small atk-swatch-blue atk-shape-rounded-top" id="{$_name}" href="{url}javascript:void(0){/}" {$attributes}>
+      <a class="{$class} atk-padding atk-section-small atk-swatch-blue" id="{$_name}" href="{url}javascript:void(0){/}" {$attributes}>
           {$icon}{$Content}
       </a>
   </li>{/Item}
@@ -16,4 +16,5 @@
     <hr/>
   </li>{/Separator}
   {/}
+    <div class="atk-popover-arrow atk-swatch-blue"></div>
 </ul>

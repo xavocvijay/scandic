@@ -21,7 +21,8 @@
         "atk4/atk4-homepage": "dev-master",
         "atk4/traits": "dev-master",
         "atk4/markdown": "dev-master",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "erusev/parsedown": "dev-master"
     },
 
     "require-dev": {
