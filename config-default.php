@@ -103,6 +103,12 @@ $config['atk4-home-page'] = [
                 'paragraph6_spot'=>'paragraph',
             ]
         ],
+        'about'=>[
+            'descr' => 'About Scandic Fusion',
+            'template' => 'pages/about',
+            'blocks'   => [
+            ]
+        ],
     ],
     'block_types' => [
         'blank'=>[
