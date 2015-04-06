@@ -4875,8 +4875,8 @@ a.atk-swatch-lightGray:not(.atk-text-inherit)[class*=icon-] {
 }
 a.atk-swatch-lightGray:not(.atk-text-inherit):hover,
 .atk-swatch-lightGray:not(.atk-text-inherit)[class*=atk-button]:hover {
-    color: #303030;
-    background-color: #eff1f2;
+    color: #303031;
+    background-color: #f1f2f7;
 }
 .atk-swatch-lightGray:not(.atk-text-inherit)[class*='atk-button'],
 .atk-swatch-lightGray:not(.atk-text-inherit).atk-label,
@@ -5252,10 +5252,17 @@ h5 {
     left: auto;
     right: 0;
 }
-.testimonial {
+.testimonial-carousel {
     position: relative;
 }
-.testimonial .atk-shape-circle {
+.testimonial-carousel .testimonial {
+    padding-top: 1.5em;
+    position: relative;
+}
+.testimonial-carousel .testimonial *[class*=atk-box] {
+    position: relative;
+}
+.testimonial-carousel .testimonial *[class*=atk-box] .atk-shape-circle {
     position: absolute;
     top: -1em;
     left: 50%;
@@ -5263,4 +5270,63 @@ h5 {
     -moz-box-shadow: 0 0 0 5px #ffffff;
     box-shadow: 0 0 0 5px #ffffff;
     margin-left: -1em;
+}
+.testimonial-carousel .testimonial *[class*=atk-box] .atk-shape-circle .icon-quotes {
+    position: relative;
+    left: -0.06em;
+}
+.testimonial-carousel .testimonial .testimonial-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 1em;
+    margin: 0 0 0 -1em;
+    overflow: hidden;
+    width: 2em;
+}
+.testimonial-carousel .testimonial .testimonial-arrow:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: #fff;
+    border: 1px solid #9da2bc;
+    content: '';
+    display: inline-block;
+    height: 1.4em;
+    position: relative;
+    top: -0.9em;
+    width: 1.4em;
+}
+.testimonial-carousel .rsArrow {
+    font-size: 1.999396rem;
+    position: absolute;
+    top: 0;
+    background: #fff;
+    color: #5268c2;
+    height: 100%;
+    width: 1.2em;
+}
+.testimonial-carousel .rsArrow .rsArrowIcn:before {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    display: inline-block;
+    font-family: "fontello";
+    font-size: 1em;
+    margin-top: -3em;
+}
+.testimonial-carousel .rsArrow.rsArrowLeft {
+    left: 0;
+}
+.testimonial-carousel .rsArrow.rsArrowLeft .rsArrowIcn:before {
+    content: '\e80d';
+}
+.testimonial-carousel .rsArrow.rsArrowRight {
+    right: 0;
+}
+.testimonial-carousel .rsArrow.rsArrowRight .rsArrowIcn:before {
+    content: '\e80e';
 }

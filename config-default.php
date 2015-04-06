@@ -107,6 +107,35 @@ $config['atk4-home-page'] = [
             'descr' => 'About Scandic Fusion',
             'template' => 'pages/about',
             'blocks'   => [
+				'h1_spot'=>'h1',
+				'paragraph_mega_spot'=>'paragraph_mega',
+				'header_h2_spot'=>'header h2',
+				'list_2015'=>'markdown clear',
+				'list_2014'=>'markdown clear',
+				'list_2013'=>'markdown clear',
+				'list_2012'=>'markdown clear',
+				'list_2011'=>'markdown clear',
+				'list_2010'=>'markdown clear',
+				'list_2009'=>'markdown clear',
+				'list_2008'=>'markdown clear',
+				'what_clients_say'=>'blank',
+				'what_clients_say_phrase'=>'blank',
+				'what_clients_say_author'=>'blank',
+				'what_clients_say_author_from'=>'blank',
+            ]
+        ],
+        'contact'=>[
+            'descr' => 'Contact Us',
+            'template' => 'pages/contact',
+            'blocks'   => [
+				'h1_spot'=>'h1',
+				'paragraph_mega_spot'=>'paragraph_mega',
+				'job_1_title'=>'blank',
+				'job_1_description'=>'blank',
+				'job_1_requirements'=>'blank',
+				'job_2_title'=>'blank',
+				'job_2_description'=>'blank',
+				'job_2_requirements'=>'blank',
             ]
         ],
     ],
@@ -117,6 +146,10 @@ $config['atk4-home-page'] = [
         'markdown'=>[
             'markdown' => true,
             'template' => 'view/blocks/markdown'
+        ],
+        'markdown clear'=>[
+            'markdown' => true,
+            'template' => 'view/blocks/markdown_clear'
         ],
         'h1'=>[
             'template' => 'view/blocks/h1'
