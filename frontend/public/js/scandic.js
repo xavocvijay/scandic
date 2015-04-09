@@ -21,4 +21,16 @@ $(function(){
     }
   });
 
+  var mapheight = $('.contact-sidebar').outerHeight();
+  $('.map').height(mapheight)
+
+
+$(window).resize(function() {
+  contentHeight = $('.content').height();
+  $('.sidebar aside').height(contentHeight);
+});
+
+$(window).trigger('resize');
+
+
 });
