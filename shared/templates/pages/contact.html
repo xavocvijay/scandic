@@ -1,90 +1,48 @@
 <div id="{$_name}" class="page_{$_page}">
 
-
 	<section class="atk-wrapper atk-section-xlarge">
 		<div class="atk-align-center">
-			{$h1_spot}
+			<h1>{$h1_spot}</h1>
 			<hr class="hr-short atk-col-1 atk-move-center">
-			{$paragraph_mega_spot}
+			<p class="atk-size-mega atk-text-light">{$paragraph_mega_spot}</p>
 		</div>
 	</section>
-	<section>
-		<div class="tabs-jobs">
-			<div class="atk-wrapper">
-				<ul>
-					<li><a href="#tab-1" class="atk-size-mega atk-text-normal">{$job_1_title}</a></li>
-					<li><a href="#tab-2" class="atk-size-mega atk-text-normal">{$job_2_title}</a></li>
-				</ul>
-			</div>
-			<hr class="atk-hr-reset atk-border-active">
-			<div class="atk-wrapper">
-				<div id="tab-1" class="atk-section-xlarge">
-					<div class="atk-push-large">
-						<div class="atk-row">
-							<div class="atk-col-6">
-								<h5 class="atk-text-bold">DESCRIPTION</h5>
-								{$job_1_description}
-							</div>
-							<div class="atk-col-6">
-								<h5 class="atk-text-bold">REQUIREMENTS</h5>
-								{$job_1_requirements}
-							</div>
-						</div>
-					</div>
-					<div class="atk-align-center">
-						<button class="atk-button-large atk-swatch-blue atk-col-4 button-pill">Apply for this job<span class="icon-arrow-east atk-size-nano"></span></button>
-					</div>
+	<section class="atk-wrapper atk-push-xlarge">
+		<div class="atk-cells">
+			<div class="atk-cell">
+				<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+				<div style="overflow:hidden;height:360px;width:100%;" class="map">
+					<div id="gmap_canvas" class="atk-shape-rounded-left"></div>
 				</div>
-				<div id="tab-2" class="atk-section-xlarge">
-					<div class="atk-push-large">
-						<div class="atk-row">
-							<div class="atk-col-6">
-								<h5 class="atk-text-bold">DESCRIPTION</h5>
-								{$job_2_description}
-							</div>
-							<div class="atk-col-6">
-								<h5 class="atk-text-bold">REQUIREMENTS</h5>
-								{$job_2_requirements}
-							</div>
-						</div>
-					</div>
-					<div class="atk-align-center">
-						<button class="atk-button-large atk-swatch-blue atk-col-4 button-pill">Apply for this job<span class="icon-arrow-east atk-size-nano"></span></button>
-					</div>
-				</div>
+				<script type="text/javascript">function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(56.9496487,24.10518639999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(56.9496487, 24.10518639999998)});infowindow = new google.maps.InfoWindow({content:"{$map_info}" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 			</div>
+			<aside class="atk-cell atk-col-4 contact-sidebar">
+				<div class="atk-box atk-border-active atk-shape-rounded-right text-bodycolor">
+					<h4>{$contact_details}</h4>
+					{$contact_details_text}
+					<hr>
+					<h4>{$bank_details}</h4>
+					{$bank_details_text}
+				</div>
+			</aside>
 		</div>
 	</section>
+	<hr class="atk-hr-reset">
 	<section class="atk-wrapper">
-		<hr class="atk-hr-reset">
 		<div class="atk-section-xlarge">
 			<div class="atk-row">
 				<div class="atk-col-6">
 					<div class="atk-cells"><a href="javascript:void(0)" class="atk-cell atk-swatch-lightGray atk-shape-rounded further-action atk-text-baseline-reset atk-align-center"><span class="icon-about atk-size-yotta atk-inline atk-push"></span>
-						<div class="atk-size-giga atk-text-medium">What is Scandic Fusion?</div></a></div>
+						<div class="atk-size-giga atk-text-medium">{$left_button}</div></a></div>
 				</div>
 				<div class="atk-col-6">
 					<div class="atk-cells"><a href="javascript:void(0)" class="atk-cell atk-swatch-lightGray atk-shape-rounded further-action atk-text-baseline-reset atk-align-center"><span class="icon-phone atk-size-yotta atk-inline atk-push"></span>
-						<div class="atk-size-mega atk-text-medium">Get in touch</div></a></div>
+						<div class="atk-size-mega atk-text-medium">{$right_button}</div></a></div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-
-
-
     {$Content}
-
-
-
-
-	<script src="{public}js/core.js{/}"></script>
-	<script src="{public}js/widget.js{/}"></script>
-	<script src="{public}js/tabs.js{/}"></script>
-	<script src="{public}js/atk-helpers-min.js{/}"></script>
-	<script src="{public}js/jquery.easing-1.3.js{/}"></script>
-	<script src="{public}js/jquery.royalslider.min.js{/}"></script>
-	<script src="{public}js/scandic.js{/}"></script>
 
 </div>
