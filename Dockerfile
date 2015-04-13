@@ -11,6 +11,7 @@ MAINTAINER Romans <me@nearly.guru>
 #  data/.htaccess symlinked
 #  data/init.sh script initialized
 
+RUN echo 123
 RUN apt-get update
 RUN apt-get   -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
