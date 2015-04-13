@@ -47,7 +47,7 @@ ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
 
 RUN mkdir /app/frontend/logs /app/admin/logs
 RUN chgrp www-data /app/frontend/logs /app/admin/logs
-RUN chmod g+w www-data /app/frontend/logs /app/admin/logs
+RUN chmod g+w /app/frontend/logs /app/admin/logs
 
 RUN cd /app && composer install
 
