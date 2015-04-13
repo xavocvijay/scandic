@@ -44,8 +44,8 @@ ADD frontend/public/.htaccess-distrib /app/frontend/public/.htaccess
 ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
 
 # Use our default config
-ADD config-deploy.php /app/config.php
-ADD admin/config-deploy.php /app/admin/config.php
+#ADD config-deploy.php /app/config.php
+#ADD admin/config-deploy.php /app/admin/config.php
 
 # Initialize custom config from volume
 ADD volume-init.sh /volume-init.sh
