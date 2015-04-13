@@ -16,7 +16,8 @@ class page_dynamicpage extends Page{
         $page = $this->add('atk4\atk4homepage\Model_Page');
 
         $page->tryLoadBy('hash_url',$this->app->real_page);
-        if(!$page->loaded()) throw $this->exception('There is no such a page','atk4\atk4homepage\NoPage');
+        if(!$page->loaded()) throw $this->exception('There is no such a page','atk4\atk4homepage\NoPage')
+            ->addMoreInfo('hash_url', $this->app->real_page);
 
         $this->page_translation = $page->getTranslation(true);
         $this->title = $this->page_translation['meta_title'];

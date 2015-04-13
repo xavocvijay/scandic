@@ -28,10 +28,17 @@ class Admin extends App_Frontend {
 
         $this->template->trySet('css','compact.css');
 
-        $this->layout = $this->add('Layout_Fluid');
+        if(substr($this->page,0,4) == 'page'){
+            $this->layout = $this->add('Layout_Fluid',null,null,['layout/wideSidebar']);
+        }else{
+            $this->layout = $this->add('Layout_Fluid',null,null,['layout/wide']);
+        }
 
         $menu = $this->layout->add('Menu',null,'Main_Menu')->addClass('atk-move-right');
-        $menu->addItem(array('CMS', 'icon'=>'download'),'page');
-        $menu->addItem(array('Users', 'icon'=>'download'),'user');
+        $menu->addItem(array('Menu', 'icon'=>'menu-1'),'menu');
+        $menu->addItem(array('Pages', 'icon'=>'pencil'),'page');
+        $menu->addItem(array('Team', 'icon'=>'users-1'),'team');
+        $menu->addItem(array('Users', 'icon'=>'users-1'),'user');
+        $menu->addItem(array('About', 'icon'=>'help-1'),'about');
 	}
 }

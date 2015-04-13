@@ -1,0 +1,78 @@
+section.atk-wrapper
+  .atk-row
+    .atk-col-4.sidebar
+      aside.atk-swatch-blue.atk-section-large
+        ul.atk-menu-vertical
+          {SubMenu}{rows}{row}
+          li.atk-menu-separated(class="{$is_active}")
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="{$page}")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.atk-size-kilo(class="icon-{$icon}")
+                span.atk-cell.atk-expand
+                  | {$title}
+          {/row}
+          li.atk-menu-separated
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="javascript:void(0)")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.icon-chart.atk-size-kilo
+                span.atk-cell.atk-expand
+                  | BI Implementation
+          li.atk-menu-separated
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="javascript:void(0)")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.icon-maintenance.atk-size-kilo
+                span.atk-cell.atk-expand
+                  | Maintenance &amp; Support
+          li.atk-menu-separated
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="javascript:void(0)")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.icon-scale.atk-size-kilo
+                span.atk-cell.atk-expand
+                  | Licensing Advisory
+          li.atk-menu-separated
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="javascript:void(0)")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.icon-clipboard.atk-size-kilo
+                span.atk-cell.atk-expand
+                  | DWH/BI Audit
+          li.atk-menu-separated
+            a.atk-padding.atk-swatch-blue.atk-actions.atk-text-medium(href="javascript:void(0)")
+              span.atk-cells.atk-cells-gutter
+                span.atk-cell
+                  span.icon-scale.atk-size-kilo
+                span.atk-cell.atk-expand
+                  | Data Exploration
+          {/rows}{/SubMenu}
+    .atk-col-8.atk-section-large.content
+      section.atk-push-large
+        h1 {$title}
+        hr.hr-short.atk-col-1
+        p.atk-size-mega.atk-text-light
+         em {$intro}
+        {content}md{/}
+      {Keywords}
+      section.atk-push-large
+        h5.atk-text-bold.text-blue.atk-push Keywords &amp; Deliverables
+        .atk-size-micro.tag-cloud
+          {rows}{row}
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall {name}interviews with business representatives{/}
+          {/row}
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall interviews with IT-personnel
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall prototype/demo
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall technical architecture
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall requirements specifications
+          span.atk-label.atk-swatch-lightGray.atk-padding-small.atk-section-xsmall project plan (aligned with priorities)
+          {/rows}
+      {/}
+      hr.atk-hr-large
+      section.atk-align-center
+        h3.atk-push.text-bodycolor Do you have any questions about our work?
+        button.atk-button-large.atk-swatch-blue.atk-col-6.button-pill.atk-size-milli
+          | CONTACT US
+          span.icon-arrow-east.atk-size-nano
+

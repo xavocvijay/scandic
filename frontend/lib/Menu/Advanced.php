@@ -40,7 +40,10 @@ abstract class Menu_Advanced extends View
 
         if ($action) {
             if (is_string($action) || is_array($action) || $action instanceof URL) {
-                $i->template->set('url',$this->api->url($action));
+                $i->template->set('url',$url = $this->api->url($action));
+                if($url->isCurrent()){
+                    $i->addClass('active');
+                }
             } else {
                 $this->on('click',$action);
             }
@@ -59,7 +62,7 @@ abstract class Menu_Advanced extends View
         $i = $this->add('Menu_Advanced_Item',null,null,
             array_merge($this->defaultTemplate(),array('Menu'))
         );
-        $i->setHtml($title[0]);
+        $i->setHtml(is_array($title)?$title[0]:$title);
 
         $m = $i->add($class,null,'SubMenu');
 
@@ -75,16 +78,16 @@ abstract class Menu_Advanced extends View
         return $i;
     }
 
-    public function setModel($m)
+    public function setModel($m, $options=array())
     {
         $m=parent::setModel($m);
         foreach ($m as $model) {
 
             // check subitems
-            if (@$model->hierarchy_controller && $model[$model->hierarchy_controller->child_ref.'_cnt']) {
-                $m=$this->addMenu($model['name']);
+            if (@$model->hierarchy_controller && $model[strtolower($model->hierarchy_controller->child_ref).'_cnt']) {
+                $m=$this->addMenu($model[$options['title_field']?:'name']);
                 foreach ($model->ref($model->hierarchy_controller->child_ref) as $child) {
-                    $m->addItem($child['name'],$child['page']);
+                    $m->addItem($options['title_field']?:$child['name'],$child['page']);
                 }
 
             } else {
@@ -94,7 +97,7 @@ abstract class Menu_Advanced extends View
             }
 
         }
-
+        return $this->model;
     }
 
     // compatibility

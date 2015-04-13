@@ -1,0 +1,596 @@
+
+/**
+ * Agile Toolkit CSS Framework (c) 2013-2014 v0.904
+ *  http://www4.agiletoolkit.org/css
+ */
+
+@import '/less/agiletoolkit.less';
+@import 'fontello.css';
+
+
+// ==========================================================
+// Layout
+// ==========================================================
+
+// Important: list .createViewport functions in the right order based on @min and @max values otherwise styles get overridden
+
+.createViewport(
+  @wrapperMargin: 20px,
+  @colsGutter: 40px,
+  @cols: 12,
+  @viewportMinWidth: 0px,
+  @wrapperMinWidth: 960px,
+  @wrapperMaxWidth: 960px,
+);
+
+
+// .createViewport(
+//   @wrapperMargin: 20px,
+//   @colsGutter: @margin,
+//   @cols: 12,
+//   @viewportMinWidth:1025px,
+//   @wrapperMaxWidth: 100%,
+//   @class: 'display',
+//   @customStyle: {
+//     .atk-layout {
+//       margin: auto;
+//       width: 1024px;
+//     }
+//     body {
+//       background: red;
+//     }
+//   }
+// );
+// .createViewport(
+//   @wrapperMargin: 20px,
+//   @colsGutter: @margin,
+//   @cols: 12,
+//   @viewportMinWidth:769px,
+//   @viewportMaxWidth:1024px,
+//   @wrapperMaxWidth: 100%,
+//   @class: 'tablet',
+//   @customStyle: {
+//     body {
+//       background: green;
+//     }
+//   }
+// );
+// .createViewport(
+//   @wrapperMargin: 20px,
+//   @colsGutter: @margin,
+//   @cols: 12,
+//   @viewportMinWidth:0px,
+//   @viewportMaxWidth:768px,
+//   @wrapperMaxWidth: 100%,
+//   @class: phone,
+//   @customStyle: {
+//     body {
+//       background: orange;
+//     }
+//   }
+// );
+
+
+// ==========================================================
+// Typography
+// ==========================================================
+
+@bodyFamily:           "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
+@bodyColor:            #333;
+@bodySize:             1rem; // 16px
+@bodyBaseline:         1.414;
+
+@headingCase:          none; // Options: none, capitalize, uppercase, lowercase
+@headingColor:         @atk-swatch-blue;
+@headingFamily:        "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
+@headingWeight:        300;
+@headingBaseline:      1.2; // Minor Third
+
+@fontScatter:          0.5; // Multiplier that affects difference between heading sizes
+
+
+// ==========================================================
+// Styles & Colors
+// ==========================================================
+
+@bodyBackground:       #fff;
+
+@cornerRadius:         3px;
+
+@textSelect:           @atk-swatch-ink; // Text selection's color
+@textDimmed:           #868a9e;
+
+@blur:                 5px; // Effect .atk-blur can be applied on any element.
+
+@borderStatic:         #e9eaf0;
+@borderClickable:      darken(@borderStatic, 5%);
+@borderOverlay:        darken(@borderStatic, 25%);
+
+@atk-swatch-white:     #ffffff;   .createSwatch(atk-swatch-white);
+@atk-swatch-blue:      #5268c2;   .createSwatch(
+                                    @color: atk-swatch-blue,
+                                    @buttonBorderWidth:0,
+                                    @buttonShadow: none,
+                                    @borderColor: @blueBorder,
+                                    @hoverColor: @blueBorder
+                                  );
+@atk-swatch-darkBlue:  #141b4d;   .createSwatch(atk-swatch-darkBlue);
+@atk-swatch-lightGray: #f6f7fc;   .createSwatch(
+                                    @color: atk-swatch-lightGray,
+                                    @swatchLinkColor: @atk-swatch-blue,
+                                    @hoverColor: shade(#f6f7fc, 2%)
+                                  );
+@atk-swatch-darkGray:  #a0a8b4;   .createSwatch(atk-swatch-darkGray);
+
+@swatchText:           50%; // Text color sensitivity based on swatch
+
+@effectSuccess:        #25c425;
+@effectWarning:        #f7a600;
+@effectDanger:         #ff2d1a;
+@effectInfo:           #2bacd7;
+
+
+// ==========================================================
+// Components & Widgets
+// ==========================================================
+
+@linkColor:            @atk-swatch-blue;
+@linkColorHover:       darken(@linkColor,10%);
+
+@dialogOverlay:        fade(#000, 25%); // Color of modal dialog's overlay
+
+@tooltipColor:         fade(@atk-swatch-ink, 90%);
+
+@menuActive:           @atk-swatch-blue;
+
+@buttonDefault:        #fff;
+@buttonHover:          #f5f5f5;
+@buttonActive:         #eee;
+
+@boxColor:             #fff;
+
+@formMandatory:        #ff0000;
+
+@hoverIntensity:       -4%;
+
+@inputFocus:           @atk-swatch-blue;
+
+@popoverArrow:         6px;
+
+
+// ==========================================================
+// Your Code Goes Here
+// ==========================================================
+
+@blueBorder:     shade(@atk-swatch-blue, 10%);
+@textDarkBlue:   #2b3055;
+
+
+// Adjustments
+h1 {
+  .atk-size-zetta;
+}
+h2 {
+  .atk-size-peta;
+}
+h4 {
+  font-weight: 400;
+}
+h5 {
+  color: @bodyColor;
+}
+.atk-text-medium {
+  font-weight: 500;
+}
+.text-blue {
+  color: @atk-swatch-blue;
+}
+.text-darkblue {
+  color: @textDarkBlue;
+}
+.text-bodycolor {
+  &, a&, a {
+    color: @bodyColor;
+  }
+  a&:hover, a:hover {
+    color: @atk-swatch-blue;
+  }
+}
+.atk-swatch-blue h3 a:hover {
+  color: fade(#fff, 80%) !important;
+}
+*[class^='atk-button'] {
+  &.button-pill {
+    border-radius: 2em !important;
+    position: relative;
+    .icon-arrow-east {
+      .position(@t:50%, @r:1rem);
+      line-height: 1;
+      margin-top: -0.5em;
+    }
+  }
+}
+*[class^='atk-button'] {
+  font-weight: 500 !important;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.atk-label {
+  font-weight: 400;
+  &.atk-swatch-lightGray {
+    color: @textDimmed !important;
+  }
+}
+.ui-tabs .ui-tabs-nav li {
+  a {
+    color: @textDarkBlue;
+    &:hover {
+      color: @linkColor;
+    }
+  }
+  &.ui-state-active a {
+    color: @linkColor;
+  }
+}
+
+
+// Styles
+.hr-short {
+  border-color: @atk-swatch-blue;
+  border-width: 2px;
+}
+.atk-swatch-blue .hr-short {
+  border-color: #fff !important;
+  display: block;
+}
+*[class*=atk-button], .services-selection .atk-cells-group .atk-cells .atk-cell {
+  .transition(.2s);
+}
+.hidden {
+  visibility: hidden;
+}
+*[class^=atk-box] {
+  &.box-outline {
+    .transition(.2s);
+    background: transparent;
+    border-width: 2px;
+    border-color: rgba(255,255,255,0.2);
+    &:hover {
+      background: #fff;
+      color: @atk-swatch-blue;
+    }
+  }
+}
+.box-corner {
+  position: relative;
+  .corner {
+    .position(@t:-1px,@r:-1px);
+    // background: red;
+    border-radius: 0 @cornerRadius 0 0;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+    &:before {
+      .position(@t:-10px, @r:-10px);
+      .rotate(45deg);
+      background: @atk-swatch-blue;
+      content: '';
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+
+// Elements
+.header {
+  .logo {
+    .position(relative, @t:9px);
+  }
+  .atk-menu-horizontal {
+    &, >li>a {
+      height: 100px;
+    }
+    >li {
+        >a {
+        color: @textDarkBlue;
+        display: table-cell;
+        position: relative;
+        vertical-align: middle;
+      }
+      &.active>a {
+        color: @atk-swatch-blue;
+        &:before {
+          .position(@t:0,@l:0);
+          background: @atk-swatch-blue;
+          content: '';
+          height: 2px;
+          width: 100%;
+        }
+      }
+      &:hover {
+        >a {
+          color: @atk-swatch-blue
+        }
+      }
+    }
+    .atk-menu-vertical {
+      margin-top: -15px !important;
+    }
+  }
+}
+.further-action {
+  .transition(.2s);
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.services-header {
+  .atk-wrapper {
+    position: relative;
+    .atk-col-7 {
+      .position(relative, @z:1);
+    }
+    .services-graphics {
+      .position(@b:0, @r:0, @z:0);
+      &.globe {
+        background: url(../images/globe.png);
+        height: 291px;
+        margin-right: -110px;
+        width: 508px;
+      }
+    }
+  }
+}
+.services-selection {
+  .atk-cells-group {
+    .atk-cells {
+      .atk-cell {
+        border-bottom: 1px solid @blueBorder;
+        border-right: 1px solid @blueBorder;
+        &:nth-child(4n) {
+          border-right: none;
+        }
+      }
+      &:last-child .atk-cell {
+        border-bottom: none;
+      }
+    }
+  }
+  &.cross-company {
+    .atk-cell {
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
+    }
+  }
+}
+.team-members {
+  @thumbHeight: 190px;
+  .team-member {
+    height: @thumbHeight;
+    overflow: hidden;
+    position: relative;
+    figcaption {
+      .opacity(0);
+      .position(absolute, @t:0, @l:0);
+      .transition(.2s);
+      background: fade(@atk-swatch-darkBlue, 75%);
+      color: #fff;
+      font-style: normal;
+      height: @thumbHeight;
+      padding: 15px;
+      text-align: left;
+      width: 100%;
+      .atk-text-bold {
+        font-size: 125%;
+      }
+    }
+    &:hover {
+      figcaption {
+        .opacity(100);
+      }
+    }
+  }
+  .team-member-join {
+    height: @thumbHeight;
+    .icon-arrow-east {
+      .position(relative, @t:0.1em);
+    }
+  }
+}
+.tabs-jobs {
+  .ui-tabs-nav {
+    &, li {
+      border-bottom: none !important;
+    }
+    li {
+      margin: 0;
+      width: 50%;
+    }
+  }
+}
+.timeline {
+  @sectionHeight: 50px;
+  .year-block {
+    position: relative;
+    .year {
+      background: #fff;
+      border: 2px solid @borderClickable;
+      border-radius: 2em;
+      color: @atk-swatch-blue;
+    }
+    .event {
+      height: @sectionHeight;
+      position: relative;
+      .atk-box-small {
+        .position(@t:50%, @l:0, @z:2);
+        ul {
+          padding-left: 1.5em;
+          li + li {
+            margin-top: 0.5em;
+          }
+        }
+      }
+      .mark {
+        @size: 12px;
+        .position(@t:50%, @l:50%);
+        background: @atk-swatch-blue;
+        border: 2px solid @atk-swatch-lightGray;
+        height: @size;
+        margin: -@size/2 0 0 -@size/2;
+        width: @size;
+      }
+      &:before {
+        .position(@t:0, @l:50%);
+        background: @borderClickable;
+        content: '';
+        height: 100%;
+        margin-left: -1px;
+        width: 2px;
+      }
+      &:after {
+        .position(@t:50%,@l:0, @z:1);
+        background: @atk-swatch-blue;
+        content: '';
+        height: 2px;
+        margin-top: -1px;
+        width: 50%;
+      }
+    }
+    &:nth-child(2n) .event {
+      .atk-box-small {
+        left: auto;
+        right: 0;
+      }
+      &:after {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+.testimonial-carousel {
+  position: relative;
+  .testimonial {
+    padding-top: 1.5em;
+    position: relative;
+    *[class*=atk-box] {
+      position: relative;
+      .atk-shape-circle {
+        .position(@t:-1em, @l:50%);
+        .box-shadow(0 0 0 5px #fff);
+        margin-left: -1em;
+        .icon-quotes {
+          .position(relative, @l:-0.06em);
+        }
+      }
+    }
+    .testimonial-arrow {
+      .position(@t:100%,@l:50%);
+      height: 1em;
+      margin: 0 0 0 -1em;
+      overflow: hidden;
+      width: 2em;
+      &:before {
+        .rotate(45deg);
+        background: #fff;
+        border: 1px solid @borderOverlay;
+        content: '';
+        display: inline-block;
+        height: 1.4em;
+        position: relative;
+        top: -0.9em;
+        width: 1.4em;
+      }
+    }
+  }
+  .rsArrow {
+    .atk-size-peta;
+    .position(@t:0);
+    background: #fff;
+    color: @atk-swatch-blue;
+    height: 100%;
+    width: 1.2em;
+    .rsArrowIcn:before {
+      .position(@t:50%, @l:0, @r:0);
+      display: inline-block;
+      font-family: "fontello";
+      font-size: 1em;
+      margin-top: -3em;
+    }
+    &.rsArrowLeft {
+      left: 0;
+      .rsArrowIcn:before {
+        content: '\e809';
+      }
+    }
+    &.rsArrowRight {
+      right: 0;
+      .rsArrowIcn:before {
+        content: '\e80e';
+      }
+    }
+  }
+}
+.map {
+  position: relative;
+  #gmap_canvas {
+    height: 100%;
+    width: 100%;
+  }
+}
+.contact-sidebar {
+  .atk-box {
+    border-left: none;
+  }
+}
+.sidebar .atk-menu-vertical {
+  li {
+    a {
+      white-space: normal;
+    }
+    &.active a {
+      background: @blueBorder;
+    }
+  }
+}
+.tag-cloud {
+  @m: 0.7em;
+  margin: -@m 0 0 -@m;
+  .atk-label {
+    display: inline-block;
+    margin: @m 0 0 @m;
+  }
+}
+.feature-breakdown {
+  .atk-cells {
+    .atk-cell {
+      padding: 0 @margin/2 0 0 !important;
+      .atk-box {
+        ul { 
+          color: @textDarkBlue;
+          padding-left: 1.4em;
+          &, li {
+            list-style-type: circle;
+          }
+        }
+      }
+      + .atk-cell {
+        padding: 0 0 0 @margin/2 !important;
+      }
+    }
+  }
+}
+
+
+// Fixes
+.icon-user-network-fix {
+  display: inline-block;
+  position: relative;
+  top: -0.35em;
+  .main {
+    .atk-size-pow10;
+    .position(@t:0em,@l:50%,@r:0);
+    margin-left: -0.5em;
+  }
+}

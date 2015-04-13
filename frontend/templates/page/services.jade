@@ -1,0 +1,33 @@
+section.services-header
+  .atk-wrapper.atk-section-xlarge
+    .atk-col-7
+      h1 Competences &amp; Services
+      hr.hr-short.atk-col-1
+      p.atk-size-mega.atk-text-light
+        | {$content}
+    .services-graphics.globe
+section.atk-swatch-blue.services-selection
+  .atk-wrapper
+    .atk-cells-group.atk-cells-justified.atk-expand.atk-align-center.atk-valign-top
+      .atk-cells
+        {SubMenu}{rows}{row}
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='{$page}')
+          .atk-push.atk-size-yotta.atk-text-baseline-reset(class="icon-{$icon}")
+          strong {$title}
+        {/row}
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='javascript:void(0)')
+          .icon-chart.atk-push.atk-size-yotta.atk-text-baseline-reset
+          strong BI Implementation
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='javascript:void(0)')
+          .icon-maintenance.atk-push.atk-size-yotta.atk-text-baseline-reset
+          strong Maintenance &amp; Support
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='javascript:void(0)')
+          .icon-scale.atk-push.atk-size-yotta.atk-text-baseline-reset
+          strong Licensing Advisory
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='javascript:void(0)')
+          .icon-clipboard.atk-push.atk-size-yotta.atk-text-baseline-reset
+          strong DWH/BI Audit
+        a.atk-cell.atk-section-large.atk-padding.atk-swatch-blue(href='javascript:void(0)')
+          .icon-clipboard.atk-push.atk-size-yotta.atk-text-baseline-reset
+          strong Data Exploration
+        {/rows}{/SubMenu}

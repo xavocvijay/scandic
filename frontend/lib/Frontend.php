@@ -2,13 +2,17 @@
 class Frontend extends App_Frontend {
 
     use atk4\atk4homepage\Trait_LanguageSupport;
-    use atk4\atk4homepage\Trait_ATK4HomePage;
+    //use atk4\atk4homepage\Trait_ATK4HomePage;
 
     public $environment = 'prod';
     function init(){
         parent::init();
         $this->dbConnect();
         $this->add('jUI');
+        $this->jui->addStaticInclude('atk-helpers-min');
+        $this->jui->addStaticInclude('jquery.easing-1.3');
+        $this->jui->addStaticInclude('jquery.royalslider.min');
+        $this->jui->addStaticInclude('scandic');
 
         $this->pathfinder->addLocation(array(
             'addons'=>array('../atk4-addons','../addons','../vendor','../vendor/atk4'),
@@ -33,7 +37,7 @@ class Frontend extends App_Frontend {
 
         $this->layout = $this->add('Layout_Fluid');
 
-//        $this->addRouter();
+ //       $this->addRouter();
         $this->real_page = $this->page;
         $this->addMenu();
         $this->addLanguageSwitcher();
@@ -71,6 +75,16 @@ class Frontend extends App_Frontend {
 
     private function addMenu(){
         $menu = $this->layout->add('Menu',null,'Main_Menu');
+
+        $m=$this->add('Model_Menu');
+        $m->addExpression('name')->set('name_en');
+        $m->addCondition('parent_id',null);
+        $menu ->setModel($m);
+
+
+        //$menu->addItem('Hello World', 'bleh');
+        /*
+
         $this->addMenuItem($menu,$this->getNameByUrlHash('services'),'home-1','','services');
         $this->addMenuItem($menu,$this->getNameByUrlHash('industry'),'home-1','','industry');
         $this->addMenuItem($menu,$this->getNameByUrlHash('solutions'),'home-1','','solutions');
@@ -80,9 +94,12 @@ class Frontend extends App_Frontend {
         $this->addMenuItem($submenu,$this->getNameByUrlHash('team'),'','','team');
         $this->addMenuItem($submenu,$this->getNameByUrlHash('jobs'),'','','jobs');
         $this->addMenuItem($submenu,$this->getNameByUrlHash('contact'),'','atk-shape-rounded-bottom','contact');
+        */
     }
 
+    /*
     private function getNameByUrlHash($url_hash){
+        // BAD IMPLEMENTATION - unnecessary multiple queries
         $m = $this->add('atk4\atk4-homepage\Model_Page');
 
         $m->tryLoadBy('hash_url',$url_hash);
@@ -95,8 +112,10 @@ class Frontend extends App_Frontend {
         }
         return $url_hash;
     }
+    */
 
 
+/*
     public function addMenuItem($menu,$title,$icon,$class,$url){
         if ($this->isCurrent(strtolower($url))) $active_class='active'; else $active_class='';
         if ($url) {
@@ -106,6 +125,7 @@ class Frontend extends App_Frontend {
         }
         $menu->addItem($title,$url)->addClass($class.' '.$active_class);
     }
+    */
 
 
     function isCurrent($href){
