@@ -44,7 +44,13 @@ RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 ADD . /app
 ADD frontend/public/.htaccess-distrib /app/frontend/public/.htaccess
 ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
+
+RUN mkdir /app/frontend/logs /app/admin/logs
+RUN chgrp www-data /app/frontend/logs /app/admin/logs
+RUN chmod g+w www-data /app/frontend/logs /app/admin/logs
+
 RUN cd /app && composer install
+
 
 # Use our default config
 #ADD config-deploy.php /app/config.php
