@@ -1,0 +1,2 @@
+This folder intentionally left empty, so that nullmailer wouldn't launch
+unless STAGE=.live environment variable is set
