@@ -5,16 +5,8 @@
         "classmap": ["tests/","shared/"]
     },
 
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:atk4/agiletoolkit-css.git"
-        }
-    ],
-
     "require":{
         "atk4\/atk4":"4.3.*@dev",
-        "atk4/agiletoolkit-css": "dev-master",
         "PHPMailer/PHPMailer": "dev-master",
         "robmorgan/phinx": "*",
         "nesbot/Carbon": "*",
@@ -23,29 +15,7 @@
         "atk4/markdown": "dev-master",
         "intervention/image": "dev-master",
         "erusev/parsedown": "dev-master"
-    },
-
-    "require-dev": {
-        "phpunit/phpunit": "4.3.*",
-        "phpunit/php-invoker": "~1.1",
-        "phpunit/dbunit": ">=1.2",
-        "phpunit/phpunit-selenium": ">=1.2",
-        "phpunit/phpunit-story": "dev-master",
-        "facebook/webdriver": "dev-master"
-    },
-
-    "scripts": {
-        "pre-install-cmd": [
-        ],
-        "post-install-cmd": [
-            "ln -sf vendor/phpunit/phpunit/phpunit"
-        ],
-        "pre-update-cmd": [
-        ],
-        "post-update-cmd": [
-            "ln -sf vendor/phpunit/phpunit/phpunit"
-        ],
-        "post-create-project-cmd": [
-        ]
     }
+
+
 }
