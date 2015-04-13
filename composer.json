@@ -6,7 +6,7 @@
     },
 
     "require":{
-        "atk4\/atk4":"dev-master",
+        "atk4\/atk4":"4.3.*@dev",
         "PHPMailer/PHPMailer": "dev-master",
         "nesbot/Carbon": "*",
         "atk4/atk4-homepage": "dev-master",
