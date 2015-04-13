@@ -45,7 +45,7 @@ ADD . /app
 ADD frontend/public/.htaccess-distrib /app/frontend/public/.htaccess
 ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
 RUN cd /app && composer install
-RUN cd vendor/atk4/atk4 && git pull origin master
+RUN cd /app/vendor/atk4/atk4 && git pull origin master
 
 RUN mkdir /app/frontend/logs /app/admin/logs
 RUN chgrp www-data /app/frontend/logs /app/admin/logs
