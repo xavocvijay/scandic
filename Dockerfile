@@ -40,8 +40,8 @@ ADD files/etc/nullmailer.live /etc/nullmailer.live
 # Basic setup
 RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 ADD . /app
-ADD .htaccess-distrib /app/.htaccess
-ADD admin/.htaccess-distrib /app/admin/.htaccess
+ADD frontend/public/.htaccess-distrib /app/frontend/public/.htaccess
+ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
 
 # Use our default config
 ADD config-deploy.php /app/config.php
