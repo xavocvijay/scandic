@@ -28,6 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
 RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/cli/php.ini
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN a2enmod rewrite
 RUN a2enmod headers
@@ -42,6 +43,7 @@ RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 ADD . /app
 ADD frontend/public/.htaccess-distrib /app/frontend/public/.htaccess
 ADD admin/public/.htaccess-distrib /app/admin/public/.htaccess
+RUN cd /app && composer install
 
 # Use our default config
 #ADD config-deploy.php /app/config.php
