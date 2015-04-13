@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
         php5-gd \
         php5-curl \
         nullmailer bsd-mailx \
-        curl \
+        curl git \
         php-pear && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
