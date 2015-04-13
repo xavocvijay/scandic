@@ -1,4 +1,12 @@
 <?php
+
+$config['dsn']=str_replace(
+  ['mysql2',':3306'],
+  ['mysql',''],
+  $_ENV['DATABASE_URL']);
+
+
+
 $config['atk4-home-page'] = [
     'available_languages' => ['en'=>'en_EN'],
     'default_language' => 'en',
