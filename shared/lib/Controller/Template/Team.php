@@ -21,7 +21,12 @@ class Controller_Template_Team extends AbstractController {
 
         $m = $self->add('Model');
         $m->addField('display_block')->type('boolean');
-        $m->addField('width')->type('dropdown')->setValueList(['2'=>'1 columns', '4'=>'2 columns', '6'=>'3 columns']);
+        $m->addField('width')->type('dropdown')->setValueList([
+            '4'=>'2 columns',
+            '6'=>'3 columns',
+            '8'=>'4 columns',
+            '10'=>'5 columns',
+            ]);
         $m->addField('title');
         $m->addField('subtitle');
         $m->addfield('page_id')->display('hierarchy/drilldown')->setModel('Model_Page');
