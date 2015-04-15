@@ -43,6 +43,26 @@ class Frontend extends App_Frontend {
         $this->addLanguageSwitcher();
     }
 
+    function loadStaticPage($page){
+        $m = $this->add('Model_Page')->tryLoadBy('hash_url',$this->app->pm->page);
+        //$ctl->forModel($this->m);
+
+        if(!$m->loaded()){
+            return parent::loadStaticPage($page);
+        }
+
+        $tpl = $m->ref('template_id');
+        $ctl = $this->add('Controller_Template_'.(ucfirst($tpl['sys_name'])));
+        $ctl ->setModel($m);
+
+        $template = ['page/'.$tpl['sys_name'].($m['parent_id']?'-inner':'')];
+
+        $p = $this->layout->add('CmsPage',['m'=>$m, 'tpl'=>$tpl, 'ctl'=>$ctl],null,$template);
+
+        return $p;
+
+    }
+
     private function addLanguageSwitcher(){
         $langs = $this->app->getConfig('atk4-home-page/available_languages');
         $button_set = $this->layout->add('ButtonSet',null,'langs');

@@ -51,6 +51,7 @@ class page_page extends Page{
                 $m->save();
                 $m->app->redirect($this->app->url());
             });
+            throw $this->exception(null,'StopRender');
         }
 
         $this->addCrumbReverse($m['hash_url'], $this->app->url());

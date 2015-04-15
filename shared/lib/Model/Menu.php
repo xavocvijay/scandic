@@ -26,7 +26,8 @@ class Model_Menu extends SQL_Model
 
         $this->addHook('afterLoad',function($m){ $m['name'] = nl2br($m[$m->title_field]); });
 
-        $this->getElement('menu_cnt')->caption('Sub Elements');
+        $this->getElement('menu_cnt')->caption('Sub Pages');
+
 
     }
 

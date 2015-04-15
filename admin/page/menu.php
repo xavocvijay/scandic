@@ -22,13 +22,17 @@ class page_menu extends Page
 
     function page_index(){
         $cr = $this->cr;
-        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt']));
+        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt','is_public']));
         $this->model->addCondition('parent_id',null);
         $this->cr->grid->addColumn('link','name_en',['page'=>'./sub','descr'=>'Name En','id_field'=>'menu_id']);
         if($cr->isEditing()){
             $cr->form->getElement('name_en')->setAttr('rows',2);
             $cr->form->getElement('name_lv')->setAttr('rows',2);
             $cr->form->getElement('name_ru')->setAttr('rows',2);
+        }else{
+            $page = $cr->grid->model->leftJoin('page.hash_url','page');
+            $page->addField('is_public')->type('boolean');
+            $cr->grid->addColumn('boolean','is_public');
         }
     }
     function page_sub()
@@ -38,5 +42,11 @@ class page_menu extends Page
         $this->addCrumbReverse($m['name_en']);
         $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt']));
         $this->model->addCondition('parent_id',$m->id);
+        if($cr->isEditing()){
+        }else{
+            $page = $cr->grid->model->leftJoin('page.hash_url','page');
+            $page->addField('is_public')->type('boolean');
+            $cr->grid->addColumn('boolean','is_public');
+        }
     }
 }

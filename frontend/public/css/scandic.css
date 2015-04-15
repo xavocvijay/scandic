@@ -3686,93 +3686,93 @@ ul[class*=atk-menu].atk-menu-vertical > li *[class*=atk-menu]:not(.atk-menu-sepa
 }
 .atk-shape-rounded,
 img.atk-shape-rounded {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 3px !important;
+  -moz-border-radius: 3px !important;
+  border-radius: 3px !important;
 }
 .atk-shape-rounded-top,
 img.atk-shape-rounded-top {
-  -webkit-border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px !important;
+  -moz-border-top-left-radius: 3px !important;
+  border-top-left-radius: 3px !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px !important;
+  -moz-border-top-right-radius: 3px !important;
+  border-top-right-radius: 3px !important;
 }
 .atk-shape-rounded-bottom,
 img.atk-shape-rounded-bottom {
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px !important;
+  -moz-border-bottom-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px !important;
+  -moz-border-bottom-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
 }
 .atk-shape-rounded-left,
 img.atk-shape-rounded-left {
-  -webkit-border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px !important;
+  -moz-border-top-left-radius: 3px !important;
+  border-top-left-radius: 3px !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px !important;
+  -moz-border-bottom-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
 }
 .atk-shape-rounded-right,
 img.atk-shape-rounded-right {
-  -webkit-border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px !important;
+  -moz-border-top-right-radius: 3px !important;
+  border-top-right-radius: 3px !important;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px !important;
+  -moz-border-bottom-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
 }
 .atk-shape-rounded-top-left,
 img.atk-shape-rounded-top-left {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-top-left-radius: 3px;
-  -moz-border-top-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px !important;
+  -moz-border-top-left-radius: 3px !important;
+  border-top-left-radius: 3px !important;
 }
 .atk-shape-rounded-top-right,
 img.atk-shape-rounded-top-right {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-top-right-radius: 3px;
-  -moz-border-top-right-radius: 3px;
-  border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px !important;
+  -moz-border-top-right-radius: 3px !important;
+  border-top-right-radius: 3px !important;
 }
 .atk-shape-rounded-bottom-left,
 img.atk-shape-rounded-bottom-left {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px !important;
+  -moz-border-bottom-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
 }
 .atk-shape-rounded-bottom-right,
 img.atk-shape-rounded-bottom-right {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px !important;
+  -moz-border-bottom-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
 }
 .atk-shape-circle,
 img.atk-shape-circle,
@@ -3889,12 +3889,22 @@ input.atk-shape-circle.ui-button {
 .atk-swatch-white:not(.atk-text-inherit) {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: #333333;
 }
 .atk-swatch-white:not(.atk-text-inherit) a,
 a.atk-swatch-white:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-white:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-white:not(.atk-text-inherit) {
+  color: #333333;
+}
+.atk-swatch-white:not(.atk-text-inherit),
+.atk-swatch-white:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-white:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-white:not(.atk-text-inherit),
+.atk-table th.atk-swatch-white:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-white:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-white:not(.atk-text-inherit),
+.atk-swatch-white:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-white:not(.atk-text-inherit).atk-popover-arrow:before {
   color: #333333;
 }
 .atk-swatch-white:not(.atk-text-inherit) h1,
@@ -3936,7 +3946,6 @@ a.atk-swatch-white:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-white:not(.atk-text-inherit),
 .atk-swatch-white:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-white:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: #333333;
   background-color: #ffffff;
   border-color: #ffffff;
 }
@@ -3974,12 +3983,22 @@ a.atk-swatch-white:not(.atk-text-inherit):hover,
 .atk-swatch-black:not(.atk-text-inherit) {
   background-color: #000000;
   border-color: #000000;
-  color: white;
 }
 .atk-swatch-black:not(.atk-text-inherit) a,
 a.atk-swatch-black:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-black:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-black:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-black:not(.atk-text-inherit),
+.atk-swatch-black:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-black:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-black:not(.atk-text-inherit),
+.atk-table th.atk-swatch-black:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-black:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-black:not(.atk-text-inherit),
+.atk-swatch-black:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-black:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-black:not(.atk-text-inherit) h1,
@@ -4021,7 +4040,6 @@ a.atk-swatch-black:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-black:not(.atk-text-inherit),
 .atk-swatch-black:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-black:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #000000;
   border-color: #000000;
 }
@@ -4059,12 +4077,22 @@ a.atk-swatch-black:not(.atk-text-inherit):hover,
 .atk-swatch-gray:not(.atk-text-inherit) {
   background-color: #f5f6f7;
   border-color: #f5f6f7;
-  color: #313131;
 }
 .atk-swatch-gray:not(.atk-text-inherit) a,
 a.atk-swatch-gray:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-gray:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-gray:not(.atk-text-inherit) {
+  color: #313131;
+}
+.atk-swatch-gray:not(.atk-text-inherit),
+.atk-swatch-gray:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-gray:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-gray:not(.atk-text-inherit),
+.atk-table th.atk-swatch-gray:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-gray:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-gray:not(.atk-text-inherit),
+.atk-swatch-gray:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-gray:not(.atk-text-inherit).atk-popover-arrow:before {
   color: #313131;
 }
 .atk-swatch-gray:not(.atk-text-inherit) h1,
@@ -4106,7 +4134,6 @@ a.atk-swatch-gray:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-gray:not(.atk-text-inherit),
 .atk-swatch-gray:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-gray:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: #313131;
   background-color: #f5f6f7;
   border-color: #f5f6f7;
 }
@@ -4144,12 +4171,22 @@ a.atk-swatch-gray:not(.atk-text-inherit):hover,
 .atk-swatch-ink:not(.atk-text-inherit) {
   background-color: #1c2933;
   border-color: #1c2933;
-  color: white;
 }
 .atk-swatch-ink:not(.atk-text-inherit) a,
 a.atk-swatch-ink:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-ink:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-ink:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-ink:not(.atk-text-inherit),
+.atk-swatch-ink:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-ink:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-ink:not(.atk-text-inherit),
+.atk-table th.atk-swatch-ink:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-ink:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-ink:not(.atk-text-inherit),
+.atk-swatch-ink:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-ink:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-ink:not(.atk-text-inherit) h1,
@@ -4191,7 +4228,6 @@ a.atk-swatch-ink:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-ink:not(.atk-text-inherit),
 .atk-swatch-ink:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-ink:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #1c2933;
   border-color: #1c2933;
 }
@@ -4229,12 +4265,22 @@ a.atk-swatch-ink:not(.atk-text-inherit):hover,
 .atk-swatch-yellow:not(.atk-text-inherit) {
   background-color: #ffcc00;
   border-color: #ffcc00;
-  color: #332900;
 }
 .atk-swatch-yellow:not(.atk-text-inherit) a,
 a.atk-swatch-yellow:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-yellow:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-yellow:not(.atk-text-inherit) {
+  color: #332900;
+}
+.atk-swatch-yellow:not(.atk-text-inherit),
+.atk-swatch-yellow:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-yellow:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-yellow:not(.atk-text-inherit),
+.atk-table th.atk-swatch-yellow:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-yellow:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-yellow:not(.atk-text-inherit),
+.atk-swatch-yellow:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-yellow:not(.atk-text-inherit).atk-popover-arrow:before {
   color: #332900;
 }
 .atk-swatch-yellow:not(.atk-text-inherit) h1,
@@ -4276,7 +4322,6 @@ a.atk-swatch-yellow:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-yellow:not(.atk-text-inherit),
 .atk-swatch-yellow:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-yellow:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: #332900;
   background-color: #ffcc00;
   border-color: #ffcc00;
 }
@@ -4314,12 +4359,22 @@ a.atk-swatch-yellow:not(.atk-text-inherit):hover,
 .atk-swatch-red:not(.atk-text-inherit) {
   background-color: #f9451f;
   border-color: #f9451f;
-  color: white;
 }
 .atk-swatch-red:not(.atk-text-inherit) a,
 a.atk-swatch-red:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-red:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-red:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-red:not(.atk-text-inherit),
+.atk-swatch-red:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-red:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-red:not(.atk-text-inherit),
+.atk-table th.atk-swatch-red:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-red:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-red:not(.atk-text-inherit),
+.atk-swatch-red:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-red:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-red:not(.atk-text-inherit) h1,
@@ -4361,7 +4416,6 @@ a.atk-swatch-red:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-red:not(.atk-text-inherit),
 .atk-swatch-red:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-red:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #f9451f;
   border-color: #f9451f;
 }
@@ -4399,12 +4453,22 @@ a.atk-swatch-red:not(.atk-text-inherit):hover,
 .atk-swatch-green:not(.atk-text-inherit) {
   background-color: #00cc66;
   border-color: #00cc66;
-  color: white;
 }
 .atk-swatch-green:not(.atk-text-inherit) a,
 a.atk-swatch-green:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-green:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-green:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-green:not(.atk-text-inherit),
+.atk-swatch-green:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-green:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-green:not(.atk-text-inherit),
+.atk-table th.atk-swatch-green:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-green:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-green:not(.atk-text-inherit),
+.atk-swatch-green:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-green:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-green:not(.atk-text-inherit) h1,
@@ -4446,7 +4510,6 @@ a.atk-swatch-green:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-green:not(.atk-text-inherit),
 .atk-swatch-green:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-green:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #00cc66;
   border-color: #00cc66;
 }
@@ -4484,12 +4547,22 @@ a.atk-swatch-green:not(.atk-text-inherit):hover,
 .atk-swatch-blue:not(.atk-text-inherit) {
   background-color: #5268c2;
   border-color: #5268c2;
-  color: white;
 }
 .atk-swatch-blue:not(.atk-text-inherit) a,
 a.atk-swatch-blue:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-blue:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-blue:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-blue:not(.atk-text-inherit),
+.atk-swatch-blue:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-blue:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-blue:not(.atk-text-inherit),
+.atk-table th.atk-swatch-blue:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-blue:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-blue:not(.atk-text-inherit),
+.atk-swatch-blue:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-blue:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-blue:not(.atk-text-inherit) h1,
@@ -4531,7 +4604,6 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-blue:not(.atk-text-inherit),
 .atk-swatch-blue:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-blue:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #5268c2;
   border-color: #5268c2;
 }
@@ -4647,12 +4719,22 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
 .atk-swatch-white:not(.atk-text-inherit) {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: #333333;
 }
 .atk-swatch-white:not(.atk-text-inherit) a,
 a.atk-swatch-white:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-white:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-white:not(.atk-text-inherit) {
+  color: #333333;
+}
+.atk-swatch-white:not(.atk-text-inherit),
+.atk-swatch-white:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-white:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-white:not(.atk-text-inherit),
+.atk-table th.atk-swatch-white:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-white:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-white:not(.atk-text-inherit),
+.atk-swatch-white:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-white:not(.atk-text-inherit).atk-popover-arrow:before {
   color: #333333;
 }
 .atk-swatch-white:not(.atk-text-inherit) h1,
@@ -4694,7 +4776,6 @@ a.atk-swatch-white:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-white:not(.atk-text-inherit),
 .atk-swatch-white:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-white:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: #333333;
   background-color: #ffffff;
   border-color: #ffffff;
 }
@@ -4732,12 +4813,22 @@ a.atk-swatch-white:not(.atk-text-inherit):hover,
 .atk-swatch-blue:not(.atk-text-inherit) {
   background-color: #5268c2;
   border-color: #5268c2;
-  color: white;
 }
 .atk-swatch-blue:not(.atk-text-inherit) a,
 a.atk-swatch-blue:not(.atk-text-inherit),
 *[class*=atk-swatch] .atk-swatch-blue:not(.atk-text-inherit) a,
 *[class*=atk-swatch] a.atk-swatch-blue:not(.atk-text-inherit) {
+  color: white;
+}
+.atk-swatch-blue:not(.atk-text-inherit),
+.atk-swatch-blue:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-blue:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-blue:not(.atk-text-inherit),
+.atk-table th.atk-swatch-blue:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-blue:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-blue:not(.atk-text-inherit),
+.atk-swatch-blue:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-blue:not(.atk-text-inherit).atk-popover-arrow:before {
   color: white;
 }
 .atk-swatch-blue:not(.atk-text-inherit) h1,
@@ -4779,7 +4870,6 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-blue:not(.atk-text-inherit),
 .atk-swatch-blue:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-blue:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
   background-color: #5268c2;
   border-color: #5268c2;
 }
@@ -4812,95 +4902,9 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
   background-color: #5268c2;
   border-color: #5268c2;
 }
-.atk-swatch-darkBlue:not(.atk-text-inherit) {
-  background-color: #141b4d;
-  border-color: #141b4d;
-  color: white;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit) a,
-a.atk-swatch-darkBlue:not(.atk-text-inherit),
-*[class*=atk-swatch] .atk-swatch-darkBlue:not(.atk-text-inherit) a,
-*[class*=atk-swatch] a.atk-swatch-darkBlue:not(.atk-text-inherit) {
-  color: white;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit) h1,
-.atk-swatch-darkBlue:not(.atk-text-inherit) h2,
-.atk-swatch-darkBlue:not(.atk-text-inherit) h3,
-.atk-swatch-darkBlue:not(.atk-text-inherit) h4,
-.atk-swatch-darkBlue:not(.atk-text-inherit) h5,
-.atk-swatch-darkBlue:not(.atk-text-inherit) h6 {
-  color: white;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit) .atk-text-dimmed {
-  color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*=icon-],
-a.atk-swatch-darkBlue:not(.atk-text-inherit)[class*=icon-] {
-  background: none;
-  color: #141b4d;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*=icon-][class*=atk-shape] {
-  color: white;
-  background-color: #141b4d;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*=icon-]:hover {
-  background: none;
-  color: #141b4d;
-}
-a.atk-swatch-darkBlue:not(.atk-text-inherit):hover,
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*=atk-button]:hover {
-  color: white;
-  background-color: #10153d;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*='atk-button'],
-.atk-swatch-darkBlue:not(.atk-text-inherit).atk-label,
-.atk-table td.atk-swatch-darkBlue:not(.atk-text-inherit),
-.atk-table th.atk-swatch-darkBlue:not(.atk-text-inherit),
-.atk-table.atk-table-zebra tr.atk-swatch-darkBlue:not(.atk-text-inherit) > td,
-.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-darkBlue:not(.atk-text-inherit),
-.atk-swatch-darkBlue:not(.atk-text-inherit) > .atk-popover-arrow:before,
-.atk-swatch-darkBlue:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
-  background-color: #141b4d;
-  border-color: #141b4d;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*='atk-button'] {
-  border-color: #090d25;
-  border-width: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit)[class*='atk-button']:hover {
-  border-color: #090d25;
-}
-*[class*=atk-menu] > li.atk-menu-separated:not(:first-child) > a.atk-swatch-darkBlue:not(.atk-text-inherit) {
-  border-style: solid;
-  border-width: 1px 0 0 0;
-}
-*[class*=atk-menu] li[class*=atk-swatch] a.atk-swatch-darkBlue:not(.atk-text-inherit) {
-  color: white;
-}
-*[class*=atk-menu] li:hover.atk-swatch-darkBlue:not(.atk-text-inherit) > a {
-  color: white;
-  color: white !important;
-}
-.atk-swatch-darkBlue:not(.atk-text-inherit) hr {
-  border-color: #111741;
-}
-*[class*=atk-menu] > li.atk-menu-separated:not(:first-child) > a.atk-swatch-darkBlue:not(.atk-text-inherit) {
-  border-color: #10153d;
-}
-.atk-swatch-darkBlue {
-  background-color: #141b4d;
-  border-color: #141b4d;
-}
 .atk-swatch-lightGray:not(.atk-text-inherit) {
   background-color: #f6f7fc;
   border-color: #f6f7fc;
-  color: #313132;
 }
 .atk-swatch-lightGray:not(.atk-text-inherit) a,
 a.atk-swatch-lightGray:not(.atk-text-inherit),
@@ -4913,6 +4917,17 @@ a.atk-swatch-lightGray:not(.atk-text-inherit):hover,
 *[class*=atk-swatch] .atk-swatch-lightGray:not(.atk-text-inherit) a:hover,
 *[class*=atk-swatch] a.atk-swatch-lightGray:not(.atk-text-inherit):hover {
   color: #7f8fd2;
+}
+.atk-swatch-lightGray:not(.atk-text-inherit),
+.atk-swatch-lightGray:not(.atk-text-inherit)[class*='atk-button'],
+.atk-swatch-lightGray:not(.atk-text-inherit).atk-label,
+.atk-table td.atk-swatch-lightGray:not(.atk-text-inherit),
+.atk-table th.atk-swatch-lightGray:not(.atk-text-inherit),
+.atk-table.atk-table-zebra tr.atk-swatch-lightGray:not(.atk-text-inherit) > td,
+.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-lightGray:not(.atk-text-inherit),
+.atk-swatch-lightGray:not(.atk-text-inherit) > .atk-popover-arrow:before,
+.atk-swatch-lightGray:not(.atk-text-inherit).atk-popover-arrow:before {
+  color: #5268c2;
 }
 .atk-swatch-lightGray:not(.atk-text-inherit) h1,
 .atk-swatch-lightGray:not(.atk-text-inherit) h2,
@@ -4953,16 +4968,15 @@ a.atk-swatch-lightGray:not(.atk-text-inherit):hover,
 .atk-table.atk-table-zebra tbody > tr > td.atk-swatch-lightGray:not(.atk-text-inherit),
 .atk-swatch-lightGray:not(.atk-text-inherit) > .atk-popover-arrow:before,
 .atk-swatch-lightGray:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: #313132;
   background-color: #f6f7fc;
   border-color: #f6f7fc;
 }
 .atk-swatch-lightGray:not(.atk-text-inherit)[class*='atk-button'] {
   border-color: #d0d5ef;
   border-width: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 .atk-swatch-lightGray:not(.atk-text-inherit)[class*='atk-button']:hover {
   border-color: #d0d5ef;
@@ -4987,91 +5001,6 @@ a.atk-swatch-lightGray:not(.atk-text-inherit):hover,
 .atk-swatch-lightGray {
   background-color: #f6f7fc;
   border-color: #f6f7fc;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit) {
-  background-color: #a0a8b4;
-  border-color: #a0a8b4;
-  color: white;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit) a,
-a.atk-swatch-darkGray:not(.atk-text-inherit),
-*[class*=atk-swatch] .atk-swatch-darkGray:not(.atk-text-inherit) a,
-*[class*=atk-swatch] a.atk-swatch-darkGray:not(.atk-text-inherit) {
-  color: white;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit) h1,
-.atk-swatch-darkGray:not(.atk-text-inherit) h2,
-.atk-swatch-darkGray:not(.atk-text-inherit) h3,
-.atk-swatch-darkGray:not(.atk-text-inherit) h4,
-.atk-swatch-darkGray:not(.atk-text-inherit) h5,
-.atk-swatch-darkGray:not(.atk-text-inherit) h6 {
-  color: white;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit) .atk-text-dimmed {
-  color: white;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*=icon-],
-a.atk-swatch-darkGray:not(.atk-text-inherit)[class*=icon-] {
-  background: none;
-  color: #a0a8b4;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*=icon-][class*=atk-shape] {
-  color: white;
-  background-color: #a0a8b4;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*=icon-]:hover {
-  background: none;
-  color: #a0a8b4;
-}
-a.atk-swatch-darkGray:not(.atk-text-inherit):hover,
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*=atk-button]:hover {
-  color: white;
-  background-color: #959eab;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*='atk-button'],
-.atk-swatch-darkGray:not(.atk-text-inherit).atk-label,
-.atk-table td.atk-swatch-darkGray:not(.atk-text-inherit),
-.atk-table th.atk-swatch-darkGray:not(.atk-text-inherit),
-.atk-table.atk-table-zebra tr.atk-swatch-darkGray:not(.atk-text-inherit) > td,
-.atk-table.atk-table-zebra tbody > tr > td.atk-swatch-darkGray:not(.atk-text-inherit),
-.atk-swatch-darkGray:not(.atk-text-inherit) > .atk-popover-arrow:before,
-.atk-swatch-darkGray:not(.atk-text-inherit).atk-popover-arrow:before {
-  color: white;
-  background-color: #a0a8b4;
-  border-color: #a0a8b4;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*='atk-button'] {
-  border-color: #848e9e;
-  border-width: 1px;
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
-}
-.atk-swatch-darkGray:not(.atk-text-inherit)[class*='atk-button']:hover {
-  border-color: #848e9e;
-}
-*[class*=atk-menu] > li.atk-menu-separated:not(:first-child) > a.atk-swatch-darkGray:not(.atk-text-inherit) {
-  border-style: solid;
-  border-width: 1px 0 0 0;
-}
-*[class*=atk-menu] li[class*=atk-swatch] a.atk-swatch-darkGray:not(.atk-text-inherit) {
-  color: white;
-}
-*[class*=atk-menu] li:hover.atk-swatch-darkGray:not(.atk-text-inherit) > a {
-  color: white;
-  color: white !important;
-}
-.atk-swatch-darkGray:not(.atk-text-inherit) hr {
-  border-color: #97a0ad;
-}
-*[class*=atk-menu] > li.atk-menu-separated:not(:first-child) > a.atk-swatch-darkGray:not(.atk-text-inherit) {
-  border-color: #959eab;
-}
-.atk-swatch-darkGray {
-  background-color: #a0a8b4;
-  border-color: #a0a8b4;
 }
 h1 {
   font-size: 2.82714594rem;
@@ -5137,6 +5066,13 @@ a.text-bodycolor:hover,
 .ui-tabs .ui-tabs-nav li.ui-state-active a {
   color: #5268c2;
 }
+ul {
+  padding-left: 1.2em;
+}
+ul,
+ul li {
+  list-style-type: circle;
+}
 .hr-short {
   border-color: #5268c2;
   border-width: 2px;
@@ -5172,6 +5108,9 @@ a.text-bodycolor:hover,
 }
 .box-corner {
   position: relative;
+}
+.box-corner ul li {
+  color: #2b3055;
 }
 .box-corner .corner {
   position: absolute;
@@ -5256,6 +5195,10 @@ a.text-bodycolor:hover,
   height: 291px;
   margin-right: -110px;
   width: 508px;
+}
+.services-header.services-header-industry {
+  background: url(../temp/graphic-industry.png) no-repeat;
+  background-position: 95% -30%;
 }
 .services-selection .atk-cells-group .atk-cells .atk-cell {
   border-bottom: 1px solid #4a5eaf;
@@ -5451,13 +5394,13 @@ a.text-bodycolor:hover,
   left: 0;
 }
 .testimonial-carousel .rsArrow.rsArrowLeft .rsArrowIcn:before {
-  content: '\e809';
+  content: '\e805';
 }
 .testimonial-carousel .rsArrow.rsArrowRight {
   right: 0;
 }
 .testimonial-carousel .rsArrow.rsArrowRight .rsArrowIcn:before {
-  content: '\e80e';
+  content: '\e804';
 }
 .map {
   position: relative;
@@ -5485,16 +5428,114 @@ a.text-bodycolor:hover,
 .feature-breakdown .atk-cells .atk-cell {
   padding: 0 0.7rem 0 0 !important;
 }
-.feature-breakdown .atk-cells .atk-cell .atk-box ul {
-  color: #2b3055;
-  padding-left: 1.4em;
-}
-.feature-breakdown .atk-cells .atk-cell .atk-box ul,
-.feature-breakdown .atk-cells .atk-cell .atk-box ul li {
-  list-style-type: circle;
-}
 .feature-breakdown .atk-cells .atk-cell + .atk-cell {
   padding: 0 0 0 0.7rem !important;
+}
+.technology-stack {
+  background-attachment: fixed;
+  background-image: url(../temp/graphic.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .technology-stack {
+    background-image: url(../temp/graphic-retina.png);
+    background-size: 1400px;
+  }
+}
+.technology-stack .atk-box {
+  border: none;
+  position: relative;
+}
+.technology-stack .atk-box ul {
+  *zoom: 1;
+  margin: -0.5em 0 0 0;
+}
+.technology-stack .atk-box ul:before,
+.technology-stack .atk-box ul:after {
+  display: table;
+  content: "";
+  line-height: 0;
+  width: 100%;
+}
+.technology-stack .atk-box ul:after {
+  clear: both;
+}
+.technology-stack .atk-box ul li {
+  float: left;
+  margin-top: 0.5em;
+  padding-right: 2.5em;
+  width: 50%;
+}
+.technology-stack .atk-box .point {
+  background: #fff;
+  border: 2px solid #5268c2;
+  height: 12px;
+  margin-left: -6px;
+  width: 12px;
+  z-index: 2;
+}
+.technology-stack .atk-box .point.point-top {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  margin-top: -6px;
+}
+.technology-stack .atk-box .point.point-top:after {
+  bottom: 0px;
+}
+.technology-stack .atk-box .point.point-bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-bottom: -6px;
+}
+.technology-stack .atk-box .point.point-bottom:after {
+  top: 0;
+}
+.technology-stack .atk-box .connection {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  height: 4em;
+  width: 100%;
+}
+.technology-stack .atk-box .connection:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #5268c2;
+  content: '';
+  height: 100%;
+  margin: 0 0 0 -1px;
+  width: 2px;
+}
+.technology-stack .atk-box .connection.connection-bottom {
+  top: 100%;
+}
+.technology-stack .atk-box .connection.connection-top {
+  bottom: 100%;
+}
+.technology-stack .step-2,
+.technology-stack .step-3 {
+  margin-top: 4em;
+}
+.technology-stack .step-1 .connection,
+.technology-stack .step-2 .connection {
+  height: 2em;
+}
+.technology-stack .step-1 .connection:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  background: #5268c2;
+  content: '';
+  height: 2px;
+  width: 100%;
+}
+.technology-stack .step-1 + .step-1 .connection:after {
+  left: auto;
+  right: 50%;
 }
 .icon-user-network-fix {
   display: inline-block;

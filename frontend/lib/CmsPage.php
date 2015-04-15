@@ -44,17 +44,4 @@ class CmsPage extends Page {
         return $Parsedown->text($val);
     }
 
-    function defaultTemplate(){
-        $this->m = $this->add('Model_Page')->tryLoadBy('hash_url',$this->app->pm->page);
-
-        if(!$this->m->loaded())return parent::defaultTemplate();
-
-        $this->tpl = $this->m->ref('template_id');
-        $this->ctl = $this->add('Controller_Template_'.(ucfirst($this->tpl['sys_name'])));
-        $this->ctl->forModel($this->m);
-
-
-        return ['page/'.$this->tpl['sys_name'].($this->m['parent_id']?'-inner':'')];
-
-    }
 }

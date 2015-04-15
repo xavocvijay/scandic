@@ -114,13 +114,13 @@
                                     @borderColor: @blueBorder,
                                     @hoverColor: @blueBorder
                                   );
-@atk-swatch-darkBlue:  #141b4d;   .createSwatch(atk-swatch-darkBlue);
 @atk-swatch-lightGray: #f6f7fc;   .createSwatch(
+                                    @buttonShadow: none,
                                     @color: atk-swatch-lightGray,
                                     @swatchLinkColor: @atk-swatch-blue,
-                                    @hoverColor: shade(#f6f7fc, 2%)
+                                    @hoverColor: shade(#f6f7fc, 2%),
+                                    @swatchTextColor: @atk-swatch-blue
                                   );
-@atk-swatch-darkGray:  #a0a8b4;   .createSwatch(atk-swatch-darkGray);
 
 @swatchText:           50%; // Text color sensitivity based on swatch
 
@@ -164,7 +164,7 @@
 
 @blueBorder:     shade(@atk-swatch-blue, 10%);
 @textDarkBlue:   #2b3055;
-
+@darkBlue:       #141b4d;
 
 // Adjustments
 h1 {
@@ -232,6 +232,12 @@ h5 {
     color: @linkColor;
   }
 }
+ul { 
+  padding-left: 1.2em;
+  &, li {
+    list-style-type: circle;
+  }
+}
 
 
 // Styles
@@ -263,6 +269,9 @@ h5 {
 }
 .box-corner {
   position: relative;
+  ul li {
+    color: @textDarkBlue;
+  }
   .corner {
     .position(@t:-1px,@r:-1px);
     // background: red;
@@ -341,6 +350,10 @@ h5 {
       }
     }
   }
+  &.services-header-industry {
+    background: url(../temp/graphic-industry.png) no-repeat;
+    background-position: 95% -30%;
+  }
 }
 .services-selection {
   .atk-cells-group {
@@ -374,7 +387,7 @@ h5 {
       .opacity(0);
       .position(absolute, @t:0, @l:0);
       .transition(.2s);
-      background: fade(@atk-swatch-darkBlue, 75%);
+      background: fade(@darkBlue, 75%);
       color: #fff;
       font-style: normal;
       height: @thumbHeight;
@@ -521,13 +534,13 @@ h5 {
     &.rsArrowLeft {
       left: 0;
       .rsArrowIcn:before {
-        content: '\e809';
+        content: '\e805';
       }
     }
     &.rsArrowRight {
       right: 0;
       .rsArrowIcn:before {
-        content: '\e80e';
+        content: '\e804';
       }
     }
   }
@@ -566,18 +579,104 @@ h5 {
   .atk-cells {
     .atk-cell {
       padding: 0 @margin/2 0 0 !important;
-      .atk-box {
-        ul { 
-          color: @textDarkBlue;
-          padding-left: 1.4em;
-          &, li {
-            list-style-type: circle;
-          }
-        }
-      }
       + .atk-cell {
         padding: 0 0 0 @margin/2 !important;
       }
+    }
+  }
+}
+.technology-stack {
+  @connectionColor:     @atk-swatch-blue;
+  @connectionPoint:     12px;
+  @connectionHeight:    4em;
+  @connectionLine:      2px;
+
+  background-attachment: fixed;
+  background-image: url(../temp/graphic.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  @media 
+  (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) { 
+      & {
+        background-image: url(../temp/graphic-retina.png);
+        background-size: 1400px;
+      }
+  }
+  .atk-box {
+    border: none;
+    position: relative;
+    ul {
+      .clear-fix;
+      margin: -0.5em 0 0 0;
+      li {
+        float: left;
+        margin-top: 0.5em;
+        padding-right: 2.5em;
+        width: 50%;
+      }
+    }
+    .point {
+      background: #fff;
+      border: 2px solid @connectionColor;
+      height: @connectionPoint;
+      margin-left: -@connectionPoint/2;
+      width: @connectionPoint;
+      z-index: 2;
+      &.point-top {
+        .position(@t:0px, @l:50%);
+        margin-top: -@connectionPoint/2;
+        &:after {
+          bottom: 0px;
+        }
+      }
+      &.point-bottom {
+        .position(@b:0px, @l:50%);
+        margin-bottom: -@connectionPoint/2;
+        &:after {
+          top: 0;
+        }
+      }
+    }
+    .connection {
+      .position(@l:0, @z:1);
+      height: @connectionHeight;
+      width: 100%;
+      &:before {
+        .position(@t:0, @l:50%);
+        background: @connectionColor;
+        content: '';
+        height: 100%;
+        margin: 0 0 0 -@connectionLine/2;
+        width: @connectionLine;
+      }
+      &.connection-bottom {
+        top: 100%;
+      }
+      &.connection-top {
+        bottom: 100%;
+      }
+    }
+  }
+  .step-2, .step-3 {
+    margin-top: @connectionHeight;
+  }
+  .step-1, .step-2 {
+    .connection {
+      height: @connectionHeight/2;
+    }
+  }
+  .step-1 {
+    .connection:after {
+      .position(@b:0, @l:50%);
+      background: @connectionColor;
+      content: '';
+      height: @connectionLine;
+      width: 100%;
+    }
+    + .step-1 .connection:after {
+      left: auto;
+      right: 50%;
     }
   }
 }

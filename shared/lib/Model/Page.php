@@ -22,7 +22,7 @@ class Model_Page extends SQL_Model
 
         $this->addHook('beforeSave', function($m){
             $m['keywords'] = str_replace(",","\n", $m['keywords']);
-            $m['keywords'] = str_replace("\n ","", $m['keywords']);
+            $m['keywords'] = str_replace("\n ","\n", $m['keywords']);
         });
     }
     function newSubPage(){
