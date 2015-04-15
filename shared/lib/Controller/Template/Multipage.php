@@ -31,7 +31,7 @@ class Controller_Template_Multipage extends AbstractController {
             $id = $m->id;
             if($m['parent_id'])$m=$m->ref('parent_id');
 
-            $cl = $page->add('CompleteLister',null,'SubMenu','SubMenu')
+            $cl = $page->add($m['parent_id']?'CompleteLister':'View_SubPageLister',null,'SubMenu','SubMenu')
                 ->setModel($m->ref('Page'))
                 ->addHook('afterLoad', function($m)use($id){
                     $m['is_active'] = $id==$m->id?'active':'';
