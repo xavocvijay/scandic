@@ -60,8 +60,10 @@ class page_page extends Page{
         $this->ctl = $this->add('Controller_Template_'.(ucfirst($this->tpl['sys_name'])));
 
         $this->ctl->forModel($m);
+        if(!$this->ctl->model)$this->ctl->setModel($m);
 
         if($this->ctl->hasMethod('addSubPageNavigation'))$this->ctl->addSubPageNavigation();
+
 
     }
     function page_index(){
@@ -69,7 +71,7 @@ class page_page extends Page{
 
         $bs = $this->add('ButtonSet')->addClass('atk-push');
         $bs->addButton('SEO');
-        if($m['parent_id']){
+        if($m['parent_id'] || @$this->ctl->show_settings){
             $bs->addButton('Settings')->js('click')->univ()->dialogURL('Settings', $this->app->url('./settings'));
         }
         if($m['is_public']){
@@ -103,6 +105,7 @@ class page_page extends Page{
         $form->addSubmit('Save')->addClass('atk-swatch-green');
         $form->onSubmit(function($f){ $f->update(); return 'Saved';});
 
+        if($this->ctl->hasMethod('forAdminIndex'))$this->ctl->forAdminIndex($this);
 
     }
     function page_addsub(){

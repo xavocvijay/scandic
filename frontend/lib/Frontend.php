@@ -53,7 +53,7 @@ class Frontend extends App_Frontend {
 
         $tpl = $m->ref('template_id');
         $ctl = $this->add('Controller_Template_'.(ucfirst($tpl['sys_name'])));
-        $ctl ->setModel($m);
+        $ctl ->forModel($m);
 
         $template = ['page/'.$tpl['sys_name'].($m['parent_id']?'-inner':'')];
 

@@ -19,12 +19,14 @@ class Model_Page extends SQL_Model
         $this->addField('is_public')->type('boolean');
         $this->addField('keywords')->type('text');
         $this->addField('content')->display(['form'=>'atk4\markdown\Form_Field_Markdown']);
+        $this->addfield('settings');
 
         $this->addHook('beforeSave', function($m){
             $m['keywords'] = str_replace(",","\n", $m['keywords']);
             $m['keywords'] = str_replace("\n ","\n", $m['keywords']);
         });
     }
+
     function newSubPage(){
         $m = $this;
         if($m['parent_id'])$m=$m->ref('parent_id');

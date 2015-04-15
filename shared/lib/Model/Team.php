@@ -17,6 +17,5 @@ class Model_Team extends SQL_Model
 
         $this->addField('ord')->type('int')->system(true); // order
         $this->setOrder('ord,id');
-
     }
 }
