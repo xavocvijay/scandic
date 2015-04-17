@@ -28,6 +28,7 @@ class page_page extends Page{
         $menu = $this->app->layout->add('Menu_Vertical',null,'Navigation');
         $menu->addItem('Index', $this->app->url('page', ['url'=>'index']));
         $menu->setModel($m);
+        $menu->addItem('_404 Page', $this->app->url('page', ['url'=>'404']));
 
 
 
