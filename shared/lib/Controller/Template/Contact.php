@@ -10,5 +10,6 @@ class Controller_Template_Contact extends AbstractController {
         $m->addField('address')->type('text');
         $m->addField('requisites')->type('text');
         $m->reload();
+        $this->setModel($m);
     }
 }

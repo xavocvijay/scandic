@@ -25,7 +25,9 @@ class page_page extends Page{
         $this->title=[['name'=>'Page Editor', 'page'=>$this->app->url()]];
         // add side navigation
         $m = $this->add('Model_Menu_Admin')->addCondition('parent_id', null);
-        $this->app->layout->add('Menu_Vertical',null,'Navigation')->setModel($m);
+        $menu = $this->app->layout->add('Menu_Vertical',null,'Navigation');
+        $menu->addItem('Index', $this->app->url('page', ['url'=>'index']));
+        $menu->setModel($m);
 
 
 
@@ -71,7 +73,7 @@ class page_page extends Page{
 
         $bs = $this->add('ButtonSet')->addClass('atk-push');
         $bs->addButton('SEO');
-        if($m['parent_id'] || @$this->ctl->show_settings){
+        if($m['parent_id'] || @$this->ctl->show_settings || @$m->show_settings ){
             $bs->addButton('Settings')->js('click')->univ()->dialogURL('Settings', $this->app->url('./settings'));
         }
         if($m['is_public']){
@@ -120,6 +122,9 @@ class page_page extends Page{
         $f = $this->add('Form');
         if($this->ctl->hasMethod('adminSettings')){
             $this->ctl->adminSettings($f);
+        }else{
+            $f->setModel($this->model->refSettings());
+
         }
         $f->onSubmit(function($f){
             $f->save();

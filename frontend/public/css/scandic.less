@@ -335,19 +335,26 @@ ul {
   position: relative;
 }
 .services-header {
+  overflow: hidden;
+  position: relative;
   .atk-wrapper {
-    position: relative;
-    .atk-col-7 {
-      .position(relative, @z:1);
+    .position(relative, @z:2);
+  }
+  figure {
+    &.globe {
+      .position(@b:0, @r:-100px, @z:1);
+      height: 291px;
+      width: 508px;
     }
-    .services-graphics {
-      .position(@b:0, @r:0, @z:0);
-      &.globe {
-        background: url(../images/globe.png);
-        height: 291px;
-        margin-right: -110px;
-        width: 508px;
-      }
+    &.sun {
+      .position(@b:0, @r:-75px, @z:1);
+      background-attachment: scroll;
+      background-image: url(../temp/graphic-industry.png);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: 450px 450px;
+      height: 100%;
+      width: 450px;
     }
   }
   &.services-header-industry {
@@ -677,6 +684,44 @@ ul {
     + .step-1 .connection:after {
       left: auto;
       right: 50%;
+    }
+  }
+}
+.landing {
+  overflow: hidden;
+  position: relative;
+  figure {
+    .position(@z:1);
+    height: 650px;
+    overflow: hidden;
+    width: 650px;
+    img {
+      height: 600px;
+      width: 600px;
+    }
+    &.left {
+      bottom: -130px;
+      left: -175px;
+      img {
+        .rotate(15deg);
+      }
+    }
+    &.right {
+      top: -130px;
+      right: -220px;
+      img {
+        .rotate(-15deg);
+      }
+    }
+  }
+  .welcome {
+    .position(relative, @z:2);
+  }
+  .hiring {
+    .position(@b:@margin*2, @l:0, @r:0, @z:2);
+    h4 .icon-arrow-east {
+      .position(relative, @t: -0.2em);
+      line-height: 1;
     }
   }
 }

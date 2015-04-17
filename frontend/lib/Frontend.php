@@ -4,6 +4,8 @@ class Frontend extends App_Frontend {
     use atk4\atk4homepage\Trait_LanguageSupport;
     //use atk4\atk4homepage\Trait_ATK4HomePage;
 
+    public $title = 'Scandic Fusion';
+
     public $environment = 'prod';
     function init(){
         parent::init();

@@ -5177,24 +5177,34 @@ ul li {
   overflow: hidden;
   position: relative;
 }
+.services-header {
+  overflow: hidden;
+  position: relative;
+}
 .services-header .atk-wrapper {
   position: relative;
+  z-index: 2;
 }
-.services-header .atk-wrapper .atk-col-7 {
-  position: relative;
-  z-index: 1;
-}
-.services-header .atk-wrapper .services-graphics {
+.services-header figure.globe {
   position: absolute;
-  right: 0;
+  right: -100px;
   bottom: 0;
-  z-index: 0;
-}
-.services-header .atk-wrapper .services-graphics.globe {
-  background: url(../images/globe.png);
+  z-index: 1;
   height: 291px;
-  margin-right: -110px;
   width: 508px;
+}
+.services-header figure.sun {
+  position: absolute;
+  right: -75px;
+  bottom: 0;
+  z-index: 1;
+  background-attachment: scroll;
+  background-image: url(../temp/graphic-industry.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 450px 450px;
+  height: 100%;
+  width: 450px;
 }
 .services-header.services-header-industry {
   background: url(../temp/graphic-industry.png) no-repeat;
@@ -5536,6 +5546,59 @@ ul li {
 .technology-stack .step-1 + .step-1 .connection:after {
   left: auto;
   right: 50%;
+}
+.landing {
+  overflow: hidden;
+  position: relative;
+}
+.landing figure {
+  position: absolute;
+  z-index: 1;
+  height: 650px;
+  overflow: hidden;
+  width: 650px;
+}
+.landing figure img {
+  height: 600px;
+  width: 600px;
+}
+.landing figure.left {
+  bottom: -130px;
+  left: -175px;
+}
+.landing figure.left img {
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+.landing figure.right {
+  top: -130px;
+  right: -220px;
+}
+.landing figure.right img {
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+}
+.landing .welcome {
+  position: relative;
+  z-index: 2;
+}
+.landing .hiring {
+  position: absolute;
+  right: 0;
+  bottom: 2.8rem;
+  left: 0;
+  z-index: 2;
+}
+.landing .hiring h4 .icon-arrow-east {
+  position: relative;
+  top: -0.2em;
+  line-height: 1;
 }
 .icon-user-network-fix {
   display: inline-block;

@@ -1,0 +1,21 @@
+section.atk-wrapper
+  figure.left
+    img(src="temp/graphic-landing.png")
+  figure.right
+    img(src="temp/graphic-landing.png")
+  .atk-push-xlarge.welcome
+    h1.atk-push.atk-text-baseline-default {$title}
+    .atk-row
+      .atk-col-2
+      .atk-col-4
+        a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{action_1_link}page_id{/}") {$action_1}
+      .atk-col-4
+        a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{action_2_link}page_id{/}") {$action_2}
+  .atk-col-5.atk-move-center.atk-size-micro.hiring
+    h4.atk-push-xsmall
+      a(href='{page}jobs{/}').atk-cells.atk-width-auto.atk-move-center.atk-cells-gutter-xsmall
+        span.atk-cell
+          | {$hiring_title}
+        span.atk-cell
+          span.icon-arrow-east.atk-size-nano
+    p.atk-text-dimmed {$hiring_subtitle}

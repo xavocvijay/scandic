@@ -3,11 +3,24 @@ class CmsPage extends Page {
 
     protected $m;
     protected $tpl;
+    protected $tags=[];
 
     function init(){
         parent::init();
 
-        foreach($this->m->get() as $key=>$val){
+        $this->applyTags($this->m->get());
+
+        $this->title = $this->m['title'];
+
+        if($this->ctl->hasMethod('forFrontend'))$this->ctl->forFrontend($this);
+    }
+
+    function applyTags($tags = []){
+        $this->tags = array_merge($this->tags, $tags);
+    }
+
+    function _applyTags(){
+        foreach($this->tags as $key=>$val){
             if(!$this->template->hasTag($key))continue;
             $filters = $this->template->get($key);
             if(is_array($filters))$filters = array_pop($filters);
@@ -22,7 +35,11 @@ class CmsPage extends Page {
             $this->template->trySetHTML($key, $val);
 
         }
-        if($this->ctl->hasMethod('forFrontend'))$this->ctl->forFrontend($this);
+    }
+
+    function recursiveRender(){
+        $this->_applyTags();
+        return parent::recursiveRender();
     }
 
     function subPageHandler(){
@@ -42,6 +59,10 @@ class CmsPage extends Page {
     function filter_md($val){
         $Parsedown = new Parsedown();
         return $Parsedown->text($val);
+    }
+
+    function filter_page_id($val){
+        return $this->app->url($this->add('Model_Page')->load($val)['hash_url']);
     }
 
 }
