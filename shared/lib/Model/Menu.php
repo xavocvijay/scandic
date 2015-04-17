@@ -34,12 +34,13 @@ class Model_Menu extends SQL_Model
     /**
      * Creates joins between models, so that URL is instantly available as a field
      */
-    function joinHashURL()
+    function joinPage()
     {
 
-        // NOT TESTED
+        //$this->getElement('page_id')->destroy(); // no need for this filed
+        //$this->join('page')->addField('url_hash');
+            $page = $this->leftJoin('page.hash_url','page');
+            $page->addField('is_public')->type('boolean');
 
-        $this->getElement('page_id')->destroy(); // no need for this filed
-        $this->join('page')->addField('url_hash');
     }
 }

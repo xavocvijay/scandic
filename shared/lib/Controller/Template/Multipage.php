@@ -35,6 +35,7 @@ class Controller_Template_Multipage extends AbstractController {
 
             $cl = $page->add($is_top?'View_SubPageLister':'CompleteLister',null,'SubMenu','SubMenu')
                 ->setModel($m->ref('Page'))
+                ->addCondition('is_public', true)
                 ->addHook('afterLoad', function($m)use($id){
                     $m['is_active'] = $id==$m->id?'active':'';
                     $m['page']=$m->app->url($m['hash_url']);
@@ -50,7 +51,9 @@ class Controller_Template_Multipage extends AbstractController {
         $m = $this->add('Model_Page')->addCondition('parent_id', $m->id);
 
         $m->addHook('afterLoad',function($m){
-                $m['title']=[strip_tags($m['title']),'icon'=>$m['icon']?:'help'];
+                $m['title']=[strip_tags($m['title']),
+                    'icon'=>$m['is_public']?'eye':'eye-off'
+                ];
                 $u = $m->app->url('page');
                 $m['page']=$u->set('url', $m['hash_url']);
             });

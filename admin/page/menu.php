@@ -30,8 +30,7 @@ class page_menu extends Page
             $cr->form->getElement('name_lv')->setAttr('rows',2);
             $cr->form->getElement('name_ru')->setAttr('rows',2);
         }else{
-            $page = $cr->grid->model->leftJoin('page.hash_url','page');
-            $page->addField('is_public')->type('boolean');
+            $cr->grid->model->joinPage();
             $cr->grid->addColumn('boolean','is_public');
         }
     }

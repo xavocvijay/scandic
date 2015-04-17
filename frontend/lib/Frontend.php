@@ -101,6 +101,8 @@ class Frontend extends App_Frontend {
         $m=$this->add('Model_Menu');
         $m->addExpression('name')->set('name_en');
         $m->addCondition('parent_id',null);
+        $m->joinPage();
+        $m->addCondition('is_public', true);
         $menu ->setModel($m);
 
 

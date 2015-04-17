@@ -25,6 +25,8 @@ class page_page extends Page{
         $this->title=[['name'=>'Page Editor', 'page'=>$this->app->url()]];
         // add side navigation
         $m = $this->add('Model_Menu_Admin')->addCondition('parent_id', null);
+        $m->joinPage();
+        $m->addHook('afterLoad',function($m){ $m['name_en'] = [$m['name_en'], 'icon'=>$m['is_public']?'eye':'eye-off']; });
         $menu = $this->app->layout->add('Menu_Vertical',null,'Navigation');
         $menu->addItem('Index', $this->app->url('page', ['url'=>'index']));
         $menu->setModel($m);
