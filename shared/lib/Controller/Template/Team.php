@@ -101,7 +101,7 @@ class Controller_Template_Team extends AbstractController {
             foreach ($m as $row) {
                 $row->set('ord',$ids_arr[$row->id])->saveAndUnload();
             }
-            $this->js()->univ()->successMessage('Order updated')->execute();
+            $view->js()->univ()->successMessage('Order updated')->execute();
         }
     }
 }
