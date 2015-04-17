@@ -1,5 +1,5 @@
 <?php
-class Controller_Template_p404 extends AbstractController {
+class Controller_Template_P404 extends AbstractController {
 
     function adminEditable(){
         return ['title'];
