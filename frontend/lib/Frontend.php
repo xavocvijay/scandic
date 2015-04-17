@@ -102,7 +102,7 @@ class Frontend extends App_Frontend {
         $m->addExpression('name')->set('name_en');
         $m->addCondition('parent_id',null);
         $m->joinPage();
-        $m->addCondition('is_public', true);
+        $m->addCondition($m->dsql()->orExpr()->where('is_public',true)->where($m->getElement('id'),6));
         $menu ->setModel($m);
 
 
