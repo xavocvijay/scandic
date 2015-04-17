@@ -1,0 +1,31 @@
+
+<section class="atk-section-xlarge">
+  <div class="atk-wrapper atk-align-center">
+    <h1>{$title}</h1>
+    <hr class="hr-short atk-col-1 atk-move-center"/>
+    <p class="atk-size-mega atk-text-light">{$content}</p>
+  </div>
+</section>
+<section>
+  <div class="tabs-jobs">
+    <div class="atk-wrapper">
+      <ul>{TabTitle}{rows}{row}
+        <li><a href="#tab-{$id}" class="atk-size-mega atk-text-normal">{$name}</a></li>{/}
+        <li><a href="#tab-2" class="atk-size-mega atk-text-normal">Functional analyst/BI consultant</a></li>{/}{/}
+      </ul>
+    </div>
+    <hr class="atk-hr-reset atk-border-active"/>
+    <div class="atk-wrapper">{TabBody}{rows}{row}
+      <div id="tab-{$id}" class="atk-section-xlarge">
+        <div class="atk-push-large">
+          <div class="atk-row">
+            <div class="atk-col-6">{$content_left}</div>
+            <div class="atk-col-6">{$content_right}</div>
+          </div>
+        </div>
+        <div class="atk-align-center"><a href="{page}contact{/}" class="atk-button-large atk-swatch-blue atk-col-4 button-pill">Apply for this job<span class="icon-arrow-east atk-size-nano"></span></a></div>
+      </div>{/}
+      {/}{/}
+    </div>
+  </div>
+</section>
