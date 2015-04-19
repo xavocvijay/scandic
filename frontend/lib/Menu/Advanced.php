@@ -41,7 +41,9 @@ abstract class Menu_Advanced extends View
         if ($action) {
             if (is_string($action) || is_array($action) || $action instanceof URL) {
                 $i->template->set('url',$url = $this->api->url($action));
-                if($url->isCurrent(true)){
+                if($url->isCurrent(true) ||
+                    ($action == 'about' && $this->app->page=='contact')
+                    ){
                     $i->addClass('active');
                 }
             } else {
@@ -63,6 +65,15 @@ abstract class Menu_Advanced extends View
             array_merge($this->defaultTemplate(),array('Menu'))
         );
         $i->setHtml(is_array($title)?$title[0]:$title);
+
+                if(
+                    ($this->app->page=='contact') ||
+                    ($this->app->page=='about') ||
+                    ($this->app->page=='jobs') ||
+                    ($this->app->page=='team')
+                    ){
+                    $i->addClass('active');
+                }
 
         $m = $i->add($class,null,'SubMenu');
 
