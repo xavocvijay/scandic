@@ -12,7 +12,8 @@ section.atk-wrapper.atk-push-xlarge
         #gmap_canvas.atk-shape-rounded-left
       script(type='text/javascript').
         function init_map(){
-          var myOptions = {scrollwheel: false,zoom:17,center:new google.maps.LatLng(56.9496487,24.10518639999998),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(56.9496487, 24.10518639999998)});infowindow = new google.maps.InfoWindow({content:"<b>Where to find us?</b><br/>C&#780;iekurkalna 2. &scaron;k&#807;e&#772;rsli&#772;nija 4 k1-30<br/>LV-1026 Riga" });google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+          var myOptions = {scrollwheel: false,zoom:15,center:new google.maps.LatLng(56.96895850000001,24.16046460000007),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(56.96895850000001, 24.16046460000007)});infowindow = new google.maps.InfoWindow({content:"<b>Where to find us?</b><br/>Bērzaunes iela 9<br/>Rīga, LV-1039" });
+          google.maps.event.addListener(marker, "click", function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
     aside.atk-cell.atk-col-4.contact-sidebar
       .atk-box.atk-border-active.atk-shape-rounded-right.text-bodycolor
         h4 Contact Details
