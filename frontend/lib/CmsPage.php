@@ -64,5 +64,12 @@ class CmsPage extends Page {
     function filter_page_id($val){
         return $this->app->url($this->add('Model_Page')->load($val)['hash_url']);
     }
+    function filter_firstbold($val){
+        // makes first line bold
+        $lines = explode("\n", $val);
+        $fl = array_shift($lines);
+        $lines[0] = '<span class="atk-text-medium">'.$fl.'</span>'.$lines[0];
+        return join("\n", $lines);
+    }
 
 }
