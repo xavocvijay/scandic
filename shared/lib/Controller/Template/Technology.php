@@ -4,7 +4,7 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
 
     function forAdminIndex($page){
 
-        $t = $page->tabs->addTab('Boxes');
+        $t = $page->tabs->addTab('Technologies');
 
         $t->add('CRUD')->setModel('Technology');
     }
