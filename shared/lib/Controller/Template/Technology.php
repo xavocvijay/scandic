@@ -26,7 +26,6 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
         $f = function($l){
             $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
             if($l->current_row['class']=='step-3'){
-                echo 'here';
                 $l->current_row['bottom_connector']='';
             }
         };
