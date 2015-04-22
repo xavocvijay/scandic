@@ -1,10 +1,13 @@
 <?php
-class Controller_Template_Team extends AbstractController {
-
+/**
+ * Model implementation
+ */
+class Controller_Template_About extends AbstractController
+{
     public $show_settings=true;
 
     function adminEditable(){
-        return ['title','content','address','requisites'];
+        return ['title','content'];
     }
 
     function forModel($m){
@@ -46,15 +49,18 @@ class Controller_Template_Team extends AbstractController {
 
 
     function forFrontend($page){
-        if($page->template->hasTag('Team')){
-            $l=$page->add('CompleteLister',null,'Team','Team');
-            $l->setModel('Team');
+        if($page->template->hasTag('Timeline')){
+            $l=$page->add('CompleteLister',null,'Timeline','Timeline');
+            $l->setModel('About');
             $l->addHook('formatRow', function($l){
-                try {
-                    $l->current_row['photo'] = $l->app->locateURL('public','images/team/'.$l->current_row['photo'].'.jpg');
-                }catch(Exception_PathFinder $e){
+                $l->current_row_html['content']="<li>".join("</li><li>",explode("\n", $l->current_row['content']))."</li>";
+            });
+        }
 
-                }
+        if($page->template->hasTag('Testimonials')){
+            $l=$page->add('CompleteLister',null,'Testimonials','Testimonials');
+            $l->setModel('Testimonial');
+            $l->addHook('formatRow', function($l){
             });
         }
 
@@ -70,39 +76,21 @@ class Controller_Template_Team extends AbstractController {
     }
 
     function forAdminIndex($p){
-        $t = $p->tabs->addTab('Team');
+
+        $t = $p->tabs->addTab('Timeline & Testimonials');
 
         $cc = $t->add('Columns');
-        $this->app->stickyGET('menu_id');
-        $this->cr = $cc->addColumn(8)->add('CRUD');
-        $this->cr->setModel('Team','editable',['name_en','position_en','photo','ord']);
-        $c = $cc->addColumn(4);
 
-        $c->add('View_Hint')->set('To add a new team member you will manually need to add a picture to the site inside '.
-            'folder frontend/public/images/team/');
+        $c = $cc->addColumn(6);
+        $c->add('H2')->set('Timeline');
+        $this->cr = $c->add('CRUD');
+        $this->cr->setModel('About');
 
-        $c->add('View_Hint')->set('Drag and drop lines above to reorder pages.')->addClass('atk-push');
+        $c = $cc->addColumn(6);
+        $c->add('H2')->set('Testimonials');
+        $this->cr = $c->add('CRUD');
+        $this->cr->setModel('Testimonial');
 
-        $p->js()->_load('atk4HomePage');
 
-        $p->js(true)->atk4HomePage()->makeSortable($this->cr->getJSID(),"tbody>tr",'data-id',$this->app->url());
-
-        $this->updateOrder($this->cr, $this->cr->model);
-    }
-    protected function updateOrder(\AbstractView $view, Model $m) {
-
-        if ($_GET['action'] == 'refresh_order') {
-            $ids = $_GET['ids'];
-            $ids_arr = [];
-            foreach (explode(',',$ids) as $k=>$v) {
-                $ids_arr[$v] = $k;
-            }
-            $m->addCondition('id','in',$ids);
-
-            foreach ($m as $row) {
-                $row->set('ord',$ids_arr[$row->id])->saveAndUnload();
-            }
-            $view->js()->univ()->successMessage('Order updated')->execute();
-        }
     }
 }

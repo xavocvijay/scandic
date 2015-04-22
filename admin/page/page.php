@@ -75,9 +75,16 @@ class page_page extends Page{
         $m = $this->model;
 
         $bs = $this->add('ButtonSet')->addClass('atk-push');
-        $bs->addButton('SEO');
+
+        $bs_right = $this->add('ButtonSet')->addClass('atk-push atk-move-right');
+
+        $this->tabs = $this->add('Tabs');
+
+        $t = $this->tabs->addTab('Content');
+
         if($m['parent_id'] || @$this->ctl->show_settings || @$m->show_settings ){
-            $bs->addButton('Settings')->js('click')->univ()->dialogURL('Settings', $this->app->url('./settings'));
+            if($m->hasMethod('refSettings'))$this->tabs->addTabURL($this->app->url('./settings'),'Settings');
+            //$bs->addButton('Settings')->js('click')->univ()->dialogURL('Settings', $this->app->url('./settings'));
         }
         if($m['is_public']){
             $bs->addButton(['Public','icon'=>'check'])->set('Public')
@@ -97,13 +104,12 @@ class page_page extends Page{
 
         $bs->addButton('Preview')->addClass('atk-swatch-green');
 
-        $bs = $this->add('ButtonSet')->addClass('atk-push atk-move-right');
-        $bs->addButton('Delete')->addClass('atk-swatch-red')->onClick(function($b)use($m){
+        $bs_right->addButton('Delete')->addClass('atk-swatch-red')->onClick(function($b)use($m){
             $m->delete();
             return $b->js()->univ()->location($this->app->url(null,['url'=>null]));
         },"Delete page ".$m['title']."?");
 
-        $form = $this->add('Form');
+        $form = $t->add('Form');
         $form->setClass('stacked');
         $form->setModel($m, $this->ctl->adminEditable());
         //$form->getElement('content')->setCaption($this->model['system_name']);
@@ -133,6 +139,7 @@ class page_page extends Page{
             $f->save();
             return $f->js()->univ()->location($this->app->url('..'));
         });
+        $f->addSubmit()->addClass('atk-swatch-green');
     }
 
 }

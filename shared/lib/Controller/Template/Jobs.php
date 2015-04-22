@@ -56,6 +56,7 @@ class Controller_Template_Jobs extends AbstractController {
     }
 
     function forAdminIndex($p){
+        $p = $p->tabs->addTab('Jobs');
         $p->add('HR');
         $cc = $p->add('Columns');
         $this->app->stickyGET('menu_id');

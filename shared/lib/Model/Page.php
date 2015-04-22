@@ -25,6 +25,8 @@ class Model_Page extends SQL_Model
             $m['keywords'] = str_replace(",","\n", $m['keywords']);
             $m['keywords'] = str_replace("\n ","\n", $m['keywords']);
         });
+
+        $this->hasMany('Box');
     }
 
     function newSubPage(){

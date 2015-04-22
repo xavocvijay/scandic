@@ -12,7 +12,7 @@ class Controller_Template_Multipage extends AbstractController {
 
     function forModel($m){
         $m->addField('intro')->type('text');//->onField(function($f){ echo 'hi'; });
-        $m->getElement('content')->display(['form'=>'text']);
+        $m->getElement('content');//->display(['form'=>'text']);
         $this->setModel($m->reload());
     }
 
