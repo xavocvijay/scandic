@@ -5,7 +5,7 @@ class View_SubPageLister extends CompleteLister {
         if($this->cnt && !($this->cnt % 4)){
             $this->template->appendHTML(
             $this->container_tag,
-            '</div><div class="atk-cells">'
+            '</div><div class="atk-cells atk-stack-mobile">'
         );
 
         }

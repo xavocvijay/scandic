@@ -25,20 +25,67 @@ $(function(){
       pauseOnHover: true
     }
   });
+  resizeUpdate();
+  $('.header .icon-nav').click(function(){
+    $('.nav-mobile').slideToggle(150);
+    $(this).toggleClass('active');
+  });
+  $('.tooltip').tooltip({
+    position: { my: "center", at: "bottom+30" }
+  });
 
-  var mapheight = $('.contact-sidebar').outerHeight();
-  $('.map').height(mapheight);
-
+});
 
 $(window).resize(function() {
-  var contentHeight = $('.content').height();
-  var sidebarHeight = $('.sidebar').height();
+    if(this.resizeTO) clearTimeout(this.resizeTO);
+    this.resizeTO = setTimeout(function() {
+        resizeUpdate();
+    }, 500);
+});
+
+
+function resizeUpdate() {
+  console.log('resized!');
+  contentHeight = $('.content').height();
+  sidebarHeight = $('.sidebar aside').height();
   if ( contentHeight > sidebarHeight ) {
     $('.sidebar aside').height(contentHeight);
+  } else {
+    $('.sidebar aside').css("height", "auto");
   }
-});
 
-$(window).trigger('resize');
+  techStack1 = $('.technology-stack .step-1:first-child .atk-box');
+  techStack2 = $('.technology-stack .step-1:first-child + .step-1 .atk-box');
+  $(techStack1).css('height', 'auto');
+  $(techStack2).css('height', 'auto');
+  techStack1Height = $(techStack1).outerHeight();
+  techStack2Height = $(techStack2).outerHeight();
+  if ( techStack1Height > techStack2Height ) {
+    $(techStack1).outerHeight(techStack1Height);
+    $(techStack2).outerHeight(techStack1Height);
+  } else {
+    $(techStack1).outerHeight(techStack2Height);
+    $(techStack2).outerHeight(techStack2Height);
+  }
 
+  jobTab1 = $('.tabs-jobs .ui-tabs-nav li:first-child a');
+  jobTab2 = $('.tabs-jobs .ui-tabs-nav li:first-child+li a');
+  $(jobTab1).css('height', 'auto');
+  $(jobTab2).css('height', 'auto');
+  jobTab1Height = $(jobTab1).outerHeight();
+  jobTab2Height = $(jobTab2).outerHeight();
+  if ( jobTab1Height > jobTab2Height ) {
+    $(jobTab1).outerHeight(jobTab1Height);
+    $(jobTab2).outerHeight(jobTab2Height);
+  } else {
+    $(jobTab1).outerHeight(jobTab2Height);
+    $(jobTab2).outerHeight(jobTab2Height);
+  }
 
-});
+  $('.contact-sidebar .atk-box').css("height", "auto");
+  contactSidebarHeight = $('.contact-sidebar .atk-box').outerHeight();
+  contactSidebarHeight = Math.ceil(contactSidebarHeight);
+  $('.map').height(contactSidebarHeight);
+  $('.contact-sidebar .atk-box').outerHeight(contactSidebarHeight);
+
+}

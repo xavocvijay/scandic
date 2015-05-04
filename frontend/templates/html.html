@@ -4,9 +4,8 @@
 <html lang="{lang}en{/}">
   <head>
     <meta charset="utf-8"><!--[if IE><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <title>{page_title}Untitled Project - Agile Toolkit{/}</title>
-    <!--meta(name="desciption" content="{$page_description}")-->{$page_metas}
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
+    <title>{page_title}Scandic Fusion{/}</title>
+    {$page_metas}
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
 	<link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{css}scandic.css{/}">
@@ -17,7 +16,6 @@
       $(function(){
           {$document_ready}
       });
-
     </script>
   </head>
   <body class="{$pagename}">
@@ -27,20 +25,6 @@
 		  Please <a href="http://browsehappy.com/">upgrade your browser</a>
 		  to improve your experience.
 	  </p><![endif]-->
-    {Layout}
-    <div class="atk-layout">
-      <div class="atk-layout-row">
-        <div class="atk-wrapper atk-padding-small atk-cells">
-          <div class="atk-cell atk-valign-middle"><img src="{public}images/logo.png{/}" style="background: black"></div>
-          <div class="atk-cell atk-jackscrew atk-align-right">{$Menu}</div>
-        </div>
-      </div>
-      <div class="atk-layout-row atk-layout-fluid">
-        <div class="atk-wrapper">{$Content}</div>
-      </div>
-      <div class="atk-layout-row">
-        <div class="atk-wrapper atk-padding-small atk-align-center atk-size-milli">This system is implemented using&nbsp;<a href="http://agiletoolkit.org/">Agile Toolkit</a>. © 1999–2014 Agile Toolkit Limited.&nbsp;<a href="http://agiletoolkit.org/about/license">See License</a></div>
-      </div>
-    </div>{/}
+    {Layout}{$Content}{/}
   </body>
 </html>

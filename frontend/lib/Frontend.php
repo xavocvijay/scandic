@@ -42,7 +42,7 @@ class Frontend extends App_Frontend {
  //       $this->addRouter();
         $this->real_page = $this->page;
         $this->addMenu();
-        $this->addLanguageSwitcher();
+        //$this->addLanguageSwitcher();
     }
 
     function loadStaticPage($page){
@@ -104,6 +104,23 @@ class Frontend extends App_Frontend {
         $m->joinPage();
         $m->addCondition($m->dsql()->orExpr()->where('is_public',true)->where($m->getElement('id'),6));
         $menu ->setModel($m);
+
+        $m=$this->add('Model_Menu');
+        $m->addExpression('name')->set('name_en');
+        $m->addCondition('parent_id',null);
+        $m->joinPage();
+        $m->addCondition('is_public',true);
+        $m->addCondition('id','!=',6);
+        $c=$this->layout->add('CompleteLister',null,'MobileMenu','MobileMenu');
+        $c->setModel($m);
+        $c->addHook('formatRow', function($f){ $f->current_row['name'] = strip_tags($f->current_row['name']);});
+
+        $m=$this->add('Model_Menu');
+        $m->addExpression('name')->set('name_en');
+        $m->addCondition('parent_id',6);
+        $c=$this->layout->add('CompleteLister',null,'MobileAboutMenu','MobileAboutMenu');
+        $c->setModel($m);
+        $c->addHook('formatRow', function($f){ $f->current_row['name'] = strip_tags($f->current_row['name']);});
 
 
         //$menu->addItem('Hello World', 'bleh');

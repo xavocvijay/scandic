@@ -1,0 +1,19 @@
+a.icon-nav.atk-show-mobile.atk-show-tablet.atk-move-right(href='javascript:void(0)')
+  span
+ul.atk-menu-horizontal.atk-actions-xxlarge.atk-move-right(id='{$_name}', style='{$style}').atk-hide-mobile.atk-hide-tablet
+  | {Content}
+  | {Item}
+  li(id='{$_name}', class='{$class}')
+    a.atk-action(id='{$_name}', href='{url}javascript:void(0){/}', {$attributes}='')
+      | {$icon}{$Content}
+  | {/Item}
+  | {Menu}
+  li(id='{$_name}', class='{$class}')
+    a.atk-section(href='#')
+      .atk-cells.atk-cells-gutter-small
+        .atk-cell {$icon}{$Content}
+        .atk-cell.atk-valign-top
+          span.icon-arrow-circle-south
+    | {$SubMenu}
+  | {/Menu}
+  | {/Content}

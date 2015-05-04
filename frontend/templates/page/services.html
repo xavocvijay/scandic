@@ -6,20 +6,16 @@
       <hr class="hr-short atk-col-1"/>
       <p class="atk-size-mega atk-text-light">{$content}</p>
     </div>
-    <div class="services-graphics globe"></div>
-    <figure class="globe"><img src="images/globe.png" alt=""/></figure>
+    <figure class="globe atk-hide-mobile"><img src="images/globe.png" alt=""/></figure>
   </div>
 </section>
-<section class="atk-swatch-blue services-selection">
+<section class="atk-swatch-blue services-selection services">
   <div class="atk-wrapper">
     <div class="atk-cells-group atk-cells-justified atk-expand atk-align-center atk-valign-top">
-      <div class="atk-cells">{SubMenu}{rows}{row}<a href="{$page}" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="atk-push atk-size-yotta atk-text-baseline-reset icon-{$icon}"></div><strong>{$title}</strong></a>{/row}<a href="javascript:void(0)" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="icon-chart atk-push atk-size-yotta atk-text-baseline-reset"></div><strong>BI Implementation</strong></a><a href="javascript:void(0)" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="icon-maintenance atk-push atk-size-yotta atk-text-baseline-reset"></div><strong>Maintenance &amp; Support</strong></a><a href="javascript:void(0)" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="icon-scale atk-push atk-size-yotta atk-text-baseline-reset"></div><strong>Licensing Advisory</strong></a><a href="javascript:void(0)" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="icon-clipboard atk-push atk-size-yotta atk-text-baseline-reset"></div><strong>DWH/BI Audit</strong></a><a href="javascript:void(0)" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
-          <div class="icon-clipboard atk-push atk-size-yotta atk-text-baseline-reset"></div><strong>Data Exploration</strong></a>{/rows}{/SubMenu}</div>
+      <div class="atk-cells atk-stack-mobile">{SubMenu}{rows}{row}<a href="{$page}" class="atk-cell atk-section-large atk-padding atk-swatch-blue">
+          <div class="atk-push atk-size-yotta atk-text-baseline-reset icon-{$icon}"></div><strong>{$title}</strong></a>{/row}
+        {/rows}{/SubMenu}
+      </div>
     </div>
   </div>
 </section>

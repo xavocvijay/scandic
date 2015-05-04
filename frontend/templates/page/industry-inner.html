@@ -1,7 +1,7 @@
 
 <section class="atk-wrapper">
   <div class="atk-row">
-    <div class="atk-col-4 sidebar">
+    <div class="atk-col-4 sidebar atk-hide-mobile">
       <aside class="atk-swatch-blue atk-section-large">
         <ul class="atk-menu-vertical">{SubMenu}{rows}{row}
           <li class="atk-menu-separated {$is_active}"><a href="{$page}" class="atk-padding atk-swatch-blue atk-actions atk-text-medium"><span class="atk-cells atk-cells-gutter"><span class="atk-cell"><span class="atk-size-kilo icon-{$icon}"></span></span><span class="atk-cell atk-expand">{$title}</span></span></a></li>{/row}
@@ -17,7 +17,7 @@
         <hr class="hr-short atk-col-1"/>{content}md{/}
       </section>
       <section class="feature-breakdown">
-        <div class="atk-cells atk-cells-gutter">
+        <div class="atk-cells atk-cells-gutter atk-stack-mobile">
           <div class="atk-cell atk-col-6 atk-valign-top">{Box_left}{rows}{row}
             <div class="atk-box atk-border-active box-corner">
               <h4>{$name}</h4>

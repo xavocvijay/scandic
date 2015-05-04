@@ -1,24 +1,29 @@
+
 <div class="atk-layout">
-    <div class="atk-layout-row header">{Header}
-        <div class="atk-layout-cell">
-            <div class="atk-wrapper">{Header_Content}
-                <div class="atk-cells">
-                    <div class="atk-cell atk-col-2"><a href="{page}/{/}" class="logo"><img src="{public}images/logo.svg{/}" alt="Scandic Fusion" width="140"></a></div>
-                    <div class="atk-cell atk-expand">
-                        {$Main_Menu}
-                        <!--<div class="atk-align-right">{$Main_Menu}</div>-->
-                        <!--<div class="atk-align-right">{$langs}</div>-->
-                    </div>
-                </div>{/Header_Content}
-            </div>
-            <hr class="atk-hr-reset">
-        </div>{/Header}
+  <div class="atk-layout-row header">{Header}
+    <div class="atk-layout-cell">
+      <ul class="atk-menu-vertical nav-mobile atk-size-kilo atk-swatch-blue">
+        {MobileMenu}
+        {rows}{row}
+        <li class="atk-menu-separated"><a href="{$page}" class="atk-padding atk-swatch-blue">{$name}</a></li>{/}{/}{/}
+        <li class="atk-padding-small atk-swatch-blue nav-separation atk-size-milli atk-menu-separated">
+          <div class="atk-text-dimmed">ABOUT SCANDIC FUSION</div>
+        </li>{MobileAboutMenu}
+        {rows}{row}
+        <li class="atk-menu-separated"><a href="{$page}" class="atk-padding atk-swatch-blue">{$name}</a></li>{/}{/}{/}
+      </ul>
+      <div class="atk-wrapper">{Header_Content}
+        <div class="atk-cells">
+          <div class="atk-cell atk-col-2"><a href="{page}/{/}" class="logo logo atk-inline"><img src="{public}images/logo.svg{/}" alt="Scandic Fusion" width="140"/></a></div>
+          <div class="atk-cell atk-expand">{$Main_Menu}</div>
+        </div>{/Header_Content}
+      </div>
+      <hr class="atk-hr-reset"/>
+    </div>{/Header}
+  </div>
+  <div class="atk-layout-row atk-layout-expand">
+    <div id="atk-layout-content" class="atk-layout atk-layout-cell">
+      <div class="atk-layout-column atk-layout-fluid {$extra_layout_classes}">{$Content}</div>
     </div>
-    <div class="atk-layout-row atk-layout-expand">
-        <div id="atk-layout-content" class="atk-layout atk-layout-cell">
-            <div class="atk-layout-column atk-layout-fluid {$extra_layout_classes}">
-                {$Content}
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

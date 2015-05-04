@@ -1,22 +1,13 @@
-<ul id="{$_name}" style="{$style}" class="atk-menu-horizontal atk-actions-xxlarge atk-move-right">
-    {Content}
-    {Item}
-    <li id="{$_name}" class="{$class}">
-        <a class="atk-action" id="{$_name}" href="{url}javascript:void(0){/}" {$attributes}>
-            {$icon}{$Content}
-        </a>
-    </li>
-    {/Item}
-    {Menu}
-    <li id="{$_name}" class="{$class}">
-        <a href="#" class="atk-section ">
-            <div class="atk-cells atk-cells-gutter-small">
-                <div class="atk-cell">{$icon}{$Content}</div>
-                <div class="atk-cell atk-valign-top"><span class="icon-arrow-circle-south"></span></div>
-            </div>
-        </a>
-        {$SubMenu}
-    </li>
-    {/Menu}
-    {/Content}
+<a href="javascript:void(0)" class="icon-nav atk-show-mobile atk-show-tablet atk-move-right"><span></span></a>
+<ul id="{$_name}" style="{$style}" class="atk-menu-horizontal atk-actions-xxlarge atk-move-right atk-hide-mobile atk-hide-tablet">
+  {Content}
+  {Item}
+  <li id="{$_name}" class="{$class}"><a id="{$_name}" href="{url}javascript:void(0){/}" {$attributes}="" class="atk-action">{$icon}{$Content}</a></li>{/Item}
+  {Menu}
+  <li id="{$_name}" class="{$class}"><a href="#" class="atk-section">
+      <div class="atk-cells atk-cells-gutter-small">
+        <div class="atk-cell">{$icon}{$Content}</div>
+        <div class="atk-cell atk-valign-top"><span class="icon-arrow-circle-south"></span></div>
+      </div></a>{$SubMenu}</li>{/Menu}
+  {/Content}
 </ul>

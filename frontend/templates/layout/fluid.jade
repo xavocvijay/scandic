@@ -1,0 +1,32 @@
+.atk-layout
+  .atk-layout-row.header
+    {Header}
+    .atk-layout-cell
+      ul.atk-menu-vertical.nav-mobile.atk-size-kilo.atk-swatch-blue
+        {MobileMenu}
+        {rows}{row}
+        li.atk-menu-separated
+          a.atk-padding.atk-swatch-blue(href="{$page}") {$name}
+        {/}{/}{/}
+        li.atk-padding-small.atk-swatch-blue.nav-separation.atk-size-milli.atk-menu-separated
+          .atk-text-dimmed ABOUT SCANDIC FUSION
+        {MobileAboutMenu}
+        {rows}{row}
+        li.atk-menu-separated
+          a.atk-padding.atk-swatch-blue(href="{$page}") {$name}
+        {/}{/}{/}
+      .atk-wrapper
+        {Header_Content}
+        .atk-cells
+          .atk-cell.atk-col-2
+            a.logo(href='{page}/{/}').logo.atk-inline
+              img(src='{public}images/logo.svg{/}', alt='Scandic Fusion', width='140')
+          .atk-cell.atk-expand
+            | {$Main_Menu}
+        {/Header_Content}
+      hr.atk-hr-reset
+    {/Header}
+  .atk-layout-row.atk-layout-expand
+    #atk-layout-content.atk-layout.atk-layout-cell
+      .atk-layout-column.atk-layout-fluid(class='{$extra_layout_classes}')
+        {$Content}
