@@ -113,14 +113,20 @@ class Frontend extends App_Frontend {
         $m->addCondition('id','!=',6);
         $c=$this->layout->add('CompleteLister',null,'MobileMenu','MobileMenu');
         $c->setModel($m);
-        $c->addHook('formatRow', function($f){ $f->current_row['name'] = strip_tags($f->current_row['name']);});
+        $c->addHook('formatRow', function($f){
+            $f->current_row['name'] = strip_tags($f->current_row['name']);
+            $f->current_row['url'] = $this->app->url($f->current_row['page']);
+        });
 
         $m=$this->add('Model_Menu');
         $m->addExpression('name')->set('name_en');
         $m->addCondition('parent_id',6);
         $c=$this->layout->add('CompleteLister',null,'MobileAboutMenu','MobileAboutMenu');
         $c->setModel($m);
-        $c->addHook('formatRow', function($f){ $f->current_row['name'] = strip_tags($f->current_row['name']);});
+        $c->addHook('formatRow', function($f){
+            $f->current_row['name'] = strip_tags($f->current_row['name']);
+            $f->current_row['url'] = $this->app->url($f->current_row['page']);
+        });
 
 
         //$menu->addItem('Hello World', 'bleh');
