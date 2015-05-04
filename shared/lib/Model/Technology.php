@@ -24,6 +24,7 @@ class Model_Technology extends SQL_Model
         $this->addField('bullets')->type('text');
 
         $this->addField('class');
+        $this->addField('ord');
 
     }
 }

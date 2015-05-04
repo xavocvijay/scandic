@@ -28,6 +28,8 @@ class Model_Menu extends SQL_Model
 
         $this->getElement('menu_cnt')->caption('Sub Pages');
 
+        $this->addField('ord');
+
 
     }
 

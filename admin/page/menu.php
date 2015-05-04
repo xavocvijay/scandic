@@ -22,9 +22,10 @@ class page_menu extends Page
 
     function page_index(){
         $cr = $this->cr;
-        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt','is_public']));
+        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt','is_public','ord']));
         $this->model->addCondition('parent_id',null);
         $this->cr->grid->addColumn('link','name_en',['page'=>'./sub','descr'=>'Name En','id_field'=>'menu_id']);
+        $this->cr->grid->add('Controller_OrderedGrid');
         if($cr->isEditing()){
             $cr->form->getElement('name_en')->setAttr('rows',2);
             $cr->form->getElement('name_lv')->setAttr('rows',2);

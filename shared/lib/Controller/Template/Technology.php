@@ -6,7 +6,9 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
 
         $t = $page->tabs->addTab('Technologies');
 
-        $t->add('CRUD')->setModel('Technology');
+        $cr = $t->add('CRUD');
+        $cr->setModel('Technology');
+        $cr->grid->add('Controller_OrderedGrid');
     }
 
     function forModel($m){

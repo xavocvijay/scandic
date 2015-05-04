@@ -15,7 +15,7 @@ class Model_Team extends SQL_Model
         $this->addField('position_ru');
         $this->addField('photo');
 
-        $this->addField('ord')->type('int')->system(true); // order
+        $this->addField('ord');//->system(true); // order
         $this->setOrder('ord,id');
     }
 }
