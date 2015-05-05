@@ -4,13 +4,11 @@
 <html lang="{lang}en{/}">
   <head>
     <meta charset="utf-8"><!--[if IE><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-    <title>{page_title}Scandic Fusion{/}</title>
-    {$page_metas}
+    <title>{page_title}Scandic Fusion{/}</title>{$page_metas}
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700" rel="stylesheet" type="text/css">
-	<link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{css}scandic.css{/}">
-    <link rel="stylesheet" type="text/css" href="{css}royalslider.css{/}">
-	  {$js_block}
+    <link rel="stylesheet" type="text/css" href="{css}royalslider.css{/}">{$js_block}
     {$js_include}
     <script type="text/javascript">
       $(function(){
@@ -19,12 +17,9 @@
     </script>
   </head>
   <body class="{$pagename}">
-	  <!--[if lt IE 8]>
-	  <p class="browsehappy">
-		  You are using an <strong>outdated</strong> browser.
-		  Please <a href="http://browsehappy.com/">upgrade your browser</a>
-		  to improve your experience.
-	  </p><![endif]-->
+    <!--[if lt IE 8]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
     {Layout}{$Content}{/}
   </body>
 </html>
