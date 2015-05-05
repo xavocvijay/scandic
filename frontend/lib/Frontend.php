@@ -100,6 +100,7 @@ class Frontend extends App_Frontend {
 
         $m=$this->add('Model_Menu');
         $m->addExpression('name')->set('name_en');
+        $m->setOrder('ord');
         $m->addCondition('parent_id',null);
         $m->joinPage();
         $m->addCondition($m->dsql()->orExpr()->where('is_public',true)->where($m->getElement('id'),6));
