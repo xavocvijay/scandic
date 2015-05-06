@@ -51,10 +51,11 @@ class Controller_Template_About extends AbstractController
     function forFrontend($page){
         if($page->template->hasTag('Timeline')){
             $l=$page->add('CompleteLister',null,'Timeline','Timeline');
-            $l->setModel('About');
+            $l->setModel('About')->setOrder('year desc');
             $l->addHook('formatRow', function($l){
                 $l->current_row_html['content']="<li>".join("</li><li>",explode("\n", $l->current_row['content']))."</li>";
             });
+            $page->template->set('this_year', date('Y'));
         }
 
         if($page->template->hasTag('Testimonials')){
