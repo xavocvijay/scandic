@@ -84,8 +84,9 @@ class page_page extends Page{
 
         if($m['parent_id'] || @$this->ctl->show_settings || @$m->show_settings ){
             if($m->hasMethod('refSettings'))$this->tabs->addTabURL($this->app->url('./settings'),'Settings');
-            //$bs->addButton('Settings')->js('click')->univ()->dialogURL('Settings', $this->app->url('./settings'));
         }
+        $this->tabs->addTabURl($this->app->url('./actions'),'Actions');
+
         if($m['is_public']){
             $bs->addButton(['Public','icon'=>'check'])->set('Public')
                 ->onClick(function($b)use($m){
@@ -140,6 +141,12 @@ class page_page extends Page{
             return $f->js()->univ()->location($this->app->url('..'));
         });
         $f->addSubmit()->addClass('atk-swatch-green');
+    }
+
+    function page_actions(){
+        $this->add('View_Hint')->set('Actions will be displayed at the bottom of the page if template supports it');
+        $f=$this->add('FormAndSave');
+        $f->setModel($this->model, ['action_title','action1_id', 'action2_id']);
     }
 
 }

@@ -26,6 +26,10 @@ class Model_Page extends SQL_Model
             $m['keywords'] = str_replace("\n ","\n", $m['keywords']);
         });
 
+        $this->addField('action_title');
+        $this->hasOne('Actions','action1_id');
+        $this->hasOne('Actions','action2_id');
+
         $this->hasMany('Box');
     }
 

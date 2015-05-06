@@ -13,6 +13,19 @@ class CmsPage extends Page {
         $this->title = $this->m['title'];
 
         if($this->ctl->hasMethod('forFrontend'))$this->ctl->forFrontend($this);
+
+        if($this->template->hasTag('ActionsWithIcons')){
+            $this->add('View_Actions',null,'ActionsWithIcons',['view/actions_icons'])
+                ->setModel($this->m);
+        }
+        if($this->template->hasTag('Action')){
+            $this->add('View_Actions',['sub'=>[1]],'Action',['view/action'])
+                ->setModel($this->m);
+        }
+        if($this->template->hasTag('ActionInner') && $this->m['action_title']){
+            $this->add('View_Actions',['sub'=>[1]],'ActionInner',['view/action_inner'])
+                ->setModel($this->m);
+        }
     }
 
     function applyTags($tags = []){

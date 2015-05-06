@@ -15,5 +15,7 @@ class page_actions extends Page
     {
         parent::init();
 
+        $this->add('CRUD')->setModel('Actions');
+
     }
 }
