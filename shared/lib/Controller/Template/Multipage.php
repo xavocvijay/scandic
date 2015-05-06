@@ -1,6 +1,7 @@
 <?php
 class Controller_Template_Multipage extends AbstractController {
     public $title='Services';
+    public $show_settings=true;
 
     function adminEditable(){
         if($this->model['parent_id']){

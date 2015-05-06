@@ -83,7 +83,8 @@ class page_page extends Page{
         $t = $this->tabs->addTab('Content');
 
         if($m['parent_id'] || @$this->ctl->show_settings || @$m->show_settings ){
-            if($m->hasMethod('refSettings'))$this->tabs->addTabURL($this->app->url('./settings'),'Settings');
+            //if($m->hasMethod('refSettings'))
+                $this->tabs->addTabURL($this->app->url('./settings'),'Settings');
         }
         $this->tabs->addTabURl($this->app->url('./actions'),'Actions');
 
@@ -95,7 +96,7 @@ class page_page extends Page{
                     return $b->js()->reload();
                 });
         }else{
-            $bs->addButton(['Public','icon'=>'check-empty'])->set('Draft')
+            $bs->addButton(['Public','icon'=>'check-empty'])->set('Not Public')
                 ->onClick(function($b)use($m){
                     $m['is_public']=true;
                     $m->save();
@@ -103,7 +104,7 @@ class page_page extends Page{
                 });
         }
 
-        $bs->addButton('Preview')->addClass('atk-swatch-green');
+        $bs->addButton('Preview')->addClass('atk-swatch-green')->link('http://www.scandicfusion.com/'.$this->model['hash_url'],['url'=>false])->setAttr('target','_blank');
 
         $bs_right->addButton('Delete')->addClass('atk-swatch-red')->onClick(function($b)use($m){
             $m->delete();
