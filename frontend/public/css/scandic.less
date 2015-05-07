@@ -34,6 +34,9 @@
         &.sun {
           right: 0px !important;
         }
+        &.flower {
+          right: 0px !important;
+        }
       }
     }
     .services-selection.cross-company .atk-cell.atk-section-large {
@@ -101,6 +104,12 @@
             height: 260px;
             right: 0px;
             width: 400px;
+          }
+          &.flower {
+            background-size: 350px 350px;
+            height: 100%;
+            right: 15px;
+            width: 350px;
           }
         }
       }
@@ -231,7 +240,7 @@
         padding-right: 50px;
       }
       .testimonial .atk-box-large {
-        padding: @margin*1.5;
+        padding: @margin*1.5; 
       }
       .timeline .year-block .event {
         height: auto;
@@ -412,7 +421,7 @@ h5 {
     color: @linkColor;
   }
 }
-ul {
+ul { 
   padding-left: 1.2em;
   &, li {
     list-style-type: circle;
@@ -578,9 +587,9 @@ ul {
       background-repeat: no-repeat;
       height: 300px;
       width: 500px;
-      @media
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi) {
+      @media 
+      (-webkit-min-device-pixel-ratio: 2), 
+      (min-resolution: 192dpi) { 
           & {
             background-image: url(../images/graphic-competences-retina.png);
             background-size: 500px 300px;
@@ -594,11 +603,27 @@ ul {
       background-repeat: no-repeat;
       height: 100%;
       width: 450px;
-      @media
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi) {
+      @media 
+      (-webkit-min-device-pixel-ratio: 2), 
+      (min-resolution: 192dpi) { 
           & {
             background-image: url(../images/graphic-industry-retina.png);
+            background-size: 450px 450px;
+          }
+      }
+    }
+    &.flower {
+      .position(@b:0, @r:-75px, @z:1);
+      background-image: url(../images/graphic-cross-company.png);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 450px;
+      @media 
+      (-webkit-min-device-pixel-ratio: 2), 
+      (min-resolution: 192dpi) { 
+          & {
+            background-image: url(../images/graphic-cross-company-retina.png);
             background-size: 450px 450px;
           }
       }
@@ -656,7 +681,8 @@ ul {
         font-size: 125%;
       }
     }
-    &:hover {
+    // &:hover, &:active {
+    &:hover, &:focus, &:active {
       figcaption {
         .opacity(100);
       }
@@ -864,9 +890,9 @@ ul {
   background-image: url(../images/graphic-techstack.png);
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
+  @media 
+  (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) { 
       & {
         background-image: url(../images/graphic-techstack-retina.png);
         background-size: 1400px;
