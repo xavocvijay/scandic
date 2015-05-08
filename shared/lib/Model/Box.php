@@ -17,7 +17,11 @@ class Model_Box extends SQL_Model
 
         $this->addField('name');
         $this->hasOne('Page');
-        $this->addField('position')->enum(['left','right']);
-        $this->addField('content')->type('text')->hint('Enter multiple lines separate by Enter. Each line will become a bullet-point');
+        $this->addField('position')->enum(['left','right'])
+        ->hint('Enter text as bullet-points.');
+        $this->addField('content')
+        ->type('text')
+        ->display(['form'=>'atk4\markdown\Form_Field_Markdown'])
+        ;
     }
 }

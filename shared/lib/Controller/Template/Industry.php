@@ -11,9 +11,11 @@ class Controller_Template_Industry extends Controller_Template_Multipage {
 
     function forFrontend($page){
         parent::forFrontend($page);
+        $Parsedown = new Parsedown();
 
-        $f = function($l){
-            $l->current_row_html['content']="<li>".join("</li><li>",explode("\n", $l->current_row['content']))."</li>";
+        $f = function($l)use($Parsedown){
+            //$l->current_row_html['content']="<li>".join("</li><li>",explode("\n", $l->current_row['content']))."</li>";
+            $l->current_row_html['content']=$Parsedown->text($l->current_row['content']);
         };
 
         // now add boxes

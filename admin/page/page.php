@@ -156,7 +156,7 @@ class page_page extends Page{
 
     function page_actions(){
         $this->add('View_Hint')->set('Actions will be displayed at the bottom of the page if template supports it');
-        $f=$this->add('FormAndSave');
+        $f=$this->add('formandsave/FormAndSave');
         $f->setModel($this->model, ['action_title','action1_id', 'action2_id']);
     }
 
