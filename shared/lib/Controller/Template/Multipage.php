@@ -62,9 +62,14 @@ class Controller_Template_Multipage extends AbstractController {
 
 
         $this->app->layout->add('HR',null,'Navigation');
+        $b = $this->app->layout->add('Button',null,'Navigation')
+            ->set([false,'icon'=>'shuffle'])
+            ->addClass('atk-move-right atk-swatch-ink');
+        $b = $this->app->layout->add('Button',null,'Navigation')
+            ->set([false,'icon'=>'plus'])
+            ->addClass('atk-move-right atk-swatch-ink');
         $t = $this->app->layout->add('H2',null,'Navigation');
         $t->add('Text')->set($this->title);
-        $b = $t->add('Button')->set([false,'icon'=>'plus'])->addClass('atk-move-right atk-swatch-ink');
         $b->js('click')->univ()->dialogURL('Add Service Page', $this->app->url('./addsub'));
 
         $menu = $this->app->layout->add('Menu_Vertical',null,'Navigation');
