@@ -69,8 +69,38 @@ class CmsPage extends Page {
        $replace = '<a href="mailto:$1">$1</a>';
        return preg_replace($regex, $replace, $val);
     }
+    function filter_tooltips($val){
+        $pd = new Parsedown();
+        $dict = [];
+        foreach($this->add('Model_Dictionary')->getRows(['name','descr']) as $term){
+            $html = $pd->text($term['descr']);
+            $txt = strip_tags($html);
+            $html = htmlspecialchars($html);
+            $dict[$term['name']] = '<span class="tooltip atk-label atk-swatch-green" title="'.$txt.'" title_html="'.$html.'">'.$term['name'].'</span>';
+        }
+        $this->js(true)->_selector('.tooltip')->tooltip([
+            'content'=>$this->js(null, "return $(this).attr('title_html'); " )->_enclose(),
+            'close'=>$this->js(null, '
+                    ui.tooltip.hover(
+
+                        function () {
+                            $(this).stop(true).fadeTo(400, 1);
+                        },
+
+                        function () {
+                            $(this).fadeOut("400", function () {
+                                $(this).remove();
+                            })
+                        }
+                    )
+                ')->_enclose()
+        ]);
+        $val = str_replace(array_keys($dict), array_values($dict), $val);
+        return $val;
+    }
     function filter_md($val){
         $Parsedown = new Parsedown();
+        $val = $this->filter_tooltips($val);
         return $Parsedown->text($val);
     }
 

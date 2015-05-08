@@ -38,6 +38,7 @@ class Admin extends App_Frontend {
         $menu->addItem(array('Menu', 'icon'=>'menu-1'),'menu');
         $menu->addItem(array('Pages', 'icon'=>'pencil'),'page');
         $menu->addItem(array('Actions', 'icon'=>'megaphone-1'),'actions');
+        $menu->addItem(array('Dictionary', 'icon'=>'book'),'dictionary');
         $menu->addItem(array('Users', 'icon'=>'users-1'),'user');
         $menu->addItem(array('About', 'icon'=>'help-1'),'about');
 	}
