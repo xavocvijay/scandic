@@ -16,13 +16,13 @@ class Controller_OrderedGrid extends AbstractController {
     /**
      * Field to use for ordering
      */
-    private $ord_field = 'ord';
+    protected $ord_field = 'ord';
 
-    private $record_selector = 'tbody>tr';
+    protected $record_selector = 'tbody>tr';
 
-    private $data_id = 'data-id';
+    protected $data_id = 'data-id';
 
-    private $view = null;
+    protected $view = null;
 
     /**
      * Virtpal page's URL will be used to save ordering.

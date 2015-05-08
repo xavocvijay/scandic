@@ -129,6 +129,16 @@ class page_page extends Page{
             return $f->js()->univ()->location($this->app->url('..', ['url'=>$f->model['hash_url']]));
         });
     }
+    function page_order(){
+        $m = $this->model;
+        if($m['parent_id'])$m=$m->ref('parent_id');
+
+        $grid = $this->add('Grid');
+        $m = $this->add('Model_Page')->addCondition('parent_id', $m->id);
+        $grid->setModel($m,['id','title','order']);
+        $grid->add('Controller_OrderedGrid',['ord_field'=>'order']);
+
+    }
     function page_settings(){
         $f = $this->add('Form');
         if($this->ctl->hasMethod('adminSettings')){
