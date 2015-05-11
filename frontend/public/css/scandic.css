@@ -5652,6 +5652,22 @@ ul li {
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+.label-dict {
+  position: relative;
+}
+.label-dict:before {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-bottom: 1px dashed #5268c2;
+  content: '';
+  height: 1px;
+  margin-top: 0px;
+  width: 100%;
+}
+.label-dict:hover {
+  color: #5268c2;
+}
 .header .logo {
   position: relative;
   top: 9px;

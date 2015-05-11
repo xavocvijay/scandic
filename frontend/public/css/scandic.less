@@ -521,6 +521,20 @@ ul {
     }
   }
 }
+.label-dict {
+  position: relative;
+  &:before {
+    .position(@t:100%, @l:0);
+    border-bottom: 1px dashed @atk-swatch-blue;
+    content: '';
+    height: 1px;
+    margin-top: 0px;
+    width: 100%;
+  }
+  &:hover {
+    color: @atk-swatch-blue;
+  }
+}
 
 
 // Elements
