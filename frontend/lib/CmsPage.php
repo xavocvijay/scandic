@@ -76,7 +76,7 @@ class CmsPage extends Page {
             $html = $pd->text($term['descr']);
             $txt = strip_tags($html);
             $html = htmlspecialchars($html);
-            $dict[$term['name']] = '<span class="tooltip atk-label atk-swatch-green" title="'.$txt.'" title_html="'.$html.'">'.$term['name'].'</span>';
+            $dict[$term['name']] = '<span class="tooltip label-dict" title="'.$txt.'" title_html="'.$html.'">'.$term['name'].'</span>';
         }
         $this->js(true)->_selector('.tooltip')->tooltip([
             'content'=>$this->js(null, "return $(this).attr('title_html'); " )->_enclose(),
