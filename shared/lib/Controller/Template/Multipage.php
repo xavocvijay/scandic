@@ -67,7 +67,7 @@ class Controller_Template_Multipage extends AbstractController {
             if($settings['label_page_id'] || $settings['label_link']){
 
                 $items = $settings->get();
-                $items['label_link']=$items['label_link']?:$this->add('Model_Page')->load($settings['label_page_id'])['hash_url'];
+                $items['label_link']=$items['label_link']?:$this->app->url($this->add('Model_Page')->load($settings['label_page_id'])['hash_url']);
                 $items['label_text']=nl2br($items['label_text']);
 
 
