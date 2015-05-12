@@ -1,7 +1,14 @@
 hr.atk-hr-large
 section.atk-align-center
     h3.atk-push.text-bodycolor {$action_title}
-    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-8.atk-move-center.atk-cells-justified
+    {ActionSingle}
+    a.atk-button-large.atk-swatch-blue.atk-col-4.button-pill(href="{$url_full}")
+      | {$name}
+      span.icon-arrow-east.atk-size-nano
+
+    {/}
+    {ActionMulti}
+    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-12.atk-move-center.atk-cells-justified
         {Action1}
         .atk-cell
             a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{$url_full}")
@@ -16,3 +23,4 @@ section.atk-align-center
               span.icon-arrow-east.atk-size-nano
 
         {/}
+    {ActionMulti}

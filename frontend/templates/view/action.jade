@@ -1,6 +1,13 @@
 section.atk-section-xlarge.call-to-action
   .atk-wrapper.atk-align-center
     h2.atk-push.text-bodycolor {$action_title}
+    {ActionSingle}
+    a.atk-button-large.atk-swatch-blue.atk-col-4.button-pill(href="{$url_full}")
+      | {$name}
+      span.icon-arrow-east.atk-size-nano
+
+    {/}
+    {ActionMulti}
     .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-8.atk-move-center.atk-cells-justified
         {Action1}
         .atk-cell
@@ -16,3 +23,4 @@ section.atk-section-xlarge.call-to-action
               span.icon-arrow-east.atk-size-nano
 
         {/}
+    {ActionMulti}
