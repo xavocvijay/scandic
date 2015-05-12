@@ -19,11 +19,11 @@ class CmsPage extends Page {
                 ->setModel($this->m);
         }
         if($this->template->hasTag('Action')){
-            $this->add('View_Actions',['sub'=>[1]],'Action',['view/action'])
+            $this->add('View_Actions',null,'Action',['view/action'])
                 ->setModel($this->m);
         }
         if($this->template->hasTag('ActionInner') && $this->m['action_title']){
-            $this->add('View_Actions',['sub'=>[1]],'ActionInner',['view/action_inner'])
+            $this->add('View_Actions',null,'ActionInner',['view/action_inner'])
                 ->setModel($this->m);
         }
     }

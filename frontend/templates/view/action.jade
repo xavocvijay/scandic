@@ -1,9 +1,18 @@
 section.atk-section-xlarge.call-to-action
   .atk-wrapper.atk-align-center
     h2.atk-push.text-bodycolor {$action_title}
-    {Action1}
-    a.atk-button-large.atk-swatch-blue.atk-col-4.button-pill(href="{$url_full}")
-      | {$name}
-      span.icon-arrow-east.atk-size-nano
+    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-8.atk-move-center.atk-cells-justified
+        {Action1}
+        .atk-cell
+            a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{$url_full}")
+              | {$name}
+              span.icon-arrow-east.atk-size-nano
 
-    {/}
+        {/}
+        {Action2}
+        .atk-cell
+            a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{$url_full}")
+              | {$name}
+              span.icon-arrow-east.atk-size-nano
+
+        {/}
