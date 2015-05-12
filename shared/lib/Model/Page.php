@@ -19,7 +19,7 @@ class Model_Page extends SQL_Model
         $this->addField('is_public')->type('boolean');
         $this->addField('keywords')->type('text');
         $this->addField('content')->display(['form'=>'atk4\markdown\Form_Field_Markdown']);
-        $this->addfield('settings');
+        $this->addfield('settings')->system(true);
 
         $this->addField('order');
         $this->setOrder('order,id');

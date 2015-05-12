@@ -11,14 +11,33 @@ class Controller_Template_Multipage extends AbstractController {
         }
     }
 
+    function addSettings($m){
+        $m->add('Controller_SettingsSubmodel')
+            ->withFields(function($m){
+
+                $m->addField('label_text')->type('text');
+                //$m->hasOne('Page','label_page_id');
+                $m->addField('label_page_id')->display('hierarchy/drilldown')->setModel('Model_Page');
+                $m->addfield('label_link');
+
+            });
+    }
     function forModel($m){
         $m->addField('intro')->type('text');//->onField(function($f){ echo 'hi'; });
         $m->getElement('content');//->display(['form'=>'text']);
+
+        $this->addSettings($m);
+
         $this->setModel($m->reload());
     }
 
     function adminSettings($f){
-        $f->setModel($this->model, ['icon']);
+        if($this->model['parent_id']){
+            $f->setModel($this->model, ['icon']);
+        }else{
+            $f->setModel($this->model->refSettings(), ['label_text', 'label_page_id', 'label_link']);
+
+        }
     }
 
     function forFrontend($page){
@@ -41,6 +60,20 @@ class Controller_Template_Multipage extends AbstractController {
                     $m['is_active'] = $id==$m->id?'active':'';
                     $m['page']=$m->app->url($m['hash_url']);
                 });
+
+            if(!$m->hasMethod('refSettings'))$this->addSettings($m);
+            $settings=$m->refSettings();
+
+            if($settings['label_page_id'] || $settings['label_link']){
+
+                $items = $settings->get();
+                $items['label_link']=$items['label_link']?:$this->add('Model_Page')->load($settings['label_page_id'])['hash_url'];
+                $items['label_text']=nl2br($items['label_text']);
+
+
+                unset($items['id']);
+                $page->template->setHTML($items);
+            }
         }
     }
 
