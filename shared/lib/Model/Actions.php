@@ -23,7 +23,7 @@ class Model_Actions extends SQL_Model
         });
 
 
-        $this->addfield('icon')->enum(['team','user-network-fix','scandic','team','paper-plane']);
+        $this->addfield('icon');//->enum(['team','user-network-fix','scandic','team','paper-plane']);
 
     }
 }
