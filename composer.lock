@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/atk4/atk4.git",
-                "reference": "680aa9943dddccd23bec5999de620d6dcddd387e"
+                "reference": "023dc8d6b6a55b2d56d70d3b39a2a2feb94c6104"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atk4/atk4/zipball/680aa9943dddccd23bec5999de620d6dcddd387e",
-                "reference": "680aa9943dddccd23bec5999de620d6dcddd387e",
+                "url": "https://api.github.com/repos/atk4/atk4/zipball/023dc8d6b6a55b2d56d70d3b39a2a2feb94c6104",
+                "reference": "023dc8d6b6a55b2d56d70d3b39a2a2feb94c6104",
                 "shasum": ""
             },
             "type": "library",
@@ -38,7 +38,7 @@
                 "atk4",
                 "framework"
             ],
-            "time": "2015-05-04 15:06:15"
+            "time": "2015-05-20 01:42:28"
         },
         {
             "name": "atk4/atk4-homepage",
@@ -206,12 +206,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "79f0a35da7d4f75bb85d9c04513dd5929e21f75e"
+                "reference": "1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/79f0a35da7d4f75bb85d9c04513dd5929e21f75e",
-                "reference": "79f0a35da7d4f75bb85d9c04513dd5929e21f75e",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43",
+                "reference": "1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-05-09 16:06:30"
+            "time": "2015-05-14 08:43:38"
         },
         {
             "name": "nesbot/carbon",
@@ -309,12 +309,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "d2b8b996f34ac0f8da968e9053c32e140d261052"
+                "reference": "199bd9698b9b2b2c6b09e046fd12118fd10a7f73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/d2b8b996f34ac0f8da968e9053c32e140d261052",
-                "reference": "d2b8b996f34ac0f8da968e9053c32e140d261052",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/199bd9698b9b2b2c6b09e046fd12118fd10a7f73",
+                "reference": "199bd9698b9b2b2c6b09e046fd12118fd10a7f73",
                 "shasum": ""
             },
             "require": {
@@ -356,7 +356,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2015-05-11 06:43:33"
+            "time": "2015-05-21 15:05:57"
         },
         {
             "name": "symfony/translation",
