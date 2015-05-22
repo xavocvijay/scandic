@@ -18,8 +18,12 @@ class Controller_Template_Index extends AbstractController {
                 $m->addField('action_2');
                 $m->addfield('action_2_link')->display('hierarchy/drilldown')->setModel('Model_Page');
 
+                $m->addField('action_3');
+                $m->addfield('action_3_link')->display('hierarchy/drilldown')->setModel('Model_Page');
+
                 $m->addField('hiring_title');
                 $m->addField('hiring_subtitle');
+                $m->addField('hiring_link')->display('hierarchy/drilldown')->setModel('Model_Page');
             });
 
         $this->setModel($m);
@@ -28,5 +32,6 @@ class Controller_Template_Index extends AbstractController {
     function forFrontend($page){
         $set = $this->model->refSettings();
         $page->applyTags($set->get());
+        if(!$set['hiring_title'])$page->template->tryDel('has_hiring');
     }
 }

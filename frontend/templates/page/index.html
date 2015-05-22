@@ -4,13 +4,18 @@
   <figure class="right atk-hide-mobile"><img src="temp/graphic-landing.png"/></figure>
   <div class="atk-push-xlarge welcome">
     <h1 class="atk-push atk-text-baseline-default">{$title}</h1>
-    <div class="atk-cells atk-cells-gutter-large atk-stack-mobile atk-col-8 atk-move-center atk-cells-justified">
+    <div class="atk-cells atk-cells-gutter-large atk-stack-mobile atk-col-5 atk-move-center atk-cells-justified atk-push">
       <div class="atk-cell"><a href="{action_1_link}page_id{/}" class="atk-button-large button-pill atk-swatch-blue atk-expand">{$action_1}</a></div>
+    </div>
+    <div class="atk-cells atk-cells-gutter-large atk-stack-mobile atk-col-5 atk-move-center atk-cells-justified atk-push">
       <div class="atk-cell"><a href="{action_2_link}page_id{/}" class="atk-button-large button-pill atk-swatch-blue atk-expand">{$action_2}</a></div>
     </div>
-  </div>
+    <div class="atk-cells atk-cells-gutter-large atk-stack-mobile atk-col-5 atk-move-center atk-cells-justified atk-push">
+      <div class="atk-cell"><a href="{action_3_link}page_id{/}" class="atk-button-large button-pill atk-swatch-blue atk-expand">{$action_3}</a></div>
+    </div>
+  </div>{has_hiring}
   <div class="atk-col-5 atk-move-center atk-size-micro hiring">
-    <h4 class="atk-push-xsmall"><a href="{page}jobs{/}" class="atk-cells atk-width-auto atk-move-center atk-cells-gutter-xsmall"><span class="atk-cell">{$hiring_title}</span><span class="atk-cell"><span class="icon-arrow-east atk-size-nano"></span></span></a></h4>
+    <h4 class="atk-push-xsmall"><a href="{hiring_link}page_id{/}" class="atk-cells atk-width-auto atk-move-center atk-cells-gutter-xsmall"><span class="atk-cell">{$hiring_title}</span><span class="atk-cell"><span class="icon-arrow-east atk-size-nano"></span></span></a></h4>
     <p class="atk-text-dimmed">{$hiring_subtitle}</p>
-  </div>
+  </div>{/}
 </section>

@@ -113,7 +113,7 @@ class Frontend extends App_Frontend {
         $m->addCondition('is_public',true);
         $m->addCondition('id','!=',6);
         $c=$this->layout->add('CompleteLister',null,'MobileMenu','MobileMenu');
-        $c->setModel($m);
+        $c->setModel($m)->setOrder('ord');
         $c->addHook('formatRow', function($f){
             $f->current_row['name'] = strip_tags($f->current_row['name']);
             $f->current_row['url'] = $this->app->url($f->current_row['page']);

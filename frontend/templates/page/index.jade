@@ -5,16 +5,22 @@ section.atk-wrapper
     img(src="temp/graphic-landing.png")
   .atk-push-xlarge.welcome
     h1.atk-push.atk-text-baseline-default {$title}
-    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-8.atk-move-center.atk-cells-justified
+    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-5.atk-move-center.atk-cells-justified.atk-push
       .atk-cell
         a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{action_1_link}page_id{/}") {$action_1}
+    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-5.atk-move-center.atk-cells-justified.atk-push
       .atk-cell
         a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{action_2_link}page_id{/}") {$action_2}
+    .atk-cells.atk-cells-gutter-large.atk-stack-mobile.atk-col-5.atk-move-center.atk-cells-justified.atk-push
+      .atk-cell
+        a.atk-button-large.button-pill.atk-swatch-blue.atk-expand(href="{action_3_link}page_id{/}") {$action_3}
+  {has_hiring}
   .atk-col-5.atk-move-center.atk-size-micro.hiring
     h4.atk-push-xsmall
-      a(href='{page}jobs{/}').atk-cells.atk-width-auto.atk-move-center.atk-cells-gutter-xsmall
+      a(href='{hiring_link}page_id{/}').atk-cells.atk-width-auto.atk-move-center.atk-cells-gutter-xsmall
         span.atk-cell
           | {$hiring_title}
         span.atk-cell
           span.icon-arrow-east.atk-size-nano
     p.atk-text-dimmed {$hiring_subtitle}
+  {/}
