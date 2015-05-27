@@ -105,7 +105,7 @@ class CmsPage extends Page {
     }
 
     function filter_page_id($val){
-        return $this->app->url($this->add('Model_Page')->load($val)['hash_url']);
+        return $this->app->url($this->add('Model_Page')->tryLoad($val)['hash_url']);
     }
     function filter_firstbold($val){
         // makes first line bold
