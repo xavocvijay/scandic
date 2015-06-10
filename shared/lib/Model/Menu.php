@@ -29,6 +29,8 @@ class Model_Menu extends SQL_Model
         $this->getElement('menu_cnt')->caption('Sub Pages');
 
         $this->addField('ord');
+        // Weird bug where sub-select for parent fails if order is set
+        if($this->table_alias)$this->setOrder('ord');
 
 
     }

@@ -1,6 +1,7 @@
 <?php
 class Controller_Template_Technology extends Controller_Template_Multipage {
     public $title='Technology';
+    public $show_settings=false;
 
     function forAdminIndex($page){
 

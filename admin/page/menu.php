@@ -40,13 +40,14 @@ class page_menu extends Page
         $cr = $this->cr;
         $m=$this->add('Model_Menu')->load($this->app->stickyGET('menu_id'));
         $this->addCrumbReverse($m['name_en']);
-        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt']));
+        $this->setModel($this->cr->setModel('Menu','editable',['name_en','page','menu_cnt','ord']));
         $this->model->addCondition('parent_id',$m->id);
         if($cr->isEditing()){
         }else{
             $page = $cr->grid->model->leftJoin('page.hash_url','page');
             $page->addField('is_public')->type('boolean');
             $cr->grid->addColumn('boolean','is_public');
+            $cr->grid->add('Controller_OrderedGrid');
         }
     }
 }
