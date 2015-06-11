@@ -12,7 +12,8 @@
         "atk4/traits": "dev-master",
         "atk4/markdown": "dev-master",
         "intervention/image": "dev-master",
-        "erusev/parsedown": "dev-master"
+        "erusev/parsedown": "dev-master",
+        "agile55/ga": "dev-master"
     }
 
 

@@ -4,8 +4,49 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4c95266c4b075d465f740c3ac956820c",
+    "hash": "5a2d8d658f1a8a370d99b7bc2111e6ca",
     "packages": [
+        {
+            "name": "agile55/ga",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agile55/ga.git",
+                "reference": "d7509c8817a3de21cf891370378d0ad299096010"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agile55/ga/zipball/d7509c8817a3de21cf891370378d0ad299096010",
+                "reference": "d7509c8817a3de21cf891370378d0ad299096010",
+                "shasum": ""
+            },
+            "require": {
+                "atk4/atk4": ">=4.2",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "agile55\\ga": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Romans Malinovskis",
+                    "email": "romans@agiletoolkit.org"
+                }
+            ],
+            "description": "Google Analytics for Agile Toolkit",
+            "homepage": "http://github.com/agile55/ga",
+            "keywords": [
+                "atk4"
+            ],
+            "time": "2014-03-06 16:37:45"
+        },
         {
             "name": "atk4/atk4",
             "version": "4.3.x-dev",
@@ -428,7 +469,8 @@
         "atk4/traits": 20,
         "atk4/markdown": 20,
         "intervention/image": 20,
-        "erusev/parsedown": 20
+        "erusev/parsedown": 20,
+        "agile55/ga": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

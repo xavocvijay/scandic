@@ -42,6 +42,8 @@ class Frontend extends App_Frontend {
  //       $this->addRouter();
         $this->real_page = $this->page;
         $this->addMenu();
+
+        $this->add('agile55/ga/Controller_Tracker');
         //$this->addLanguageSwitcher();
     }
 
@@ -104,7 +106,6 @@ class Frontend extends App_Frontend {
         $m->addCondition('parent_id',null);
         $m->joinPage();
         $m->addCondition($m->dsql()->orExpr()->where('is_public',true)->where($m->getElement('id'),6));
-        $m->debug();
         $menu ->setModel($m);
 
         $m=$this->add('Model_Menu');
