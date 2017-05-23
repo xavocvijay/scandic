@@ -16,27 +16,5 @@
     </div>{/}{/}{/}
   </div>
 </section>
-<hr class="atk-hr-reset"/>
-<section class="atk-wrapper testimonials">
-  <div class="atk-section-xlarge atk-align-center">
-    <h2 class="atk-push-large text-bodycolor">What Our Clients Say?</h2>
-    <div class="testimonial-carousel">
-      <div class="testimonial-carousel-mask">{Testimonials}{rows}{row}
-        <article class="testimonial atk-col-8 atk-move-center">
-          <div class="atk-box-large atk-border-overlay atk-push-large">“{$content}”
-            <div class="testimonial-arrow"></div>
-            <div class="atk-shape-circle atk-box-small atk-swatch-blue atk-shape-rounded atk-size-giga atk-inline atk-text-baseline-reset">
-              <div class="icon-quotes"></div>
-            </div>
-          </div>
-          <div class="testimonial-author">
-            <div class="atk-push-small"><img src="images/client/{$logo}" height="40" class="atk-inline"/></div>
-          </div>
-          <div class="atk-size-kilo">{$name}
-            <div class="atk-size-milli atk-text-dimmed">{$position}</div>
-          </div>
-        </article>{/}{/}{/}
-      </div>
-    </div>
-  </div>
-</section>{$ActionsWithIcons}
+<hr class="atk-hr-reset"/>{AboutContent}AboutContent{/AboutContent}        
+{$ActionsWithIcons}

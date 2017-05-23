@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-23 15:50:35
+Date: 2017-05-23 17:46:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,6 +39,40 @@ INSERT INTO `about` VALUES ('9', '2013', 'Eagerly helping Latvian companies prep
 INSERT INTO `about` VALUES ('10', '2014', '18 active BI customers\r\nMilestone of 25+ BI projects in total');
 INSERT INTO `about` VALUES ('11', '2015', '20 active BI customers\r\nInternational projects share reached over 30%');
 INSERT INTO `about` VALUES ('12', '2016', 'Another large scale real-time project goes live\r\nQuantrix becomes highly demanded tool for modelling and forecasting\r\nScandic Fusion effort is focused mostly around Insurance, Banking, Manufacturing and Energy sectors');
+
+-- ----------------------------
+-- Table structure for `about_content_images`
+-- ----------------------------
+DROP TABLE IF EXISTS `about_content_images`;
+CREATE TABLE `about_content_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content_id` int(11) DEFAULT NULL,
+  `image_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of about_content_images
+-- ----------------------------
+INSERT INTO `about_content_images` VALUES ('1', '1', '14');
+INSERT INTO `about_content_images` VALUES ('2', '1', '17');
+INSERT INTO `about_content_images` VALUES ('3', '1', '20');
+
+-- ----------------------------
+-- Table structure for `about_contents`
+-- ----------------------------
+DROP TABLE IF EXISTS `about_contents`;
+CREATE TABLE `about_contents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of about_contents
+-- ----------------------------
+INSERT INTO `about_contents` VALUES ('1', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies');
+INSERT INTO `about_contents` VALUES ('2', 'The brand name and reputation we have built in BI industry is an achievement of the outstanding team that works in Scandic Fusion');
 
 -- ----------------------------
 -- Table structure for `actions`
@@ -238,7 +272,7 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
@@ -253,6 +287,15 @@ INSERT INTO `filestore_file` VALUES ('9', '2', '1', 'team-2.jpg', '0/20170523092
 INSERT INTO `filestore_file` VALUES ('10', '2', '1', 'team-3.jpg', '0/20170523092800_0_team-3.jpg', '67839', '0');
 INSERT INTO `filestore_file` VALUES ('11', '2', '1', 'team-4.jpg', '0/20170523092805_0_team-4.jpg', '47273', '0');
 INSERT INTO `filestore_file` VALUES ('12', '2', '1', 'client-1.jpg', '0/20170523092817_0_client-1.jpg', '39727', '0');
+INSERT INTO `filestore_file` VALUES ('13', '2', '1', 'thumb_team-4.jpg', '0/20170523105649_1_thumb-team-4.jpg', '4372', '0');
+INSERT INTO `filestore_file` VALUES ('14', '2', '1', 'team-4.jpg', '0/20170523105649_0_team-4.jpg', '47273', '0');
+INSERT INTO `filestore_file` VALUES ('15', '2', '1', 'team-4.jpg', '0/20170523105649_0_team-4.jpg', '47273', '0');
+INSERT INTO `filestore_file` VALUES ('16', '2', '1', 'thumb_team-3.jpg', '0/20170523105656_1_thumb-team-3.jpg', '5820', '0');
+INSERT INTO `filestore_file` VALUES ('17', '2', '1', 'team-3.jpg', '0/20170523105656_0_team-3.jpg', '67839', '0');
+INSERT INTO `filestore_file` VALUES ('18', '2', '1', 'team-3.jpg', '0/20170523105656_0_team-3.jpg', '67839', '0');
+INSERT INTO `filestore_file` VALUES ('19', '2', '1', 'thumb_team-2.jpg', '0/20170523105704_1_thumb-team-2.jpg', '4468', '0');
+INSERT INTO `filestore_file` VALUES ('20', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
+INSERT INTO `filestore_file` VALUES ('21', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -267,11 +310,17 @@ CREATE TABLE `filestore_image` (
   KEY `fk_filestore_image_filestore_file2_idx` (`thumb_file_id`),
   CONSTRAINT `fk_filestore_image_filestore_file1` FOREIGN KEY (`original_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_image_filestore_file2` FOREIGN KEY (`thumb_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_image
 -- ----------------------------
+INSERT INTO `filestore_image` VALUES ('1', '14', '13');
+INSERT INTO `filestore_image` VALUES ('2', '15', '13');
+INSERT INTO `filestore_image` VALUES ('3', '17', '16');
+INSERT INTO `filestore_image` VALUES ('4', '18', '16');
+INSERT INTO `filestore_image` VALUES ('5', '20', '19');
+INSERT INTO `filestore_image` VALUES ('6', '21', '19');
 
 -- ----------------------------
 -- Table structure for `filestore_type`
@@ -314,7 +363,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '12', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '18', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`

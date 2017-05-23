@@ -65,6 +65,15 @@ class Controller_Template_About extends AbstractController
             });
         }
 
+        if($page->template->hasTag('AboutContent')){
+            $m = $this->add('Model_About_Content');
+            foreach ($m as  $m1) {
+                $page->add('View_AboutContent',['content_m'=>$m1],'AboutContent');
+            }
+
+        }
+
+
         $set = $this->model->refSettings();
         if($set['display_block'] && $page->template->hasTag('has_block')){
             $v = $page->add('View',null,'has_block','has_block');
@@ -93,5 +102,9 @@ class Controller_Template_About extends AbstractController
         $this->cr->setModel('Testimonial');
 
 
+        $c_tab = $p->tabs->addTab('About Content');
+        $this->cr = $c_tab->add('CRUD');
+        $this->cr->setModel('About_Content');
+        $this->cr->addRef('About_ContentImages',['label'=>'Images']);        
     }
 }

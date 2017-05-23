@@ -12,22 +12,7 @@ section
       .year.atk-padding-xsmall.atk-inline.atk-col-1.atk-text-medium {$year}
     {/}{/}{/}
 hr.atk-hr-reset
-section.atk-wrapper.testimonials
-  .atk-section-xlarge.atk-align-center
-    h2.atk-push-large.text-bodycolor What Our Clients Say?
-    .testimonial-carousel
-      .testimonial-carousel-mask
-        {Testimonials}{rows}{row}
-        article.testimonial.atk-col-8.atk-move-center
-          .atk-box-large.atk-border-overlay.atk-push-large
-            | “{$content}”
-            .testimonial-arrow
-            .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
-              .icon-quotes
-          .testimonial-author
-            .atk-push-small
-              img(src="images/client/{$logo}", height="40").atk-inline
-           .atk-size-kilo {$name}
-           .atk-size-milli.atk-text-dimmed {$position}
-        {/}{/}{/}
+{AboutContent}AboutContent{/AboutContent}        
+
+  
 {$ActionsWithIcons}
