@@ -65,8 +65,11 @@ class Controller_Template_Client extends AbstractController
         }
 
         if($page->template->hasTag('ClientLogo')){
+            
             $l=$page->add('CompleteLister',null,'ClientLogo','ClientLogo');
-            $l->setModel('ClientLogo');
+            $m = $this->add('Model_ClientLogo');
+            $m->addCondition('expired_on','>=',date('Y:m:d'));
+            $l->setModel($m);
             
             $l->addHook('formatRow', function($l){
             });
