@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-23 15:12:31
+Date: 2017-05-23 15:50:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -186,22 +186,23 @@ CREATE TABLE `client_logos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `client_logo_id` int(11) DEFAULT NULL,
+  `expired_on` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of client_logos
 -- ----------------------------
-INSERT INTO `client_logos` VALUES ('2', 'Client 1', '2');
-INSERT INTO `client_logos` VALUES ('3', 'Client 2', '3');
-INSERT INTO `client_logos` VALUES ('4', 'Client 3', '4');
-INSERT INTO `client_logos` VALUES ('5', 'Client 4', '5');
-INSERT INTO `client_logos` VALUES ('6', 'Client 5', '7');
-INSERT INTO `client_logos` VALUES ('7', 'Client 6', '8');
-INSERT INTO `client_logos` VALUES ('8', 'Client 7', '9');
-INSERT INTO `client_logos` VALUES ('9', 'Client 8', '10');
-INSERT INTO `client_logos` VALUES ('10', 'Client 9', '11');
-INSERT INTO `client_logos` VALUES ('11', 'Client 10', '12');
+INSERT INTO `client_logos` VALUES ('2', 'Client 1', '2', '2017-05-25');
+INSERT INTO `client_logos` VALUES ('3', 'Client 2', '3', '2017-05-23');
+INSERT INTO `client_logos` VALUES ('4', 'Client 3', '4', '2017-05-23');
+INSERT INTO `client_logos` VALUES ('5', 'Client 4', '5', '2017-05-23');
+INSERT INTO `client_logos` VALUES ('6', 'Client 5', '7', '2017-05-31');
+INSERT INTO `client_logos` VALUES ('7', 'Client 6', '8', '2017-05-27');
+INSERT INTO `client_logos` VALUES ('8', 'Client 7', '9', '2017-05-30');
+INSERT INTO `client_logos` VALUES ('9', 'Client 8', '10', '2017-05-27');
+INSERT INTO `client_logos` VALUES ('10', 'Client 9', '11', '2017-05-22');
+INSERT INTO `client_logos` VALUES ('11', 'Client 10', '12', '2017-05-24');
 
 -- ----------------------------
 -- Table structure for `dictionary`
