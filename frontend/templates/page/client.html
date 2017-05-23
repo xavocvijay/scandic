@@ -1,0 +1,39 @@
+
+<section>
+</section>
+<hr class="atk-hr-reset"/>
+<section class="atk-wrapper testimonials">
+  <div class="atk-section-xlarge atk-align-center">
+    <h2 class="atk-push-large text-bodycolor">{title}What Our Clients Say?{/}</h2>
+    <div class="testimonial-carousel">
+      <div class="testimonial-carousel-mask">{Testimonials}{rows}{row}
+        <article class="testimonial atk-col-8 atk-move-center">
+          <div class="atk-box-large atk-border-overlay atk-push-large">“{$content}”
+            <div class="testimonial-arrow"></div>
+            <div class="atk-shape-circle atk-box-small atk-swatch-blue atk-shape-rounded atk-size-giga atk-inline atk-text-baseline-reset">
+              <div class="icon-quotes"></div>
+            </div>
+          </div>
+          <div class="testimonial-author">
+            <div class="atk-push-small"><img src="images/client/{$logo}" height="40" class="atk-inline"/></div>
+          </div>
+          <div class="atk-size-kilo">{$name}
+            <div class="atk-size-milli atk-text-dimmed">{$position}</div>
+          </div>
+        </article>{/}{/}{/}
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="atk-hr-reset"/>
+<section class="atk-wrapper atk-push-xlarge">
+  <div ontouchstart="" class="atk-row atk-grid atk-grid-gutter-xsmall client-logo team-members">{ClientLogo}{rows}{row}
+    <figure class="atk-col-3 client-logo team-members"><img src="{$client_logo}" class="photo"/>
+      <figcaption class="atk-swatch-blue atk-cells">
+        <div class="atk-cell atk-valign-bottom">
+          <div class="atk-text-bold atk-push-xsmall atk-align-center atk-padding-xsmall">{$name}</div>
+        </div>
+      </figcaption>
+    </figure>{/}{/}{/}        
+  </div>
+</section>{$ActionsWithIcons}

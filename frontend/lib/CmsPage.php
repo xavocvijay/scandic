@@ -42,7 +42,8 @@ class CmsPage extends Page {
 
             $filters=explode(',',trim($filters));
             if($filters[0])foreach($filters as $filter){
-                $val = $this->{"filter_".$filter}($val);
+                if(method_exists($this, "filter_".$filter))
+                    $val = $this->{"filter_".$filter}($val);
             }
 
             $this->template->trySetHTML($key, $val);
