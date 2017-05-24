@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-23 17:46:54
+Date: 2017-05-24 14:36:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -85,7 +85,7 @@ CREATE TABLE `actions` (
   `url` text,
   `icon` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of actions
@@ -272,7 +272,7 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
@@ -296,6 +296,14 @@ INSERT INTO `filestore_file` VALUES ('18', '2', '1', 'team-3.jpg', '0/2017052310
 INSERT INTO `filestore_file` VALUES ('19', '2', '1', 'thumb_team-2.jpg', '0/20170523105704_1_thumb-team-2.jpg', '4468', '0');
 INSERT INTO `filestore_file` VALUES ('20', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
 INSERT INTO `filestore_file` VALUES ('21', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
+INSERT INTO `filestore_file` VALUES ('24', '2', '1', 'team-4.jpg', '0/20170524072305_0_team-4.jpg', '47273', '0');
+INSERT INTO `filestore_file` VALUES ('27', '2', '1', 'portfolio-1.jpg', '0/20170524073800_0_portfolio-1.jpg', '12577', '0');
+INSERT INTO `filestore_file` VALUES ('28', '2', '1', 'thumb_portfolio-4.jpg', '0/20170524074138_1_thumb-portfolio-4.jpg', '3004', '0');
+INSERT INTO `filestore_file` VALUES ('29', '2', '1', 'portfolio-4.jpg', '0/20170524074138_0_portfolio-4.jpg', '50666', '0');
+INSERT INTO `filestore_file` VALUES ('30', '2', '1', 'portfolio-4.jpg', '0/20170524074138_0_portfolio-4.jpg', '50666', '0');
+INSERT INTO `filestore_file` VALUES ('31', '2', '1', 'thumb_portfolio-1.jpg', '0/20170524075641_1_thumb-portfolio-1.jpg', '2862', '0');
+INSERT INTO `filestore_file` VALUES ('32', '2', '1', 'portfolio-1.jpg', '0/20170524075641_0_portfolio-1.jpg', '12577', '0');
+INSERT INTO `filestore_file` VALUES ('33', '2', '1', 'portfolio-1.jpg', '0/20170524075641_0_portfolio-1.jpg', '12577', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -310,7 +318,7 @@ CREATE TABLE `filestore_image` (
   KEY `fk_filestore_image_filestore_file2_idx` (`thumb_file_id`),
   CONSTRAINT `fk_filestore_image_filestore_file1` FOREIGN KEY (`original_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_image_filestore_file2` FOREIGN KEY (`thumb_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_image
@@ -321,6 +329,12 @@ INSERT INTO `filestore_image` VALUES ('3', '17', '16');
 INSERT INTO `filestore_image` VALUES ('4', '18', '16');
 INSERT INTO `filestore_image` VALUES ('5', '20', '19');
 INSERT INTO `filestore_image` VALUES ('6', '21', '19');
+INSERT INTO `filestore_image` VALUES ('8', '24', null);
+INSERT INTO `filestore_image` VALUES ('10', '27', null);
+INSERT INTO `filestore_image` VALUES ('11', '29', '28');
+INSERT INTO `filestore_image` VALUES ('12', '30', '28');
+INSERT INTO `filestore_image` VALUES ('13', '32', '31');
+INSERT INTO `filestore_image` VALUES ('14', '33', '31');
 
 -- ----------------------------
 -- Table structure for `filestore_type`
@@ -363,7 +377,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '18', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '26', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`
@@ -628,16 +642,19 @@ CREATE TABLE `technology` (
   `position` enum('left','right','middle') DEFAULT NULL,
   `class` varchar(255) DEFAULT NULL,
   `ord` int(11) DEFAULT NULL,
+  `image_id` int(11) DEFAULT NULL,
+  `image_position` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of technology
 -- ----------------------------
-INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', '', '0');
-INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', '', '0');
-INSERT INTO `technology` VALUES ('3', 'Database', 'Database is responsible for storing BI data. Right pick of database technology has great impact on the SQL performance, i.e., user satisfaction of how quickly data is being retrieved from the database. Scandic Fusion works with variety of DB technologies.', 'SybaseIQ\r\nOracle db\r\nVertica\r\nPostgreSQL\r\nTeradata\r\nSQL Server', 'middle', 'step-2', null);
-INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'middle', 'step-3', null);
+INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', '', '3', null, null);
+INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', '', '4', '29', 'right');
+INSERT INTO `technology` VALUES ('3', 'Database', 'Database is responsible for storing BI data. Right pick of database technology has great impact on the SQL performance, i.e., user satisfaction of how quickly data is being retrieved from the database. Scandic Fusion works with variety of DB technologies.', 'SybaseIQ\r\nOracle db\r\nVertica\r\nPostgreSQL\r\nTeradata\r\nSQL Server', 'middle', 'step-2', '1', null, null);
+INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'middle', 'step-3', '2', null, null);
+INSERT INTO `technology` VALUES ('5', 'Business Intelligence test', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', '', 'middle', 'step-3', '5', '32', 'center');
 
 -- ----------------------------
 -- Table structure for `template`
