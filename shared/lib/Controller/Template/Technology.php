@@ -31,6 +31,7 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
             if($l->current_row['class']=='step-3'){
                 $l->current_row['bottom_connector']='';
             }
+            $l->current_row_html['image_position'] = $l->model['image_position'];
         };
 
         $cl->addHook('formatRow', $f);

@@ -25,6 +25,8 @@ class Model_Technology extends SQL_Model
 
         $this->addField('class');
         $this->addField('ord');
+        $this->add('filestore/Field_Image','image_id');
+        $this->addField('image_position')->enum(['left','center','right']);
 
     }
 }
