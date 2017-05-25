@@ -15,32 +15,49 @@ hr.atk-hr-reset
 section.atk-wrapper.testimonials
   .atk-section-xlarge.atk-align-center
     h2.atk-push-large.text-bodycolor {title}What Our Clients Say?{/}
+    {Testimonials}
+    {rows}{row}
     .testimonial-carousel
-      .testimonial-carousel-mask
-        {Testimonials}{rows}{row}
-        article.testimonial.atk-col-8.atk-move-center
-          .atk-box-large.atk-border-overlay.atk-push-large
-            | “{$content}”
-            .testimonial-arrow
-            .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
-              .icon-quotes
-          .testimonial-author
-            .atk-push-small
-              img(src="images/client/{$logo}", height="40").atk-inline
-           .atk-size-kilo {$name}
-           .atk-size-milli.atk-text-dimmed {$position}
-        {/}{/}{/}
+      article.testimonial.atk-col-8.atk-move-center
+            .atk-box-large.atk-border-overlay.atk-push-large
+              | “{$content}”
+              .testimonial-arrow
+              .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
+                .icon-quotes
+
+            .testimonial-author.atk-push-large
+              .atk-push-small
+                img(src="images/client/{$logo}", height="40").atk-inline
+              .atk-size-kilo {$name}
+              .atk-size-milli.atk-text-dimmed {$position}
+    {/}{/}{/}
+//- section.atk-wrapper.testimonials
+//-   .atk-section-xlarge.atk-align-center
+//-     h2.atk-push-large.text-bodycolor {title}What Our Clients Say?{/}
+//-     .testimonial-carousel
+//-       .testimonial-carousel-mask
+//-         {Testimonials}{rows}{row}
+//-         article.testimonial.atk-col-8.atk-move-center
+//-           .atk-box-large.atk-border-overlay.atk-push-large
+//-             | “{$content}”
+//-             .testimonial-arrow
+//-             .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
+//-               .icon-quotes
+//-           .testimonial-author
+//-             .atk-push-small
+//-               img(src="images/client/{$logo}", height="40").atk-inline
+//-            .atk-size-kilo {$name}
+//-            .atk-size-milli.atk-text-dimmed {$position}
+//-         {/}{/}{/}
 hr.atk-hr-reset
 section.atk-wrapper.atk-push-xlarge
-  .atk-row.atk-grid.atk-grid-gutter-xsmall.client-logo.team-members(ontouchstart="")
+  .client-logo-section.atk-align-center
     {ClientLogo}{rows}{row}
-    figure.atk-col-3.client-logo.team-members
-      img.photo(src="{$client_logo}")
-      //- .photo(style="background-image:url({$client_logo})")
-      figcaption.atk-swatch-blue.atk-cells
-        .atk-cell.atk-valign-bottom
-          .atk-text-bold.atk-push-xsmall.atk-align-center.atk-padding-xsmall
-            | {$name}
+    span.client-logo
+      .atk-push-small
+        img(src="{$client_logo}", height="20").atk-inline
+      .atk-size-kilo {$name}
+      .atk-size-milli.atk-text-dimmed {$position}
     {/}{/}{/}        
 {$ActionsWithIcons}
 

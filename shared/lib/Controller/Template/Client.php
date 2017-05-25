@@ -58,17 +58,16 @@ class Controller_Template_Client extends AbstractController
         //     $page->template->set('this_year', date('Y'));
         // }
         if($page->template->hasTag('Testimonials')){
-            $l=$page->add('CompleteLister',null,'Testimonials','Testimonials');
-            $l->setModel('Testimonial');
-            $l->addHook('formatRow', function($l){
-            });
+            $testimonial_m = $page->add('Model_Testimonial');
+            $testimonial_m->addCondition([['expired_on','>=',date('Y:m:d')],['expired_on',null]]);
+                $l=$page->add('CompleteLister',null,'Testimonials','Testimonials');
+                $l->setModel($testimonial_m);
         }
 
         if($page->template->hasTag('ClientLogo')){
             
             $l=$page->add('CompleteLister',null,'ClientLogo','ClientLogo');
             $m = $this->add('Model_ClientLogo');
-            $m->addCondition('expired_on','>=',date('Y:m:d'));
             $l->setModel($m);
             
             $l->addHook('formatRow', function($l){

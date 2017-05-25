@@ -6216,3 +6216,9 @@ ul[class*=atk-menu].atk-menu-vertical.nav-mobile .nav-separation {
   left: 50%;
   margin-left: -0.5em;
 }
+
+.client-logo-section .client-logo{
+  display: inline-block;
+  width: 25%;
+  padding:2%; 
+}

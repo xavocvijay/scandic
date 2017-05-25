@@ -19,6 +19,7 @@ class Model_Testimonial extends SQL_Model
         $this->addField('position');
         $this->addField('logo');
         $this->addField('content')->type('text');
+        $this->addField('expired_on')->type('date');
 
     }
 }
