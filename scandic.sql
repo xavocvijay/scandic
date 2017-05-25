@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-24 14:36:22
+Date: 2017-05-25 17:12:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -220,23 +220,19 @@ CREATE TABLE `client_logos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `client_logo_id` int(11) DEFAULT NULL,
-  `expired_on` date DEFAULT NULL,
+  `position` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of client_logos
 -- ----------------------------
-INSERT INTO `client_logos` VALUES ('2', 'Client 1', '2', '2017-05-25');
-INSERT INTO `client_logos` VALUES ('3', 'Client 2', '3', '2017-05-23');
-INSERT INTO `client_logos` VALUES ('4', 'Client 3', '4', '2017-05-23');
-INSERT INTO `client_logos` VALUES ('5', 'Client 4', '5', '2017-05-23');
-INSERT INTO `client_logos` VALUES ('6', 'Client 5', '7', '2017-05-31');
-INSERT INTO `client_logos` VALUES ('7', 'Client 6', '8', '2017-05-27');
-INSERT INTO `client_logos` VALUES ('8', 'Client 7', '9', '2017-05-30');
-INSERT INTO `client_logos` VALUES ('9', 'Client 8', '10', '2017-05-27');
-INSERT INTO `client_logos` VALUES ('10', 'Client 9', '11', '2017-05-22');
-INSERT INTO `client_logos` VALUES ('11', 'Client 10', '12', '2017-05-24');
+INSERT INTO `client_logos` VALUES ('2', 'Girts Vikmanis', '34', 'Head of Data Warehouse and System Integration Department');
+INSERT INTO `client_logos` VALUES ('3', 'Girts Vikmanis', '35', 'Head of Data Warehouse and System Integration Department');
+INSERT INTO `client_logos` VALUES ('4', 'Girts Vikmanis', '36', 'Head of Data Warehouse and System Integration Department');
+INSERT INTO `client_logos` VALUES ('5', 'Girts Vikmanis', '37', 'Head of Data Warehouse and System Integration Department');
+INSERT INTO `client_logos` VALUES ('6', 'Girts Vikmanis', '38', 'Head of Data Warehouse and System Integration Department');
+INSERT INTO `client_logos` VALUES ('12', 'Girts Vikmanis', '44', ' Head of Data Warehouse and System Integration Department ');
 
 -- ----------------------------
 -- Table structure for `dictionary`
@@ -272,21 +268,11 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
 -- ----------------------------
-INSERT INTO `filestore_file` VALUES ('2', '2', '1', 'person-1.jpg', '0/20170523085853_0_person-1.jpg', '79232', '0');
-INSERT INTO `filestore_file` VALUES ('3', '2', '1', 'person-2.jpg', '0/20170523085914_0_person-2.jpg', '56060', '0');
-INSERT INTO `filestore_file` VALUES ('4', '1', '1', 'person-3.png', '0/20170523092635_0_person-3.png', '268482', '0');
-INSERT INTO `filestore_file` VALUES ('5', '2', '1', 'person-4.jpg', '0/20170523092644_0_person-4.jpg', '147098', '0');
-INSERT INTO `filestore_file` VALUES ('7', '1', '1', 'person-3.png', '0/20170523092708_0_person-3.png', '268482', '0');
-INSERT INTO `filestore_file` VALUES ('8', '2', '1', 'team-1.jpg', '0/20170523092735_0_team-1.jpg', '68252', '0');
-INSERT INTO `filestore_file` VALUES ('9', '2', '1', 'team-2.jpg', '0/20170523092746_0_team-2.jpg', '49618', '0');
-INSERT INTO `filestore_file` VALUES ('10', '2', '1', 'team-3.jpg', '0/20170523092800_0_team-3.jpg', '67839', '0');
-INSERT INTO `filestore_file` VALUES ('11', '2', '1', 'team-4.jpg', '0/20170523092805_0_team-4.jpg', '47273', '0');
-INSERT INTO `filestore_file` VALUES ('12', '2', '1', 'client-1.jpg', '0/20170523092817_0_client-1.jpg', '39727', '0');
 INSERT INTO `filestore_file` VALUES ('13', '2', '1', 'thumb_team-4.jpg', '0/20170523105649_1_thumb-team-4.jpg', '4372', '0');
 INSERT INTO `filestore_file` VALUES ('14', '2', '1', 'team-4.jpg', '0/20170523105649_0_team-4.jpg', '47273', '0');
 INSERT INTO `filestore_file` VALUES ('15', '2', '1', 'team-4.jpg', '0/20170523105649_0_team-4.jpg', '47273', '0');
@@ -304,6 +290,17 @@ INSERT INTO `filestore_file` VALUES ('30', '2', '1', 'portfolio-4.jpg', '0/20170
 INSERT INTO `filestore_file` VALUES ('31', '2', '1', 'thumb_portfolio-1.jpg', '0/20170524075641_1_thumb-portfolio-1.jpg', '2862', '0');
 INSERT INTO `filestore_file` VALUES ('32', '2', '1', 'portfolio-1.jpg', '0/20170524075641_0_portfolio-1.jpg', '12577', '0');
 INSERT INTO `filestore_file` VALUES ('33', '2', '1', 'portfolio-1.jpg', '0/20170524075641_0_portfolio-1.jpg', '12577', '0');
+INSERT INTO `filestore_file` VALUES ('34', '1', '1', 'latvenergo.png', '0/20170525101243_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('35', '1', '1', 'latvenergo.png', '0/20170525101253_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('36', '1', '1', 'latvenergo.png', '0/20170525101331_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('37', '1', '1', 'latvenergo.png', '0/20170525101341_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('38', '1', '1', 'latvenergo.png', '0/20170525101354_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('39', '1', '1', 'latvenergo.png', '0/20170525101403_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('40', '1', '1', 'latvenergo.png', '0/20170525101416_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('41', '1', '1', 'latvenergo.png', '0/20170525101431_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('42', '1', '1', 'latvenergo.png', '0/20170525101440_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('43', '1', '1', 'latvenergo.png', '0/20170525101452_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('44', '1', '1', 'latvenergo.png', '0/20170525112934_0_latvenergo.png', '38112', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -377,7 +374,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '26', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '37', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`
@@ -692,17 +689,18 @@ CREATE TABLE `testimonial` (
   `position` varchar(255) DEFAULT NULL,
   `logo` varchar(255) DEFAULT NULL,
   `content` text,
+  `expired_on` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of testimonial
 -- ----------------------------
-INSERT INTO `testimonial` VALUES ('1', 'Olga Pleyer', 'CFO, BOSCH Baltics', 'bosch.png', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies. Bosch in the Baltics is constantly evolving; therefore, we need flexibility and complex technical solutions from our suppliers. During initial year of cooperation with Scandic Fusion we implemented core business analysis, cost allocation solution and budgeting solution. Ever since, BI has been extended with new data sources, additional interactive dashboards, extra metrics and growing user expertise. We are looking forward to continuing our successful partnership.');
-INSERT INTO `testimonial` VALUES ('2', 'Girts Vikmanis', 'Head of Data Warehouse and System Integration Department', 'latvenergo.png', 'Scandic Fusion is trustworthy partner of business intelligence implementation and support services since 2010. Over this time frame Scandic Fusion has helped to build many analytical solutions, including, ERP, management accounting, profitability, actual over budgeted benchmarking, cash-flow and treasury, billing and sales, and other analysis. One of the most challenging solutions has been setting up near real-time data warehousing, enabling BI users with operative decision making. Scandic Fusion has been dedicated towards results and customer satisfaction, which makes it easy for us to recommend using Scandic Fusion services for others.');
-INSERT INTO `testimonial` VALUES ('3', 'Ilone Marie Rønbeck', 'Solution Architect, Petroleum Geo-Services (PGS)', 'pgs.png', 'To effectively analyse business processes, PGS decided to start business intelligence initiative with central data warehouse solution. Scandic Fusion was chosen to deploy financial data marts within a very short time frame tailored for PGS and system specific configuration. Solution has become very popular among business users, who favour interactive way of browsing information. Due to the successful results of implementation, the cooperation continues in form of new projects to add more data sources and regular maintenance to deliver changes.');
-INSERT INTO `testimonial` VALUES ('4', 'Geir Edmund Larsen', 'DWH/BI project supervisor, Gjensidige Forsikring ASA', 'gjensidige.png', 'As a result of expansion in the Baltics, Gjensidige had a challenge to unite multiple source systems into a single data warehouse platform. Scandic Fusion managed to complete the entire project within one calendar year, rapidly deploying industry-specific data marts, extending them to have more than 700 product attributes, introducing master data management for data cleansing and advanced transformations to derive ultimate insight into the business activities. We favour the high quality of Scandic Fusion team and seek further partnership.');
-INSERT INTO `testimonial` VALUES ('5', 'Joel Friman', 'Manager, Business Analytics, Vaisala Oy', 'vaisala.png', 'Vaisala selected Scandic Fusion as a strategic partner to implement Business Intelligence for financials, supply chain, manufacturing, project/order/service delivery. The cooperation has been very successful: the unified data warehouse was implemented and is widely used in the company.\r\nThe cooperation continues in form of regular maintenance support & development as well as additional projects. Scandic Fusion has successfully delivered end-to-end services: starting from understanding the business processes and needs and finishing with covering these needs in BI environment with underlying technical solution. The team members are very professional and easy to work with and we can warmly recommend Scandic Fusion for similar assignments!');
+INSERT INTO `testimonial` VALUES ('1', 'Olga Pleyer', 'CFO, BOSCH Baltics', 'bosch.png', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies. Bosch in the Baltics is constantly evolving; therefore, we need flexibility and complex technical solutions from our suppliers. During initial year of cooperation with Scandic Fusion we implemented core business analysis, cost allocation solution and budgeting solution. Ever since, BI has been extended with new data sources, additional interactive dashboards, extra metrics and growing user expertise. We are looking forward to continuing our successful partnership.', '2017-05-24');
+INSERT INTO `testimonial` VALUES ('2', 'Girts Vikmanis', 'Head of Data Warehouse and System Integration Department', 'latvenergo.png', 'Scandic Fusion is trustworthy partner of business intelligence implementation and support services since 2010. Over this time frame Scandic Fusion has helped to build many analytical solutions, including, ERP, management accounting, profitability, actual over budgeted benchmarking, cash-flow and treasury, billing and sales, and other analysis. One of the most challenging solutions has been setting up near real-time data warehousing, enabling BI users with operative decision making. Scandic Fusion has been dedicated towards results and customer satisfaction, which makes it easy for us to recommend using Scandic Fusion services for others.', '2017-05-26');
+INSERT INTO `testimonial` VALUES ('3', 'Ilone Marie Rønbeck', 'Solution Architect, Petroleum Geo-Services (PGS)', 'pgs.png', 'To effectively analyse business processes, PGS decided to start business intelligence initiative with central data warehouse solution. Scandic Fusion was chosen to deploy financial data marts within a very short time frame tailored for PGS and system specific configuration. Solution has become very popular among business users, who favour interactive way of browsing information. Due to the successful results of implementation, the cooperation continues in form of new projects to add more data sources and regular maintenance to deliver changes.', null);
+INSERT INTO `testimonial` VALUES ('4', 'Geir Edmund Larsen', 'DWH/BI project supervisor, Gjensidige Forsikring ASA', 'gjensidige.png', 'As a result of expansion in the Baltics, Gjensidige had a challenge to unite multiple source systems into a single data warehouse platform. Scandic Fusion managed to complete the entire project within one calendar year, rapidly deploying industry-specific data marts, extending them to have more than 700 product attributes, introducing master data management for data cleansing and advanced transformations to derive ultimate insight into the business activities. We favour the high quality of Scandic Fusion team and seek further partnership.', null);
+INSERT INTO `testimonial` VALUES ('5', 'Joel Friman', 'Manager, Business Analytics, Vaisala Oy', 'vaisala.png', 'Vaisala selected Scandic Fusion as a strategic partner to implement Business Intelligence for financials, supply chain, manufacturing, project/order/service delivery. The cooperation has been very successful: the unified data warehouse was implemented and is widely used in the company.\r\nThe cooperation continues in form of regular maintenance support & development as well as additional projects. Scandic Fusion has successfully delivered end-to-end services: starting from understanding the business processes and needs and finishing with covering these needs in BI environment with underlying technical solution. The team members are very professional and easy to work with and we can warmly recommend Scandic Fusion for similar assignments!', null);
 
 -- ----------------------------
 -- Table structure for `user`
