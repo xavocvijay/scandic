@@ -8,33 +8,43 @@ hr.atk-hr-reset
 section.atk-section-xlarge.technology-stack
   .atk-wrapper
     .atk-row
-      .atk-col-6.step-1
-        {Left}
-        .atk-box.atk-swatch-blue
-          h4 {$name}
-          p {$content}
-          ul.atk-size-micro {$bullets_html}
-          .atk-push
-          div(class="atk-align-{$image_position}")
-            img(src="{$image}" style="width:50%" onload="resizeUpdate()")
-          .point.point-bottom.atk-shape-circle
-          .connection.connection-bottom
-        {/}
-      .atk-col-6.step-1
-        {Right}
-        .atk-box.atk-swatch-blue
-          h4 {$name}
-          p {$content}
-          ul.atk-size-micro {$bullets_html}
-          .atk-push
-          div(class="atk-align-{$image_position}")
-            img(src="{$image}" style="width:50%" onload="resizeUpdate()")
-          .point.point-bottom.atk-shape-circle
-          .connection.connection-bottom
-        {/}
-      {Middle}{rows}{row}
+      {Left}
       .atk-clear-fix
-      .atk-col-6.atk-move-center
+      {rows}{row}
+      .atk-col-6(class="atk-move-{$block_position}")
+        .atk-box.atk-swatch-blue(class="{$class}")
+          h4 {$name}
+          p {$content}
+          ul.atk-size-micro {$bullets}
+          .atk-push 
+          div(class="atk-align-{$image_position}")
+            img(src="{$image}"  style="width:50%" onload="resizeUpdate()")
+          .point.point-top.atk-shape-circle
+          {bottom_connector}
+          .point.point-bottom.atk-shape-circle
+          {/}
+          .connection.connection-bottom
+      {/}
+      {Right}
+      .atk-clear-fix
+      {rows}{row}
+      .atk-col-6(class="atk-move-{$block_position}")
+        .atk-box.atk-swatch-blue(class="{$class}")
+          h4 {$name}
+          p {$content}
+          ul.atk-size-micro {$bullets}
+          .atk-push 
+          div(class="atk-align-{$image_position}")
+            img(src="{$image}"  style="width:50%" onload="resizeUpdate()")
+          .point.point-top.atk-shape-circle
+          {bottom_connector}
+          .point.point-bottom.atk-shape-circle
+          {/}
+          .connection.connection-bottom
+      {/}
+      {Center}{rows}{row}
+      .atk-clear-fix
+      .atk-col-6(class="atk-move-{$block_position}")
         .atk-box.atk-swatch-blue(class="{$class}")
           h4 {$name}
           p {$content}
@@ -48,18 +58,18 @@ section.atk-section-xlarge.technology-stack
           {/}
           .connection.connection-top
       {/}
-      .atk-clear-fix
-      .atk-col-6.atk-move-center
-        .atk-box.atk-swatch-blue.step-3
-          h4 Extraction, transformation and load
-          p Extraction, transformation and load of data help transfer data from source system and compose it in the database. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.
-          ul.atk-size-micro
-            li Pentaho data integration
-            li SAP data services
-            li Oracle data integration
-            li Informatica
-          .point.point-top.atk-shape-circle
-          .connection.connection-top
+      //- .atk-clear-fix
+      //- .atk-col-6.atk-move-center
+      //-   .atk-box.atk-swatch-blue.step-3
+      //-     h4 Extraction, transformation and load
+      //-     p Extraction, transformation and load of data help transfer data from source system and compose it in the database. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.
+      //-     ul.atk-size-micro
+      //-       li Pentaho data integration
+      //-       li SAP data services
+      //-       li Oracle data integration
+      //-       li Informatica
+      //-     .point.point-top.atk-shape-circle
+      //-     .connection.connection-top
       {/}{/}
 hr.atk-hr-reset
 {$Action}

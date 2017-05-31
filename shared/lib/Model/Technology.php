@@ -17,7 +17,8 @@ class Model_Technology extends SQL_Model
 
         $this->addField('name');
 
-        $this->addField('position')->enum(['left','right','middle']);
+        // $this->addField('position')->enum(['left','right','middle']);
+        $this->addField('position')->enum(['left','center','right']);
 
 
         $this->addField('content')->type('text');

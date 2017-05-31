@@ -20,11 +20,29 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
     function forFrontend($page){
         parent::forFrontend($page);
 
-        $page->add('ViewBullets',null,'Left','Left')->setModel('Technology')->loadBy('position','left');
-        $page->add('ViewBullets',null,'Right','Right')->setModel('Technology')->loadBy('position','right');
+        $left_l = $page->add('CompleteLister',null,'Left','Left');
+        $left_l->setModel('Technology')->loadBy('position','left');
+        
+        $left_l->addHook('formatRow',function($l){
+            $l->current_row_html['block_position'] = $l->model['position'];
+            $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+            if($l->current_row['class']=='step-3'){
+                $l->current_row['bottom_connector']='';
+            }
+        });
 
-        $cl = $page->add('CompleteLister',null,'Middle','Middle');
-        $cl->setModel('Technology')->addCondition('position','middle');
+        $right_l = $page->add('CompleteLister',null,'Right','Right');
+        $right_l->setModel('Technology')->loadBy('position','right');
+        $right_l->addHook('formatRow',function($l){
+            $l->current_row_html['block_position'] = $l->model['position'];
+            $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+            if($l->current_row['class']=='step-3'){
+                $l->current_row['bottom_connector']='';
+            }            
+        });
+
+        $cl = $page->add('CompleteLister',null,'Center','Center');
+        $cl->setModel('Technology')->addCondition('position','center');
 
         $f = function($l){
             $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
@@ -32,6 +50,7 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
                 $l->current_row['bottom_connector']='';
             }
             $l->current_row_html['image_position'] = $l->model['image_position'];
+            $l->current_row_html['block_position'] = $l->model['position'];
         };
 
         $cl->addHook('formatRow', $f);
