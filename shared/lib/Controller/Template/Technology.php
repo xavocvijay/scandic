@@ -20,29 +20,37 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
     function forFrontend($page){
         parent::forFrontend($page);
 
-        $left_l = $page->add('CompleteLister',null,'Left','Left');
-        $left_l->setModel('Technology')->loadBy('position','left');
+        // $left_l = $page->add('CompleteLister',null,'Left','Left');
+        // $left_l->setModel('Technology')->loadBy('position','left');
         
-        $left_l->addHook('formatRow',function($l){
-            $l->current_row_html['block_position'] = $l->model['position'];
-            $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
-            if($l->current_row['class']=='step-3'){
-                $l->current_row['bottom_connector']='';
-            }
-        });
+        // $left_l->addHook('formatRow',function($l){
+        //     $l->current_row_html['block_position'] = $l->model['position'];
+        //     $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+        //     if($l->current_row['class']=='step-3'){
+        //         $l->current_row['bottom_connector']='';
+        //     }
+        //     if($l->model['connection'] == 'topbottom'){
+        //         $l->current_row_html['connection_wrapper']='';
+        //         $l->current_row_html['connection_point']='';
+        //     }else{
+        //         $l->current_row_html['dro_top_bottom_conntection_wrapper']='';
+        //         $l->current_row_html['connection_lines']=$l->model['connection'];
+        //         $l->current_row_html['connection_point']=$l->model['connection'];
+        //     }
+        // });
 
-        $right_l = $page->add('CompleteLister',null,'Right','Right');
-        $right_l->setModel('Technology')->loadBy('position','right');
-        $right_l->addHook('formatRow',function($l){
-            $l->current_row_html['block_position'] = $l->model['position'];
-            $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
-            if($l->current_row['class']=='step-3'){
-                $l->current_row['bottom_connector']='';
-            }            
-        });
+        // $right_l = $page->add('CompleteLister',null,'Right','Right');
+        // $right_l->setModel('Technology')->addCondition('position','right');
+        // $right_l->addHook('formatRow',function($l){
+        //     $l->current_row_html['block_position'] = $l->model['position'];
+        //     $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+        //     if($l->current_row['class']=='step-3'){
+        //         $l->current_row['bottom_connector']='';
+        //     }            
+        // });
 
         $cl = $page->add('CompleteLister',null,'Center','Center');
-        $cl->setModel('Technology')->addCondition('position','center');
+        $cl->setModel('Technology');//->addCondition('position','center');
 
         $f = function($l){
             $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
@@ -51,6 +59,18 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
             }
             $l->current_row_html['image_position'] = $l->model['image_position'];
             $l->current_row_html['block_position'] = $l->model['position'];
+
+            if($l->model['connection'] === 'topbottom'){
+                $l->current_row_html['connection_wrapper']='';
+                $l->current_row_html['connection_point_wrapper']='';
+                // $l->current_row_html['connection_lines']='';
+                $l->current_row_html['dro_top_bottom_conntection_wrapper']='<div class="point atk-shape-circle point-top"></div><div class="point atk-shape-circle point-bottom"></div><div class="connection connection-top"></div><div class="connection connection-bottom"></div>';
+            }else{
+                $l->current_row_html['connection_wrapper']='<div class="connection connection-'.$l->model['connection'].'"></div>';
+                $l->current_row_html['dro_top_bottom_conntection_wrapper']='';
+                $l->current_row_html['connection_point']=$l->model['connection'];
+                $l->current_row_html['connection_point_wrapper']='<div class=" point atk-shape-circle point-'.$l->model['connection'].'"></div>';
+            }
         };
 
         $cl->addHook('formatRow', $f);

@@ -9,48 +9,19 @@
 <hr class="atk-hr-reset"/>
 <section class="atk-section-xlarge technology-stack">
   <div class="atk-wrapper">
-    <div class="atk-row">{Left}
+    <div class="atk-row">{Center}
       <div class="atk-clear-fix"></div>{rows}{row}
-      <div class="atk-col-6 atk-move-{$block_position}">
-        <div class="atk-box atk-swatch-blue {$class}">
+      <div class="atk-col-6 atk-move-{$block_position} {$class} technology-stack-{$block_position}">
+        <div style="height:435px" class="atk-box atk-swatch-blue {$classs}">
           <h4>{$name}</h4>
           <p>{$content}</p>
           <ul class="atk-size-micro">{$bullets}</ul>
           <div class="atk-push"> </div>
-          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%" onload="resizeUpdate()"/></div>
-          <div class="point point-top atk-shape-circle"></div>{bottom_connector}
-          <div class="point point-bottom atk-shape-circle"></div>{/}
-          <div class="connection connection-bottom"></div>
+          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%" onload="resizeUpdate()"/></div>{connection_point_wrapper}{/connection_point_wrapper}{dro_top_bottom_conntection_wrapper}{/dro_top_bottom_conntection_wrapper}
+          {connection_wrapper}{/connection_wrapper}
         </div>
       </div>{/}
-      {Right}
-      <div class="atk-clear-fix"></div>{rows}{row}
-      <div class="atk-col-6 atk-move-{$block_position}">
-        <div class="atk-box atk-swatch-blue {$class}">
-          <h4>{$name}</h4>
-          <p>{$content}</p>
-          <ul class="atk-size-micro">{$bullets}</ul>
-          <div class="atk-push"> </div>
-          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%" onload="resizeUpdate()"/></div>
-          <div class="point point-top atk-shape-circle"></div>{bottom_connector}
-          <div class="point point-bottom atk-shape-circle"></div>{/}
-          <div class="connection connection-bottom"></div>
-        </div>
-      </div>{/}
-      {Center}{rows}{row}
-      <div class="atk-clear-fix"></div>
-      <div class="atk-col-6 atk-move-{$block_position}">
-        <div class="atk-box atk-swatch-blue {$class}">
-          <h4>{$name}</h4>
-          <p>{$content}</p>
-          <ul class="atk-size-micro">{$bullets}</ul>
-          <div class="atk-push"> </div>
-          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%" onload="resizeUpdate()"/></div>
-          <div class="point point-top atk-shape-circle"></div>{bottom_connector}
-          <div class="point point-bottom atk-shape-circle"></div>{/}
-          <div class="connection connection-top"></div>
-        </div>
-      </div>{/}{/}{/}
+      {/}{/}
     </div>
   </div>
 </section>

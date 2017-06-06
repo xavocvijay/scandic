@@ -1,5 +1,11 @@
 $(function(){
-
+  /*Technology Stack First and Second Child ignore*/
+  $(".technology-stack .technology-stack-left").not(':first').css('margin-top','4em');
+  $(".technology-stack .technology-stack-right").not(':first').css('margin-top','4em');
+  $(".technology-stack .technology-stack-right + .technology-stack-center").not(':first').css('margin-top','35em');
+  $(".technology-stack .technology-stack-left + .technology-stack-center").not(':first').css('margin-top','35em');
+  $('.technology-stack .technology-stack-right .connection-top + .connection::after').css('background-color','red');
+ 
   $('.tabs-jobs').tabs();
   $('.timeline .event .atk-box-small').each(function(){
     var h = $(this).outerHeight();
@@ -89,3 +95,4 @@ function resizeUpdate() {
   $('.contact-sidebar .atk-box').outerHeight(contactSidebarHeight);
 
 }
+
