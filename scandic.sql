@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-05-31 12:18:16
+Date: 2017-06-06 14:19:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -638,19 +638,26 @@ CREATE TABLE `technology` (
   `bullets` text,
   `position` enum('left','right','center') DEFAULT NULL,
   `class` varchar(255) DEFAULT NULL,
+  `connection` varchar(255) DEFAULT NULL,
   `ord` int(11) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   `image_position` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of technology
 -- ----------------------------
-INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', 'step-1', '0', null, null);
-INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', 'step-1', '1', '29', 'right');
-INSERT INTO `technology` VALUES ('3', 'Database', 'Database is responsible for storing BI data. Right pick of database technology has great impact on the SQL performance, i.e., user satisfaction of how quickly data is being retrieved from the database. Scandic Fusion works with variety of DB technologies.', 'SybaseIQ\r\nOracle db\r\nVertica\r\nPostgreSQL\r\nTeradata\r\nSQL Server', 'left', 'step-2', '2', null, null);
-INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'right', 'step-2', '3', null, null);
+INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', 'step-1', 'bottom', '0', null, null);
+INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', 'step-1', 'bottom', '1', '29', 'right');
+INSERT INTO `technology` VALUES ('3', 'Database', 'Database is responsible for storing BI data. Right pick of database technology has great impact on the SQL performance, i.e., user satisfaction of how quickly data is being retrieved from the database. Scandic Fusion works with variety of DB technologies.', 'SybaseIQ\r\nOracle db\r\nVertica\r\nPostgreSQL\r\nTeradata\r\nSQL Server', 'center', 'step-2', 'topbottom', '2', null, null);
+INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'left', 'step-1', 'topbottom', '4', null, null);
+INSERT INTO `technology` VALUES ('5', 'Business Intelligence test', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'right', 'step-1', 'topbottom', '5', null, null);
+INSERT INTO `technology` VALUES ('7', 'Business Intelligence test 2', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'center', 'step-2', 'topbottom', '0', null, null);
+INSERT INTO `technology` VALUES ('8', 'Extraction, transformation and load test 1', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'center', 'step-2', 'topbottom', '0', null, null);
+INSERT INTO `technology` VALUES ('9', 'Extraction, transformation and load test 2', 'Extraction, transformation and load', '', 'left', 'step-1', 'topbottom', '0', null, null);
+INSERT INTO `technology` VALUES ('10', 'Extraction, transformation and load test 3', 'Extraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and load', '', 'right', 'step-1', 'topbottom', '0', null, null);
+INSERT INTO `technology` VALUES ('11', 'Extraction, transformation and load test 4', 'Extraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and load', '', 'center', 'step-2', 'top', '0', null, null);
 
 -- ----------------------------
 -- Table structure for `template`
