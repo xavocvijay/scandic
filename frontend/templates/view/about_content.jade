@@ -1,7 +1,7 @@
-section.atk-wrapper.atk-push.atk-box-large
-  .atk-push-small {$content}
+section.atk-wrapper.atk-push.atk-box
+  .atk-push-small(style="text-align:justify") {$content}
   .atk-row.atk-grid.atk-grid-gutter-xsmall(ontouchstart="")
     {rows}{row}
-    .atk-push-small.atk-col-2
-      img(src="{$image}", height="80").atk-inline
+    .atk-push-small.atk-col-12.atk-align-center
+      img(src="{$image}").atk-inline
     {/}{/}

@@ -8,8 +8,10 @@
 class page_page_aboutcontentimages extends Page{
     function init(){
         parent::init();
-        $content_id = $this->app->stickyGET('about_contents_id');   
-        $this->add('CRUD')->setModel('About_ContentImages')->addCondition('content_id',$content_id);
+        $content_id = $this->app->stickyGET('about_contents_id');
+        $image = $this->add('Model_About_ContentImages');   
+        $image->addCondition('content_id',$content_id);
+        $this->add('CRUD')->setModel($image);
         
     }
 }
