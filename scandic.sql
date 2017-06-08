@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-06-08 12:41:30
+Date: 2017-06-08 17:45:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,15 +49,13 @@ CREATE TABLE `about_content_images` (
   `content_id` int(11) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of about_content_images
 -- ----------------------------
-INSERT INTO `about_content_images` VALUES ('1', '1', '14');
-INSERT INTO `about_content_images` VALUES ('2', '1', '17');
 INSERT INTO `about_content_images` VALUES ('3', '1', '20');
-INSERT INTO `about_content_images` VALUES ('4', '2', '46');
+INSERT INTO `about_content_images` VALUES ('4', '2', '58');
 
 -- ----------------------------
 -- Table structure for `about_contents`
@@ -72,8 +70,7 @@ CREATE TABLE `about_contents` (
 -- ----------------------------
 -- Records of about_contents
 -- ----------------------------
-INSERT INTO `about_contents` VALUES ('1', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies');
-INSERT INTO `about_contents` VALUES ('2', 'The brand name and reputation we have built in BI industry is an achievement of the outstanding team that works in Scandic Fusion');
+INSERT INTO `about_contents` VALUES ('2', 'SIA “Scandic Fusion” ir noslēdzis 08.02.2017. līgumu Nr.SKV-L-2017/65 ar Latvijas Investīciju un attīstības aģentūru par atbalsta saņemšanu pasākuma “Starptautiskās konkurētspējas veicināšana” ietvaros, ko līdzfinansē Eiropas Reģionālās attīstības fonds. Programmas ietvaros uzņēmuma darbinieks Rimants Vīnups-Šakars no 18.-20.04.2017. piedalījās Tirdzniecības misijā Vašingtonā, ASV.');
 
 -- ----------------------------
 -- Table structure for `actions`
@@ -269,7 +266,7 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
@@ -280,8 +277,6 @@ INSERT INTO `filestore_file` VALUES ('15', '2', '1', 'team-4.jpg', '0/2017052310
 INSERT INTO `filestore_file` VALUES ('16', '2', '1', 'thumb_team-3.jpg', '0/20170523105656_1_thumb-team-3.jpg', '5820', '0');
 INSERT INTO `filestore_file` VALUES ('17', '2', '1', 'team-3.jpg', '0/20170523105656_0_team-3.jpg', '67839', '0');
 INSERT INTO `filestore_file` VALUES ('18', '2', '1', 'team-3.jpg', '0/20170523105656_0_team-3.jpg', '67839', '0');
-INSERT INTO `filestore_file` VALUES ('19', '2', '1', 'thumb_team-2.jpg', '0/20170523105704_1_thumb-team-2.jpg', '4468', '0');
-INSERT INTO `filestore_file` VALUES ('20', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
 INSERT INTO `filestore_file` VALUES ('21', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
 INSERT INTO `filestore_file` VALUES ('24', '2', '1', 'team-4.jpg', '0/20170524072305_0_team-4.jpg', '47273', '0');
 INSERT INTO `filestore_file` VALUES ('27', '2', '1', 'portfolio-1.jpg', '0/20170524073800_0_portfolio-1.jpg', '12577', '0');
@@ -302,9 +297,17 @@ INSERT INTO `filestore_file` VALUES ('41', '1', '1', 'latvenergo.png', '0/201705
 INSERT INTO `filestore_file` VALUES ('42', '1', '1', 'latvenergo.png', '0/20170525101440_0_latvenergo.png', '38112', '0');
 INSERT INTO `filestore_file` VALUES ('43', '1', '1', 'latvenergo.png', '0/20170525101452_0_latvenergo.png', '38112', '0');
 INSERT INTO `filestore_file` VALUES ('44', '1', '1', 'latvenergo.png', '0/20170525112934_0_latvenergo.png', '38112', '0');
-INSERT INTO `filestore_file` VALUES ('45', '1', '1', 'thumb_lattelecom.png', '0/20170608063920_1_thumb-lattelecom.png', '1860', '0');
-INSERT INTO `filestore_file` VALUES ('46', '1', '1', 'lattelecom.png', '0/20170608063920_0_lattelecom.png', '17204', '0');
 INSERT INTO `filestore_file` VALUES ('47', '1', '1', 'lattelecom.png', '0/20170608063920_0_lattelecom.png', '17204', '0');
+INSERT INTO `filestore_file` VALUES ('48', '1', '1', 'thumb_vaisala.png', '0/20170608112027_1_thumb-vaisala.png', '2857', '0');
+INSERT INTO `filestore_file` VALUES ('49', '1', '1', 'vaisala.png', '0/20170608112027_0_vaisala.png', '16917', '0');
+INSERT INTO `filestore_file` VALUES ('50', '1', '1', 'vaisala.png', '0/20170608112027_0_vaisala.png', '16917', '0');
+INSERT INTO `filestore_file` VALUES ('51', '1', '1', 'thumb_vaisala.png', '0/20170608112351_1_thumb-vaisala.png', '2857', '0');
+INSERT INTO `filestore_file` VALUES ('52', '1', '1', 'vaisala.png', '0/20170608112350_0_vaisala.png', '16917', '0');
+INSERT INTO `filestore_file` VALUES ('53', '1', '1', 'vaisala.png', '0/20170608112350_0_vaisala.png', '16917', '0');
+INSERT INTO `filestore_file` VALUES ('56', '2', '1', 'scandic-about-content-image.jpg', '0/20170608113007_0_scandic-about-content-image.jpg', '58374', '0');
+INSERT INTO `filestore_file` VALUES ('57', '2', '1', 'thumb_scandic-about-content-image.jpg', '0/20170608113327_1_thumb-scandic-about-content-image.jpg', '2044', '0');
+INSERT INTO `filestore_file` VALUES ('58', '2', '1', 'scandic-about-content-image.jpg', '0/20170608113327_0_scandic-about-content-image.jpg', '30522', '0');
+INSERT INTO `filestore_file` VALUES ('59', '2', '1', 'scandic-about-content-image.jpg', '0/20170608113327_0_scandic-about-content-image.jpg', '30522', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -319,7 +322,7 @@ CREATE TABLE `filestore_image` (
   KEY `fk_filestore_image_filestore_file2_idx` (`thumb_file_id`),
   CONSTRAINT `fk_filestore_image_filestore_file1` FOREIGN KEY (`original_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_image_filestore_file2` FOREIGN KEY (`thumb_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_image
@@ -328,16 +331,21 @@ INSERT INTO `filestore_image` VALUES ('1', '14', '13');
 INSERT INTO `filestore_image` VALUES ('2', '15', '13');
 INSERT INTO `filestore_image` VALUES ('3', '17', '16');
 INSERT INTO `filestore_image` VALUES ('4', '18', '16');
-INSERT INTO `filestore_image` VALUES ('5', '20', '19');
-INSERT INTO `filestore_image` VALUES ('6', '21', '19');
+INSERT INTO `filestore_image` VALUES ('6', '21', null);
 INSERT INTO `filestore_image` VALUES ('8', '24', null);
 INSERT INTO `filestore_image` VALUES ('10', '27', null);
 INSERT INTO `filestore_image` VALUES ('11', '29', '28');
 INSERT INTO `filestore_image` VALUES ('12', '30', '28');
 INSERT INTO `filestore_image` VALUES ('13', '32', '31');
 INSERT INTO `filestore_image` VALUES ('14', '33', '31');
-INSERT INTO `filestore_image` VALUES ('15', '46', '45');
-INSERT INTO `filestore_image` VALUES ('16', '47', '45');
+INSERT INTO `filestore_image` VALUES ('16', '47', null);
+INSERT INTO `filestore_image` VALUES ('17', '49', '48');
+INSERT INTO `filestore_image` VALUES ('18', '50', '48');
+INSERT INTO `filestore_image` VALUES ('19', '52', '51');
+INSERT INTO `filestore_image` VALUES ('20', '53', '51');
+INSERT INTO `filestore_image` VALUES ('22', '56', null);
+INSERT INTO `filestore_image` VALUES ('23', '58', '57');
+INSERT INTO `filestore_image` VALUES ('24', '59', '57');
 
 -- ----------------------------
 -- Table structure for `filestore_type`
@@ -380,7 +388,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '39', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '47', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`
