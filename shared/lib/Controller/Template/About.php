@@ -5,7 +5,7 @@
 class Controller_Template_About extends AbstractController
 {
     public $show_settings=true;
-
+   
     function adminEditable(){
         return ['title','content'];
     }
@@ -105,6 +105,8 @@ class Controller_Template_About extends AbstractController
         $c_tab = $p->tabs->addTab('About Content');
         $this->cr = $c_tab->add('CRUD');
         $this->cr->setModel('About_Content');
-        $this->cr->addRef('About_ContentImages',['label'=>'Images']);        
+        $this->cr->grid->addColumn('Expander','aboutcontentimages','images');
+        // $this->cr->addRef('About_ContentImages',['label'=>'Images']);        
     }
+
 }

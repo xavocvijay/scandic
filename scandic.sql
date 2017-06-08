@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-06-06 14:19:53
+Date: 2017-06-08 12:41:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,7 +49,7 @@ CREATE TABLE `about_content_images` (
   `content_id` int(11) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of about_content_images
@@ -57,6 +57,7 @@ CREATE TABLE `about_content_images` (
 INSERT INTO `about_content_images` VALUES ('1', '1', '14');
 INSERT INTO `about_content_images` VALUES ('2', '1', '17');
 INSERT INTO `about_content_images` VALUES ('3', '1', '20');
+INSERT INTO `about_content_images` VALUES ('4', '2', '46');
 
 -- ----------------------------
 -- Table structure for `about_contents`
@@ -64,7 +65,7 @@ INSERT INTO `about_content_images` VALUES ('3', '1', '20');
 DROP TABLE IF EXISTS `about_contents`;
 CREATE TABLE `about_contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `content` longtext,
+  `content` longtext CHARACTER SET utf8,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -218,9 +219,9 @@ INSERT INTO `box` VALUES ('51', '33', 'Relevant cross company solutions', '- [Ma
 DROP TABLE IF EXISTS `client_logos`;
 CREATE TABLE `client_logos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `client_logo_id` int(11) DEFAULT NULL,
-  `position` varchar(255) DEFAULT NULL,
+  `position` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
@@ -268,7 +269,7 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
@@ -301,6 +302,9 @@ INSERT INTO `filestore_file` VALUES ('41', '1', '1', 'latvenergo.png', '0/201705
 INSERT INTO `filestore_file` VALUES ('42', '1', '1', 'latvenergo.png', '0/20170525101440_0_latvenergo.png', '38112', '0');
 INSERT INTO `filestore_file` VALUES ('43', '1', '1', 'latvenergo.png', '0/20170525101452_0_latvenergo.png', '38112', '0');
 INSERT INTO `filestore_file` VALUES ('44', '1', '1', 'latvenergo.png', '0/20170525112934_0_latvenergo.png', '38112', '0');
+INSERT INTO `filestore_file` VALUES ('45', '1', '1', 'thumb_lattelecom.png', '0/20170608063920_1_thumb-lattelecom.png', '1860', '0');
+INSERT INTO `filestore_file` VALUES ('46', '1', '1', 'lattelecom.png', '0/20170608063920_0_lattelecom.png', '17204', '0');
+INSERT INTO `filestore_file` VALUES ('47', '1', '1', 'lattelecom.png', '0/20170608063920_0_lattelecom.png', '17204', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -315,7 +319,7 @@ CREATE TABLE `filestore_image` (
   KEY `fk_filestore_image_filestore_file2_idx` (`thumb_file_id`),
   CONSTRAINT `fk_filestore_image_filestore_file1` FOREIGN KEY (`original_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_image_filestore_file2` FOREIGN KEY (`thumb_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_image
@@ -332,6 +336,8 @@ INSERT INTO `filestore_image` VALUES ('11', '29', '28');
 INSERT INTO `filestore_image` VALUES ('12', '30', '28');
 INSERT INTO `filestore_image` VALUES ('13', '32', '31');
 INSERT INTO `filestore_image` VALUES ('14', '33', '31');
+INSERT INTO `filestore_image` VALUES ('15', '46', '45');
+INSERT INTO `filestore_image` VALUES ('16', '47', '45');
 
 -- ----------------------------
 -- Table structure for `filestore_type`
@@ -374,7 +380,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '37', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '39', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`
