@@ -9,18 +9,19 @@
 <hr class="atk-hr-reset"/>
 <section class="atk-section-xlarge technology-stack">
   <div class="atk-wrapper">
-    <div class="atk-row">{Center}
-      <div class="atk-clear-fix"></div>{rows}{row}
+    <div class="atk-row">{Center}{rows}{row}
+      {$atk-clear-fix_before}
       <div class="atk-col-6 atk-move-{$block_position} {$class} technology-stack-{$block_position}">
         <div style="height:435px" class="atk-box atk-swatch-blue {$classs}">
           <h4>{$name}</h4>
           <p>{$content}</p>
           <ul class="atk-size-micro">{$bullets}</ul>
           <div class="atk-push"> </div>
-          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%" onload="resizeUpdate()"/></div>{connection_point_wrapper}{/connection_point_wrapper}{dro_top_bottom_conntection_wrapper}{/dro_top_bottom_conntection_wrapper}
+          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%"/></div>{connection_point_wrapper}{/connection_point_wrapper}{dro_top_bottom_conntection_wrapper}{/dro_top_bottom_conntection_wrapper}
           {connection_wrapper}{/connection_wrapper}
         </div>
-      </div>{/}
+      </div>{$atk-clear-fix_after}
+      {/}
       {/}{/}
     </div>
   </div>

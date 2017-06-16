@@ -2,9 +2,6 @@ $(function(){
   /*Technology Stack First and Second Child ignore*/
   $(".technology-stack .technology-stack-left").not(':first').css('margin-top','4em');
   $(".technology-stack .technology-stack-right").not(':first').css('margin-top','4em');
-  $(".technology-stack .technology-stack-right + .technology-stack-center").not(':first').css('margin-top','35em');
-  $(".technology-stack .technology-stack-left + .technology-stack-center").not(':first').css('margin-top','35em');
-  $('.technology-stack .technology-stack-right .connection-top + .connection::after').css('background-color','red');
  
   $('.tabs-jobs').tabs();
   $('.timeline .event .atk-box-small').each(function(){
@@ -51,6 +48,15 @@ $(window).resize(function() {
 
 
 function resizeUpdate() {
+  /*technology Stack block height start*/
+  var maxHeight = 0;
+  $(".technology-stack .atk-box").each(function() {
+    if ($(this).outerHeight() > maxHeight) {
+      maxHeight = $(this).outerHeight();
+    }
+  }).height(maxHeight);
+  /*technology Stack block height end*/
+
   console.log('resized!');
   contentHeight = $('.content').height();
   sidebarHeight = $('.sidebar aside').height();

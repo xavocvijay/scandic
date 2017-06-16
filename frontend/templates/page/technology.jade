@@ -60,8 +60,9 @@ section.atk-section-xlarge.technology-stack
       //- div.technology-block-seprator      
       //- {/}
       {Center}
-      .atk-clear-fix
+      //- .atk-clear-fix
       {rows}{row}
+      {$atk-clear-fix_before}
       .atk-col-6(class="atk-move-{$block_position} {$class} technology-stack-{$block_position}"  )
         .atk-box.atk-swatch-blue(class="{$classs}" style="height:435px")
           h4 {$name}
@@ -69,7 +70,7 @@ section.atk-section-xlarge.technology-stack
           ul.atk-size-micro {$bullets}
           .atk-push 
           div(class="atk-align-{$image_position}")
-            img(src="{$image}"  style="width:50%" onload="resizeUpdate()")
+            img(src="{$image}"  style="width:50%" )
           {connection_point_wrapper}
           //- .point.atk-shape-circle(class="point-{$connection_point}")
           {/connection_point_wrapper}
@@ -88,6 +89,7 @@ section.atk-section-xlarge.technology-stack
           //- .connection(class="connection-{$connection_lines}")
           {/connection_wrapper}
       //- div.technology-block-seprator
+      {$atk-clear-fix_after}
       {/}
       {/}{/}
 hr.atk-hr-reset

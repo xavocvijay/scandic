@@ -85,6 +85,14 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
             $l->current_row_html['image_position'] = $l->model['image_position'];
             $l->current_row_html['block_position'] = $l->model['position'];
 
+            if($l->model['position'] === 'center'){
+                $l->current_row_html['atk-clear-fix_before'] = "<div class='atk-clear-fix'></div>";
+                $l->current_row_html['atk-clear-fix_after'] = "<div class='atk-clear-fix'></div>";
+            }else{
+                $l->current_row_html['atk-clear-fix_before'] = " ";
+                $l->current_row_html['atk-clear-fix_after'] = " ";
+            }
+
             if($l->model['connection'] === 'topbottom'){
                 $l->current_row_html['connection_wrapper']='';
                 $l->current_row_html['connection_point_wrapper']='';

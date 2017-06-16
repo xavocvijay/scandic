@@ -5036,7 +5036,11 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
   html .technology-stack .step-1:first-child .connection {
     display: none;
   }
-  html .technology-stack .step-1:first-child + .step-1 .connection:after {
+
+ /* html .technology-stack .step-1:first-child + .step-1 .connection:after {
+    display: none;
+  }*/
+  html .technology-stack  .connection:after {
     display: none;
   }
   html .services-selection .atk-wrapper {
@@ -6222,48 +6226,17 @@ ul[class*=atk-menu].atk-menu-vertical.nav-mobile .nav-separation {
   width: 25%;
   padding:2%; 
 }
-.technology-stack .step-2, .technology-stack .step-3{
-  margin-top:31em;
+/*.technology-stack .step-2, .technology-stack .step-3{
+  margin-top:34.1em;
+}*/
+.technology-stack .atk-clear-fix + .step-1 .connection-top::after {
+    bottom: auto!important;
+    top: 0!important;
 }
 
-.technology-stack .technology-stack-center + .technology-stack-left .connection::after {
-    top: 0;
-}
-.technology-stack .technology-stack-center + .technology-stack-left + .technology-stack-right .connection::after {
-    top: 0;
-}    
-.technology-stack .technology-stack-center + .technology-stack-left + .technology-stack-left .connection::after {
-    top: 0;
-}
+.technology-stack .atk-clear-fix + .atk-move-left + .step-1 .connection-top::after {
+    top:0!important;
+    bottom: auto!important;
 
-.technology-stack .technology-stack-left .connection-top + .connection::after{
-  top:auto!important;
-  bottom:0!important;
-}
-.technology-stack .technology-stack-right .connection-top + .connection::after{
-  top:auto!important;
-  bottom:0!important; 
-}
-
-.technology-stack .technology-stack-center + .technology-stack-right .connection::after{
-    top: 0;
-}
-.technology-stack .technology-stack-center + .technology-stack-right + .technology-stack-left .connection::after {
-    top: 0;
-}    
-.technology-stack .technology-stack-center + .technology-stack-right + .technology-stack-right .connection::after {
-    top: 0;
-}
-
-.technology-stack .technology-stack-right + .technology-stack-center{
-  margin-top:31em;
-}
-
-.technology-stack .technology-stack-center + .technology-stack-center{
-  margin-top:4em;
-}
-
-.technology-stack .technology-stack-left + .technology-stack-center{
-  margin-top:31em;
 }
 
