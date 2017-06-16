@@ -4651,11 +4651,11 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
   .atk-row {
     margin-left: -60px;
   }
-  .atk-row > *[class*=atk-col] {
+  /*.atk-row > *[class*=atk-col] {
     border-left: 0px solid rgba(0, 0, 0, 0);
     border-right: 0px solid rgba(0, 0, 0, 0);
     border-left-width: 60px;
-  }
+  }*/
   *[class*=atk-col] {
     width: 100%;
   }
@@ -5934,7 +5934,7 @@ ul li {
 }
 .testimonial-carousel .testimonial *[class*=atk-box] .atk-shape-circle {
   position: absolute;
-  top: -1em;
+  bottom: -1em;
   left: 50%;
   -webkit-box-shadow: 0 0 0 5px #ffffff;
   -moz-box-shadow: 0 0 0 5px #ffffff;

@@ -8,16 +8,19 @@
     {rows}{row}
     <div class="testimonial-carousel">
       <article class="testimonial atk-col-8 atk-move-center">
-        <div class="atk-box-large atk-border-overlay atk-push-large">“{$content}”
-          <div class="testimonial-arrow"></div>
+        <div class="atk-box-large atk-border-overlay atk-push-large">
+          <div class="testimonial-author atk-push-large">
+            <div style="margin:auto;width: 85%" class="atk-row">
+              <div class="atk-col-4"><img src="images/client/{$logo}" height="40" class="atk-inline"/></div>
+              <div class="atk-col-8">
+                <div class="atk-size-kilo">{$name}</div>
+                <div class="atk-size-milli atk-text-dimmed">{$position}</div>
+              </div>
+            </div>
+          </div>“{$content}”
           <div class="atk-shape-circle atk-box-small atk-swatch-blue atk-shape-rounded atk-size-giga atk-inline atk-text-baseline-reset">
             <div class="icon-quotes"></div>
           </div>
-        </div>
-        <div class="testimonial-author atk-push-large">
-          <div class="atk-push-small"><img src="images/client/{$logo}" height="40" class="atk-inline"/></div>
-          <div class="atk-size-kilo">{$name}</div>
-          <div class="atk-size-milli atk-text-dimmed">{$position}</div>
         </div>
       </article>
     </div>{/}{/}{/}

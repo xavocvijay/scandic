@@ -2,7 +2,6 @@
 class Controller_Template_Technology extends Controller_Template_Multipage {
     public $title='Technology';
     public $show_settings=false;
-
     function forAdminIndex($page){
 
         $t = $page->tabs->addTab('Technologies');
@@ -10,7 +9,33 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
         $cr = $t->add('CRUD');
         $cr->setModel('Technology');
         $cr->grid->add('Controller_OrderedGrid');
+
+        // $cr->grid->addColumn('Expander','duplicatetechnology',' Copy');
+        $copy_btn = $cr->grid->addColumn('Button','Copy');
+
+        if($_GET['Copy']){
+            $technology_m = $this->add('Model_Technology');   
+            $technology_m->addCondition('id',$_GET['Copy']);
+            $technology_m->tryLoadAny();
+            if($technology_m->loaded()){
+                $this->add('Model_Technology')
+                    ->set('name',$technology_m['name'])
+                    ->set('position',$technology_m['position'])
+                    ->set('content',$technology_m['content'])
+                    ->set('bullets',$technology_m['bullets'])
+                    ->set('class',$technology_m['class'])
+                    ->set('connection',$technology_m['connection'])
+                    ->set('ord',$technology_m['ord'])
+                    ->set('image_id',$technology_m['image_id'])
+                    ->set('image_position',$technology_m['image_position'])
+                    ->save();
+            }        
+           $copy_btn->js('click',$cr->js()->univ()->successMessage('Record Duplicated'))->reload(['cut_page'=>0])->execute(); 
+        }
+
+
     }
+
 
     function forModel($m){
         $m->getElement('content')->display(['form'=>'text']);

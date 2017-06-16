@@ -20,16 +20,20 @@ section.atk-wrapper.testimonials
     .testimonial-carousel
       article.testimonial.atk-col-8.atk-move-center
             .atk-box-large.atk-border-overlay.atk-push-large
+              .testimonial-author.atk-push-large
+                .atk-row(style="margin:auto;width: 85%")
+                  .atk-col-4
+                    img(src="images/client/{$logo}", height="40").atk-inline
+                  .atk-col-8
+                    .atk-size-kilo {$name}
+                    .atk-size-milli.atk-text-dimmed {$position}
               | “{$content}”
-              .testimonial-arrow
+              //- .testimonial-arrow
               .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
                 .icon-quotes
 
-            .testimonial-author.atk-push-large
-              .atk-push-small
-                img(src="images/client/{$logo}", height="40").atk-inline
-              .atk-size-kilo {$name}
-              .atk-size-milli.atk-text-dimmed {$position}
+              //- .atk-shape-circle.atk-box-small.atk-swatch-blue.atk-shape-rounded.atk-size-giga.atk-inline.atk-text-baseline-reset
+              //-   .icon-quotes
     {/}{/}{/}
 //- section.atk-wrapper.testimonials
 //-   .atk-section-xlarge.atk-align-center
