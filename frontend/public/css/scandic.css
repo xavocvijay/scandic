@@ -4651,11 +4651,11 @@ a.atk-swatch-blue:not(.atk-text-inherit):hover,
   .atk-row {
     margin-left: -60px;
   }
-  /*.atk-row > *[class*=atk-col] {
+  .atk-row > *[class*=atk-col] {
     border-left: 0px solid rgba(0, 0, 0, 0);
     border-right: 0px solid rgba(0, 0, 0, 0);
     border-left-width: 60px;
-  }*/
+  }
   *[class*=atk-col] {
     width: 100%;
   }
@@ -6266,3 +6266,4 @@ ul[class*=atk-menu].atk-menu-vertical.nav-mobile .nav-separation {
 .technology-stack .technology-stack-left + .technology-stack-center{
   margin-top:31em;
 }
+
