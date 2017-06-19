@@ -78,7 +78,17 @@ class Controller_Template_Technology extends Controller_Template_Multipage {
         $cl->setModel('Technology');//->addCondition('position','center');
 
         $f = function($l){
-            $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+            if($l->model['bullets']){
+                $l->current_row_html['bullets']="<li>".join("</li><li>",explode("\n", $l->current_row['bullets']))."</li>";
+            }else{
+                $l->current_row['bullets_wrapper']='';
+            }
+            if($l->model['image_id']){
+                $l->current_row['block_image']=$l->model['image'];
+            }else{
+                $l->current_row['image_wrapper']="";
+            }
+
             if($l->current_row['class']=='step-3'){
                 $l->current_row['bottom_connector']='';
             }

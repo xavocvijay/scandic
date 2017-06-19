@@ -12,13 +12,16 @@
     <div class="atk-row">{Center}{rows}{row}
       {$atk-clear-fix_before}
       <div class="atk-col-6 atk-move-{$block_position} {$class} technology-stack-{$block_position}">
-        <div style="height:435px" class="atk-box atk-swatch-blue {$classs}">
+        <div class="atk-box atk-swatch-blue {$classs}">
           <h4>{$name}</h4>
-          <p>{$content}</p>
-          <ul class="atk-size-micro">{$bullets}</ul>
+          <p>{$content}</p>{bullets_wrapper}
+          <ul class="atk-size-micro">{$bullets}</ul>{/bullets_wrapper}
+          {image_wrapper}
           <div class="atk-push"> </div>
-          <div class="atk-align-{$image_position}"><img src="{$image}" style="width:50%"/></div>{connection_point_wrapper}{/connection_point_wrapper}{dro_top_bottom_conntection_wrapper}{/dro_top_bottom_conntection_wrapper}
-          {connection_wrapper}{/connection_wrapper}
+          <div class="atk-align-{$image_position}"><img src="{$block_image}" style="width:50%"/></div>{/image_wrapper}
+          {$connection_point_wrapper}
+          {$dro_top_bottom_conntection_wrapper}
+          {$connection_wrapper}
         </div>
       </div>{$atk-clear-fix_after}
       {/}

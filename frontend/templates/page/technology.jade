@@ -64,31 +64,20 @@ section.atk-section-xlarge.technology-stack
       {rows}{row}
       {$atk-clear-fix_before}
       .atk-col-6(class="atk-move-{$block_position} {$class} technology-stack-{$block_position}"  )
-        .atk-box.atk-swatch-blue(class="{$classs}" style="height:435px")
+        .atk-box.atk-swatch-blue(class="{$classs}" )
           h4 {$name}
           p {$content}
+          {bullets_wrapper}
           ul.atk-size-micro {$bullets}
+          {/bullets_wrapper}
+          {image_wrapper}
           .atk-push 
           div(class="atk-align-{$image_position}")
-            img(src="{$image}"  style="width:50%" )
-          {connection_point_wrapper}
-          //- .point.atk-shape-circle(class="point-{$connection_point}")
-          {/connection_point_wrapper}
-          //- {bottom_connector}
-          //- {connection_point_wrapper}
-          //- .point.atk-shape-circle(class="point-{$connection_point}")
-          //- {/connection_point_wrapper}
-          //- {/}
-          {dro_top_bottom_conntection_wrapper}
-          //- .point.atk-shape-circle.point-top
-          //- .point.atk-shape-circle.point-bottom
-          //- .connection.connection-top
-          //- .connection.connection-bottom
-          {/dro_top_bottom_conntection_wrapper}
-          {connection_wrapper}
-          //- .connection(class="connection-{$connection_lines}")
-          {/connection_wrapper}
-      //- div.technology-block-seprator
+            img(src="{$block_image}"  style="width:50%")
+          {/image_wrapper}
+          {$connection_point_wrapper}
+          {$dro_top_bottom_conntection_wrapper}
+          {$connection_wrapper}
       {$atk-clear-fix_after}
       {/}
       {/}{/}

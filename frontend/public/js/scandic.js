@@ -49,12 +49,19 @@ $(window).resize(function() {
 
 function resizeUpdate() {
   /*technology Stack block height start*/
-  var maxHeight = 0;
-  $(".technology-stack .atk-box").each(function() {
-    if ($(this).outerHeight() > maxHeight) {
-      maxHeight = $(this).outerHeight();
+  // odd number ka loop
+  $(".technology-stack .step-1:odd .atk-box").each(function($e){
+    var maxHeight = 0;
+    var height_2 = $(this).outerHeight();
+    var box_1 = $(this).parent('.technology-stack .step-1').prev().find('.atk-box');
+    maxHeight = $(box_1).outerHeight();
+    if (height_2 > maxHeight) {
+      maxHeight = height_2;
     }
-  }).height(maxHeight);
+    $(this).height(maxHeight);
+    $(box_1).height(maxHeight);
+  });
+
   /*technology Stack block height end*/
 
   console.log('resized!');
