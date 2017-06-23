@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2017-06-08 17:45:37
+Date: 2017-06-23 14:29:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,7 +49,7 @@ CREATE TABLE `about_content_images` (
   `content_id` int(11) DEFAULT NULL,
   `image_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of about_content_images
@@ -65,12 +65,11 @@ CREATE TABLE `about_contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` longtext CHARACTER SET utf8,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of about_contents
 -- ----------------------------
-INSERT INTO `about_contents` VALUES ('2', 'SIA “Scandic Fusion” ir noslēdzis 08.02.2017. līgumu Nr.SKV-L-2017/65 ar Latvijas Investīciju un attīstības aģentūru par atbalsta saņemšanu pasākuma “Starptautiskās konkurētspējas veicināšana” ietvaros, ko līdzfinansē Eiropas Reģionālās attīstības fonds. Programmas ietvaros uzņēmuma darbinieks Rimants Vīnups-Šakars no 18.-20.04.2017. piedalījās Tirdzniecības misijā Vašingtonā, ASV.');
 
 -- ----------------------------
 -- Table structure for `actions`
@@ -225,12 +224,6 @@ CREATE TABLE `client_logos` (
 -- ----------------------------
 -- Records of client_logos
 -- ----------------------------
-INSERT INTO `client_logos` VALUES ('2', 'Girts Vikmanis', '34', 'Head of Data Warehouse and System Integration Department');
-INSERT INTO `client_logos` VALUES ('3', 'Girts Vikmanis', '35', 'Head of Data Warehouse and System Integration Department');
-INSERT INTO `client_logos` VALUES ('4', 'Girts Vikmanis', '36', 'Head of Data Warehouse and System Integration Department');
-INSERT INTO `client_logos` VALUES ('5', 'Girts Vikmanis', '37', 'Head of Data Warehouse and System Integration Department');
-INSERT INTO `client_logos` VALUES ('6', 'Girts Vikmanis', '38', 'Head of Data Warehouse and System Integration Department');
-INSERT INTO `client_logos` VALUES ('12', 'Girts Vikmanis', '44', ' Head of Data Warehouse and System Integration Department ');
 
 -- ----------------------------
 -- Table structure for `dictionary`
@@ -266,7 +259,7 @@ CREATE TABLE `filestore_file` (
   KEY `fk_filestore_file_filestore_volume1_idx` (`filestore_volume_id`),
   CONSTRAINT `fk_filestore_file_filestore_type1` FOREIGN KEY (`filestore_type_id`) REFERENCES `filestore_type` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_file_filestore_volume1` FOREIGN KEY (`filestore_volume_id`) REFERENCES `filestore_volume` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_file
@@ -280,8 +273,6 @@ INSERT INTO `filestore_file` VALUES ('18', '2', '1', 'team-3.jpg', '0/2017052310
 INSERT INTO `filestore_file` VALUES ('21', '2', '1', 'team-2.jpg', '0/20170523105704_0_team-2.jpg', '49618', '0');
 INSERT INTO `filestore_file` VALUES ('24', '2', '1', 'team-4.jpg', '0/20170524072305_0_team-4.jpg', '47273', '0');
 INSERT INTO `filestore_file` VALUES ('27', '2', '1', 'portfolio-1.jpg', '0/20170524073800_0_portfolio-1.jpg', '12577', '0');
-INSERT INTO `filestore_file` VALUES ('28', '2', '1', 'thumb_portfolio-4.jpg', '0/20170524074138_1_thumb-portfolio-4.jpg', '3004', '0');
-INSERT INTO `filestore_file` VALUES ('29', '2', '1', 'portfolio-4.jpg', '0/20170524074138_0_portfolio-4.jpg', '50666', '0');
 INSERT INTO `filestore_file` VALUES ('30', '2', '1', 'portfolio-4.jpg', '0/20170524074138_0_portfolio-4.jpg', '50666', '0');
 INSERT INTO `filestore_file` VALUES ('31', '2', '1', 'thumb_portfolio-1.jpg', '0/20170524075641_1_thumb-portfolio-1.jpg', '2862', '0');
 INSERT INTO `filestore_file` VALUES ('32', '2', '1', 'portfolio-1.jpg', '0/20170524075641_0_portfolio-1.jpg', '12577', '0');
@@ -308,6 +299,8 @@ INSERT INTO `filestore_file` VALUES ('56', '2', '1', 'scandic-about-content-imag
 INSERT INTO `filestore_file` VALUES ('57', '2', '1', 'thumb_scandic-about-content-image.jpg', '0/20170608113327_1_thumb-scandic-about-content-image.jpg', '2044', '0');
 INSERT INTO `filestore_file` VALUES ('58', '2', '1', 'scandic-about-content-image.jpg', '0/20170608113327_0_scandic-about-content-image.jpg', '30522', '0');
 INSERT INTO `filestore_file` VALUES ('59', '2', '1', 'scandic-about-content-image.jpg', '0/20170608113327_0_scandic-about-content-image.jpg', '30522', '0');
+INSERT INTO `filestore_file` VALUES ('62', '2', '1', 'login-img.jpg', '0/20170616102418_0_login-img.jpg', '593509', '0');
+INSERT INTO `filestore_file` VALUES ('65', '2', '1', '20170612144057_0_img-3961.jpg', '0/20170616104855_0_20170612144057-0-img-3961.jpg', '1901536', '0');
 
 -- ----------------------------
 -- Table structure for `filestore_image`
@@ -322,7 +315,7 @@ CREATE TABLE `filestore_image` (
   KEY `fk_filestore_image_filestore_file2_idx` (`thumb_file_id`),
   CONSTRAINT `fk_filestore_image_filestore_file1` FOREIGN KEY (`original_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_filestore_image_filestore_file2` FOREIGN KEY (`thumb_file_id`) REFERENCES `filestore_file` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of filestore_image
@@ -334,8 +327,7 @@ INSERT INTO `filestore_image` VALUES ('4', '18', '16');
 INSERT INTO `filestore_image` VALUES ('6', '21', null);
 INSERT INTO `filestore_image` VALUES ('8', '24', null);
 INSERT INTO `filestore_image` VALUES ('10', '27', null);
-INSERT INTO `filestore_image` VALUES ('11', '29', '28');
-INSERT INTO `filestore_image` VALUES ('12', '30', '28');
+INSERT INTO `filestore_image` VALUES ('12', '30', null);
 INSERT INTO `filestore_image` VALUES ('13', '32', '31');
 INSERT INTO `filestore_image` VALUES ('14', '33', '31');
 INSERT INTO `filestore_image` VALUES ('16', '47', null);
@@ -346,6 +338,8 @@ INSERT INTO `filestore_image` VALUES ('20', '53', '51');
 INSERT INTO `filestore_image` VALUES ('22', '56', null);
 INSERT INTO `filestore_image` VALUES ('23', '58', '57');
 INSERT INTO `filestore_image` VALUES ('24', '59', '57');
+INSERT INTO `filestore_image` VALUES ('26', '62', null);
+INSERT INTO `filestore_image` VALUES ('28', '65', null);
 
 -- ----------------------------
 -- Table structure for `filestore_type`
@@ -388,7 +382,7 @@ CREATE TABLE `filestore_volume` (
 -- ----------------------------
 -- Records of filestore_volume
 -- ----------------------------
-INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '47', '1');
+INSERT INTO `filestore_volume` VALUES ('1', 'upload', 'upload', '1000000000', '0', '51', '1');
 
 -- ----------------------------
 -- Table structure for `jobs`
@@ -662,16 +656,10 @@ CREATE TABLE `technology` (
 -- ----------------------------
 -- Records of technology
 -- ----------------------------
-INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', 'step-1', 'bottom', '0', null, null);
-INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', 'step-1', 'bottom', '1', '29', 'right');
+INSERT INTO `technology` VALUES ('1', 'Business Intelligence', 'BI component is responsible for various data visualization needs – interactive dashboards, data exploration, dynamic reporting (aka ad-hoc queries), control reporting, publishing. Scandic Fusion masters various BI tools.', 'SAP Business Objects\r\nOracle Business Intelligence\r\nTableau\r\nQlik View/Sense\r\nSAS Visual Analytics\r\nMicrostrategy', 'left', 'step-1', 'bottom', '2', null, null);
+INSERT INTO `technology` VALUES ('2', 'Data mining and predictive analytics', 'Data mining and predictive analytics software helps find patterns and systematic relationships among different aspects of business operations.  ', '	Oracle Advanced Analytics (aka ODM)\r\nSAP Infinite Insight (KXEN)\r\nR', 'right', 'step-1', 'bottom', '1', null, null);
 INSERT INTO `technology` VALUES ('3', 'Database', 'Database is responsible for storing BI data. Right pick of database technology has great impact on the SQL performance, i.e., user satisfaction of how quickly data is being retrieved from the database. Scandic Fusion works with variety of DB technologies.', 'SybaseIQ\r\nOracle db\r\nVertica\r\nPostgreSQL\r\nTeradata\r\nSQL Server', 'center', 'step-2', 'topbottom', '2', null, null);
-INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'left', 'step-1', 'topbottom', '4', null, null);
-INSERT INTO `technology` VALUES ('5', 'Business Intelligence test', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'right', 'step-1', 'topbottom', '5', null, null);
-INSERT INTO `technology` VALUES ('7', 'Business Intelligence test 2', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'center', 'step-2', 'topbottom', '0', null, null);
-INSERT INTO `technology` VALUES ('8', 'Extraction, transformation and load test 1', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', '', 'center', 'step-2', 'topbottom', '0', null, null);
-INSERT INTO `technology` VALUES ('9', 'Extraction, transformation and load test 2', 'Extraction, transformation and load', '', 'left', 'step-1', 'topbottom', '0', null, null);
-INSERT INTO `technology` VALUES ('10', 'Extraction, transformation and load test 3', 'Extraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and load', '', 'right', 'step-1', 'topbottom', '0', null, null);
-INSERT INTO `technology` VALUES ('11', 'Extraction, transformation and load test 4', 'Extraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and loadExtraction, transformation and load', '', 'center', 'step-2', 'top', '0', null, null);
+INSERT INTO `technology` VALUES ('4', 'Extraction, transformation and load', 'Extraction, transformation and load of data help transfer data from source system and compose into BI data layer as dimensions and facts. Scandic Fusion works with a variety of tools, starting with great open source solutions and finishing with leading commercial software.', 'Oracle Data Integrator\r\nSAP Data Services\r\nPentaho Data Integration\r\nInformatica', 'center', 'step-2', 'top', '4', null, null);
 
 -- ----------------------------
 -- Table structure for `template`
@@ -716,8 +704,8 @@ CREATE TABLE `testimonial` (
 -- ----------------------------
 -- Records of testimonial
 -- ----------------------------
-INSERT INTO `testimonial` VALUES ('1', 'Olga Pleyer', 'CFO, BOSCH Baltics', 'bosch.png', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies. Bosch in the Baltics is constantly evolving; therefore, we need flexibility and complex technical solutions from our suppliers. During initial year of cooperation with Scandic Fusion we implemented core business analysis, cost allocation solution and budgeting solution. Ever since, BI has been extended with new data sources, additional interactive dashboards, extra metrics and growing user expertise. We are looking forward to continuing our successful partnership.', '2017-05-24');
-INSERT INTO `testimonial` VALUES ('2', 'Girts Vikmanis', 'Head of Data Warehouse and System Integration Department', 'latvenergo.png', 'Scandic Fusion is trustworthy partner of business intelligence implementation and support services since 2010. Over this time frame Scandic Fusion has helped to build many analytical solutions, including, ERP, management accounting, profitability, actual over budgeted benchmarking, cash-flow and treasury, billing and sales, and other analysis. One of the most challenging solutions has been setting up near real-time data warehousing, enabling BI users with operative decision making. Scandic Fusion has been dedicated towards results and customer satisfaction, which makes it easy for us to recommend using Scandic Fusion services for others.', '2017-05-26');
+INSERT INTO `testimonial` VALUES ('1', 'Olga Pleyer', 'CFO, BOSCH Baltics', 'bosch.png', 'Working with Scandic Fusion is a great professional experience: both in terms of quality of delivered service and in terms of communication between our companies. Bosch in the Baltics is constantly evolving; therefore, we need flexibility and complex technical solutions from our suppliers. During initial year of cooperation with Scandic Fusion we implemented core business analysis, cost allocation solution and budgeting solution. Ever since, BI has been extended with new data sources, additional interactive dashboards, extra metrics and growing user expertise. We are looking forward to continuing our successful partnership.', null);
+INSERT INTO `testimonial` VALUES ('2', 'Girts Vikmanis', 'Head of Data Warehouse and System Integration Department', 'latvenergo.png', 'Scandic Fusion is trustworthy partner of business intelligence implementation and support services since 2010. Over this time frame Scandic Fusion has helped to build many analytical solutions, including, ERP, management accounting, profitability, actual over budgeted benchmarking, cash-flow and treasury, billing and sales, and other analysis. One of the most challenging solutions has been setting up near real-time data warehousing, enabling BI users with operative decision making. Scandic Fusion has been dedicated towards results and customer satisfaction, which makes it easy for us to recommend using Scandic Fusion services for others.', null);
 INSERT INTO `testimonial` VALUES ('3', 'Ilone Marie Rønbeck', 'Solution Architect, Petroleum Geo-Services (PGS)', 'pgs.png', 'To effectively analyse business processes, PGS decided to start business intelligence initiative with central data warehouse solution. Scandic Fusion was chosen to deploy financial data marts within a very short time frame tailored for PGS and system specific configuration. Solution has become very popular among business users, who favour interactive way of browsing information. Due to the successful results of implementation, the cooperation continues in form of new projects to add more data sources and regular maintenance to deliver changes.', null);
 INSERT INTO `testimonial` VALUES ('4', 'Geir Edmund Larsen', 'DWH/BI project supervisor, Gjensidige Forsikring ASA', 'gjensidige.png', 'As a result of expansion in the Baltics, Gjensidige had a challenge to unite multiple source systems into a single data warehouse platform. Scandic Fusion managed to complete the entire project within one calendar year, rapidly deploying industry-specific data marts, extending them to have more than 700 product attributes, introducing master data management for data cleansing and advanced transformations to derive ultimate insight into the business activities. We favour the high quality of Scandic Fusion team and seek further partnership.', null);
 INSERT INTO `testimonial` VALUES ('5', 'Joel Friman', 'Manager, Business Analytics, Vaisala Oy', 'vaisala.png', 'Vaisala selected Scandic Fusion as a strategic partner to implement Business Intelligence for financials, supply chain, manufacturing, project/order/service delivery. The cooperation has been very successful: the unified data warehouse was implemented and is widely used in the company.\r\nThe cooperation continues in form of regular maintenance support & development as well as additional projects. Scandic Fusion has successfully delivered end-to-end services: starting from understanding the business processes and needs and finishing with covering these needs in BI environment with underlying technical solution. The team members are very professional and easy to work with and we can warmly recommend Scandic Fusion for similar assignments!', null);
